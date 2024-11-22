@@ -1,4 +1,4 @@
-package com.mycompany.rubrica;
+package it.unisa.diem.rubrica;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
