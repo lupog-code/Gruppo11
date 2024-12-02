@@ -24,7 +24,7 @@ public class Contatto {
         this.email = new String[3];
         this.preferito = preferito;
     }
-
+//iiiiiiiiiiiii
     public String getNome() {
         return nome;
     }
