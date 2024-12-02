@@ -1,4 +1,4 @@
-package it.unisa.diem.rubrica;
+package it.unisa.diem.gruppo11.mycontacts;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
