@@ -1,4 +1,4 @@
-package com.mycompany.rubrica;
+package it.unisa.diem.gruppo11.mycontacts;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
