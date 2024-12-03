@@ -8,7 +8,6 @@ package it.unisa.diem.gruppo11.rubrica;
 import it.unisa.diem.gruppo11.contatto.Contatto;
 import java.io.IOException;
 import java.util.Set;
-import java.util.TreeSet;
 
 /**
  *
@@ -22,12 +21,12 @@ public class OperazioniRubrica {
             return false;
         }
         
-        if(c.getNumeri().length==0) {
+        if(c.getNumeri().isEmpty()) {
             //controllo numeri
             return false;
         }
         
-        if(c.getEmail().length==0) {
+        if(c.getEmail().isEmpty()) {
             //controllo email
             return false;
         }

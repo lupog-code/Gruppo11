@@ -5,23 +5,27 @@
  */
 package it.unisa.diem.gruppo11.contatto;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 /**
  *
  * @author lupo
  */
-public class Contatto {
+public class Contatto implements Comparable<Contatto> {
 
     private String nome;
     private String cognome;
-    private int numeri[];
-    private String email[];
+    private List<String> numeri;
+    private List<String> email;
     private boolean preferito;
 
-    public Contatto(String nome, String cognome, int[] numeri, String[] email, boolean preferito) {
+    public Contatto(String nome, String cognome, List<String> numeri, List<String> email, boolean preferito) {
         this.nome = nome;
         this.cognome = cognome;
-        this.numeri = new int[3];
-        this.email = new String[3];
+        this.numeri = new ArrayList<>();
+        this.email = new ArrayList<>();
         this.preferito = preferito;
     }
 
@@ -33,11 +37,11 @@ public class Contatto {
         return cognome;
     }
 
-    public int[] getNumeri() {
+    public List<String> getNumeri() {
         return numeri;
     }
 
-    public String[] getEmail() {
+    public List<String> getEmail() {
         return email;
     }
 
@@ -54,17 +58,54 @@ public class Contatto {
     }
 
     //gestire
-    public void setNumeri(int[] numeri) {
+    public void setNumeri(List<String> numeri) {
         this.numeri = numeri;
     }
     
     //gestire
-    public void setEmail(String[] email) {
+    public void setEmail(List<String> email) {
         this.email = email;
     }
 
     public void setPreferito(boolean preferito) {
         this.preferito = preferito;
+    }
+
+    @Override
+    public int compareTo(Contatto o) {
+        int i = this.cognome.compareTo(o.getCognome());
+        
+        return (i != 0) ? i : this.nome.compareTo(o.getCognome());
+        
+    }
+
+    //modificare
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Contatto other = (Contatto) obj;
+        
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        if (!Objects.equals(this.cognome, other.cognome)) {
+            return false;
+        }
+        if (!Objects.equals(this.numeri, other.numeri)) {
+            return false;
+        }
+        if (!Objects.equals(this.email, other.email)) {
+            return false;
+        }
+        return true;
     }
     
 }

@@ -13,36 +13,35 @@ import java.util.TreeSet;
  *
  * @author lupo
  */
-public class Rubrica {
+public class Rubrica implements RubricaInterface {
     
     private Set<Contatto> elenco;
-    private Set<Contatto> elencoPreferiti;
+    private RubricaPreferiti elencoPreferiti;
 
     public Rubrica() {
-        elenco = new TreeSet<>();
-        elencoPreferiti = new TreeSet<>();
+        this.elenco = new TreeSet<>();
+        this.elencoPreferiti = new RubricaPreferiti();
     }
 
+    @Override
     public Set<Contatto> getElenco() {
         return elenco;
     }
     
-    public Set<Contatto> getElencoPreferiti() {
-        return elencoPreferiti;
-    }
-    
     //getsire
+    @Override
     public boolean addContatto(Contatto c) {
         elenco.add(c);
         
-        if(c.isPreferito()) elencoPreferiti.add(c);
+        if(c.isPreferito()) elencoPreferiti.addContattoPreferito(c);
         
         return true;
     }
     
     //gestire
+    @Override
     public boolean removeContatto(Contatto c) {
-        if(this.rubricaVuota()) {
+        if(this.isRubricaVuota()) {
             return false;
         }
         
@@ -51,27 +50,34 @@ public class Rubrica {
         }
         
         elenco.remove(c);
-        elencoPreferiti.remove(c);
+        elencoPreferiti.removeContattoPreferito(c);
+        
         return true;
     }
     
+    @Override
+    public void resetRubrica() {
+        elenco.clear();
+        elencoPreferiti.getElencoPreferiti().clear();
+    }
+    
+    @Override
+    public boolean isRubricaVuota() {
+        return elenco.isEmpty();
+    }
+    
     public boolean addContattoPreferito(Contatto c) {
-        elencoPreferiti.add(c);
+        elencoPreferiti.addContattoPreferito(c);
         return true;
     }
     
     public boolean removeContattoPreferito(Contatto c) {
-        elencoPreferiti.remove(c);
+        elencoPreferiti.removeContattoPreferito(c);
         return true;
     }
     
-    public boolean rubricaVuota() {
-        return elenco.isEmpty();
+    public Set<Contatto> getElencoPreferiti() {
+        return elencoPreferiti.getElencoPreferiti();
     }
-    
-    public void resetRubrica() {
-        elenco.removeAll(elenco);
-        elencoPreferiti.removeAll(elencoPreferiti);
-    }
-    
+
 }
