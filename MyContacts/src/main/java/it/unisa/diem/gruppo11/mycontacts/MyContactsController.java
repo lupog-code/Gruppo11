@@ -3,10 +3,10 @@ package it.unisa.diem.gruppo11.mycontacts;
 import java.io.IOException;
 import javafx.fxml.FXML;
 
-public class PrimaryController {
+public class MyContactsController {
 
     @FXML
     private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
+        MyContacts.setRoot("secondary");
     }
 }

@@ -57,7 +57,8 @@ public class Contatto {
     public void setNumeri(int[] numeri) {
         this.numeri = numeri;
     }
-
+    
+    //gestire
     public void setEmail(String[] email) {
         this.email = email;
     }
