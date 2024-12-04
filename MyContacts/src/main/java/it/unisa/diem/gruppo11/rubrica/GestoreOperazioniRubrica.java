@@ -74,11 +74,11 @@ public class GestoreOperazioniRubrica implements OperazioniRubricaInterface {
     }
     
     @Override
-    public void salvaRubrica(String nomefile) throws IOException {
+    public void esportaRubrica(String nomefile) throws IOException {
         
     }
     
-    public static void leggiRubrica(String nomefile) throws IOException {
+    public static void importaRubrica(String nomefile) throws IOException {
         
     }
     

@@ -21,7 +21,7 @@ public interface OperazioniRubricaInterface {
          * @param text Il testo da confrontare con i nomi o cognomi dei contatti.
          * @return Un insieme di contatti che corrispondono al criterio di ricerca.
          */
-        Set<Contatto> ricercaContatti(String text);
+        public Set<Contatto> ricercaContatti(String text);
 
         /**
          * Aggiunge un nuovo contatto alla rubrica.
@@ -29,7 +29,7 @@ public interface OperazioniRubricaInterface {
          * @param c Il contatto da aggiungere.
          * @return true se il contatto è stato aggiunto con successo, false altrimenti.
          */
-        boolean aggiungiContatto(Contatto c);
+        public boolean aggiungiContatto(Contatto c);
 
         /**
          * Rimuove un contatto dalla rubrica.
@@ -37,12 +37,12 @@ public interface OperazioniRubricaInterface {
          * @param c Il contatto da rimuovere.
          * @return true se il contatto è stato rimosso con successo, false altrimenti.
          */
-        boolean rimuoviContatto(Contatto c);
+        public boolean rimuoviContatto(Contatto c);
 
         /**
          * Resetta completamente la rubrica, eliminando tutti i contatti e i preferiti.
          */
-        void resetTotale();
+        public void resetTotale();
 
         /**
          * Salva lo stato corrente della rubrica in un file.
@@ -50,7 +50,7 @@ public interface OperazioniRubricaInterface {
          * @param nomefile Il nome del file in cui salvare la rubrica.
          * @throws IOException Se si verifica un errore durante il salvataggio del file.
          */
-        void esportaRubrica(String nomefile) throws IOException;
+        public void esportaRubrica(String nomefile) throws IOException;
 
         /**
          * Legge lo stato della rubrica da un file.
@@ -58,7 +58,7 @@ public interface OperazioniRubricaInterface {
          * @param nomefile Il nome del file da cui leggere la rubrica.
          * @throws IOException Se si verifica un errore durante la lettura del file.
          */
-        static void importaRubrica(String nomefile) throws IOException {
+        public static void importaRubrica(String nomefile) throws IOException {
             throw new UnsupportedOperationException("Metodo statico da implementare nella classe concreta.");
         }
   
