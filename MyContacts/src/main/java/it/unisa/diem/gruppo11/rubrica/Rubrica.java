@@ -31,18 +31,12 @@ public class Rubrica {
         return elencoPreferiti;
     }
     
-    //getsire
-    public boolean addContatto(Contatto c) {
+    public void addContatto(Contatto c) {
         elenco.add(c);
-        
-        return true;
     }
     
-    //gestire
-    public boolean removeContatto(Contatto c) {
+    public void removeContatto(Contatto c) {
         elenco.remove(c);
-        
-        return true;
     }
     
     public void resetRubrica() {
