@@ -132,8 +132,8 @@ public class Contatto implements Comparable<Contatto>, ContattoInterface {
                 return false;
         }
         
-        for(String email : c.getEmail()) {
-            if(!email.matches("^[a-zA-Z0-9](\\.?[a-zA-Z0-9])*@[a-zA-Z0-9]+\\.[a-zA-Z]{2,3}$") || email.contains(" "))
+        for(String mail : c.getEmail()) {
+            if(!mail.matches("^[a-zA-Z0-9](\\.?[a-zA-Z0-9])*@[a-zA-Z0-9]+\\.[a-zA-Z]{2,3}$") || mail.contains(" "))
                 return false;
         }
         
