@@ -8,5 +8,6 @@ public class MyContactsController {
     @FXML
     private void switchToSecondary() throws IOException {
         MyContacts.setRoot("secondary");
+        
     }
 }

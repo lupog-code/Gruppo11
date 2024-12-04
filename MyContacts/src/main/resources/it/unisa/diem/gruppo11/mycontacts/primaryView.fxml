@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<SplitPane dividerPositions="0.35" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="603.0" prefWidth="891.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<SplitPane dividerPositions="0.35" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="603.0" prefWidth="891.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unisa.diem.gruppo11.mycontacts.PrimaryViewController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
@@ -14,14 +14,10 @@
                <children>
                   <MenuBar>
                     <menus>
-                      <Menu mnemonicParsing="false" text="Aggiungi" />
-                      <Menu mnemonicParsing="false" text="Importa" />
-                      <Menu mnemonicParsing="false" text="Esporta">
-                        <items>
-                          <MenuItem mnemonicParsing="false" text="Delete" />
-                        </items>
-                      </Menu>
-                        <Menu mnemonicParsing="false" text="Reset" />
+                      <Menu fx:id="aggiungiBar" mnemonicParsing="false" text="Aggiungi" />
+                      <Menu fx:id="importaBar" mnemonicParsing="false" text="Importa" />
+                      <Menu fx:id="esportaBar" mnemonicParsing="false" text="Esporta" />
+                        <Menu fx:id="resetBar" mnemonicParsing="false" text="Reset" />
                     </menus>
                      <effect>
                         <Lighting>
@@ -39,20 +35,20 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField>
+                  <TextField fx:id="searchField">
                      <VBox.margin>
                         <Insets top="20.0" />
                      </VBox.margin>
                   </TextField>
-                  <ToggleButton mnemonicParsing="false" text="Preferiti">
+                  <ToggleButton fx:id="preferitiToggle" mnemonicParsing="false" text="Preferiti">
                      <VBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
                   </ToggleButton>
                   <TableView prefHeight="447.0" prefWidth="307.0">
                     <columns>
-                      <TableColumn minWidth="75.0" prefWidth="150.0" text="NOME" />
-                      <TableColumn minWidth="75.0" prefWidth="150.0" text="COGNOME" />
+                      <TableColumn fx:id="nomeColonna" minWidth="75.0" prefWidth="150.0" text="NOME" />
+                      <TableColumn fx:id="cognomeColonna" minWidth="75.0" prefWidth="150.0" text="COGNOME" />
                     </columns>
                      <VBox.margin>
                         <Insets />
