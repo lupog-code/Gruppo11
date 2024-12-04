@@ -14,7 +14,7 @@ import java.util.TreeSet;
  *
  * @author lupo
  */
-public class GestoreOperazioniRubrica {
+public class GestoreOperazioniRubrica implements OperazioniRubricaInterface {
     
     private Rubrica rubrica;
 
@@ -22,6 +22,7 @@ public class GestoreOperazioniRubrica {
         this.rubrica = rubrica;
     }
     
+    @Override
     public Set<Contatto> ricercaContatti(String text) {
         Set<Contatto> risultati = new TreeSet<>();
         
@@ -36,6 +37,7 @@ public class GestoreOperazioniRubrica {
         return risultati;
     }
     
+    @Override
     public boolean aggiungiContatto(Contatto c) {
         if(!c.contattoValido(c))
             return false;
@@ -47,6 +49,7 @@ public class GestoreOperazioniRubrica {
         return true;
     }
     
+    @Override
     public boolean rimuoviContatto(Contatto c) {
         if(rubrica.isRubricaVuota()) {
             return false;
@@ -64,11 +67,13 @@ public class GestoreOperazioniRubrica {
         return true;
     }
     
+    @Override
     public void resetTotale() {
         rubrica.resetRubrica();
         rubrica.getElencoPreferiti().resetRubricaPreferiti();
     }
     
+    @Override
     public void salvaRubrica(String nomefile) throws IOException {
         
     }
