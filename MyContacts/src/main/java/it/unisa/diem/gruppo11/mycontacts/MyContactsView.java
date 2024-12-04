@@ -10,5 +10,5 @@ package it.unisa.diem.gruppo11.mycontacts;
  * @author lupo
  */
 public class MyContactsView {
-    
+    //prova
 }
