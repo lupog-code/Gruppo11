@@ -50,7 +50,7 @@ public interface OperazioniRubricaInterface {
          * @param nomefile Il nome del file in cui salvare la rubrica.
          * @throws IOException Se si verifica un errore durante il salvataggio del file.
          */
-        void salvaRubrica(String nomefile) throws IOException;
+        void esportaRubrica(String nomefile) throws IOException;
 
         /**
          * Legge lo stato della rubrica da un file.
@@ -58,7 +58,7 @@ public interface OperazioniRubricaInterface {
          * @param nomefile Il nome del file da cui leggere la rubrica.
          * @throws IOException Se si verifica un errore durante la lettura del file.
          */
-        static void leggiRubrica(String nomefile) throws IOException {
+        static void importaRubrica(String nomefile) throws IOException {
             throw new UnsupportedOperationException("Metodo statico da implementare nella classe concreta.");
         }
   
