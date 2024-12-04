@@ -28,6 +28,10 @@ public class RubricaPreferiti {
     public boolean removeContattoPreferito(Contatto c) {
         return elencoPreferiti.remove(c);
     }
+    
+    public void resetRubricaPreferiti() {
+        elencoPreferiti.clear();
+    }
 
     public Set<Contatto> getElencoPreferiti() {
         return elencoPreferiti;

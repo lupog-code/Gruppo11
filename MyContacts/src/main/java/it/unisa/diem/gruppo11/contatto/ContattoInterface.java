@@ -9,16 +9,12 @@ package it.unisa.diem.gruppo11.contatto;
  *
  * @author lupo
  */
-public class OperazioniContatto {
+public interface ContattoInterface {
     
-    public void eliminaContatto(Contatto c) {
-    }
+    public void modificaContatto(Contatto c);
     
-    public void modificaContatto(Contatto c) {
-    }
+    public void switchPreferiti(Contatto c);
     
-    public void aggiungiPreferiti(Contatto c) {
-        
-    }
+    public boolean contattoValido(Contatto c);
     
 }

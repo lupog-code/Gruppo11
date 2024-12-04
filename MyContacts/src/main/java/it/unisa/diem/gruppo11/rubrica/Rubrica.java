@@ -13,7 +13,7 @@ import java.util.TreeSet;
  *
  * @author lupo
  */
-public class Rubrica implements RubricaInterface {
+public class Rubrica {
     
     private Set<Contatto> elenco;
     private RubricaPreferiti elencoPreferiti;
@@ -23,61 +23,34 @@ public class Rubrica implements RubricaInterface {
         this.elencoPreferiti = new RubricaPreferiti();
     }
 
-    @Override
     public Set<Contatto> getElenco() {
         return elenco;
     }
     
+    public RubricaPreferiti getElencoPreferiti() {
+        return elencoPreferiti;
+    }
+    
     //getsire
-    @Override
     public boolean addContatto(Contatto c) {
         elenco.add(c);
-        
-        if(c.isPreferito()) elencoPreferiti.addContattoPreferito(c);
         
         return true;
     }
     
     //gestire
-    @Override
     public boolean removeContatto(Contatto c) {
-        if(this.isRubricaVuota()) {
-            return false;
-        }
-        
-        if(c.isPreferito()) {
-            System.out.println("avviso");
-        }
-        
         elenco.remove(c);
-        elencoPreferiti.removeContattoPreferito(c);
         
         return true;
     }
     
-    @Override
     public void resetRubrica() {
         elenco.clear();
-        elencoPreferiti.getElencoPreferiti().clear();
     }
     
-    @Override
     public boolean isRubricaVuota() {
         return elenco.isEmpty();
-    }
-    
-    public boolean addContattoPreferito(Contatto c) {
-        elencoPreferiti.addContattoPreferito(c);
-        return true;
-    }
-    
-    public boolean removeContattoPreferito(Contatto c) {
-        elencoPreferiti.removeContattoPreferito(c);
-        return true;
-    }
-    
-    public Set<Contatto> getElencoPreferiti() {
-        return elencoPreferiti.getElencoPreferiti();
     }
 
 }

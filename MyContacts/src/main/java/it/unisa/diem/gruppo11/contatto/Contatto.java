@@ -13,15 +13,15 @@ import java.util.Objects;
  *
  * @author lupo
  */
-public class Contatto implements Comparable<Contatto> {
+public class Contatto implements Comparable<Contatto>, ContattoInterface {
 
     private String nome;
     private String cognome;
-    private List<String> numeri;
+    private List<Integer> numeri;
     private List<String> email;
     private boolean preferito;
 
-    public Contatto(String nome, String cognome, List<String> numeri, List<String> email, boolean preferito) {
+    public Contatto(String nome, String cognome, List<Integer> numeri, List<String> email, boolean preferito) {
         this.nome = nome;
         this.cognome = cognome;
         this.numeri = new ArrayList<>();
@@ -37,7 +37,7 @@ public class Contatto implements Comparable<Contatto> {
         return cognome;
     }
 
-    public List<String> getNumeri() {
+    public List<Integer> getNumeri() {
         return numeri;
     }
 
@@ -58,7 +58,7 @@ public class Contatto implements Comparable<Contatto> {
     }
 
     //gestire
-    public void setNumeri(List<String> numeri) {
+    public void setNumeri(List<Integer> numeri) {
         this.numeri = numeri;
     }
     
@@ -105,6 +105,38 @@ public class Contatto implements Comparable<Contatto> {
         if (!Objects.equals(this.email, other.email)) {
             return false;
         }
+        return true;
+    }
+
+    @Override
+    public void modificaContatto(Contatto c) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void switchPreferiti(Contatto c) {
+        if(c.isPreferito()) {
+            c.setPreferito(false);
+        } else {
+            c.setPreferito(true);
+        }
+    }
+
+    @Override
+    public boolean contattoValido(Contatto c) {
+        if(c.getCognome().isEmpty() && c.getNome().isEmpty())
+            return false;
+        
+        for(Integer numero : c.getNumeri()) {
+            if(numero.toString().length() > 10 || numero.toString().length() < 3)
+                return false;
+        }
+        
+        for(String email : c.getEmail()) {
+            if(!email.matches("^[a-zA-Z0-9](\\.?[a-zA-Z0-9])*@[a-zA-Z0-9]+\\.[a-zA-Z]{2,3}$") || email.contains(" "))
+                return false;
+        }
+        
         return true;
     }
     
