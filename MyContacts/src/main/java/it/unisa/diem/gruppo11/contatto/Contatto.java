@@ -29,44 +29,54 @@ public class Contatto implements Comparable<Contatto>, ContattoInterface {
         this.preferito = preferito;
     }
 
+    @Override
     public String getNome() {
         return nome;
     }
 
+    @Override
     public String getCognome() {
         return cognome;
     }
 
+    @Override
     public List<Integer> getNumeri() {
         return numeri;
     }
 
+    @Override
     public List<String> getEmail() {
         return email;
     }
 
+    @Override
     public boolean isPreferito() {
         return preferito;
     }
 
+    @Override
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+    @Override
     public void setCognome(String cognome) {
         this.cognome = cognome;
     }
 
     //gestire
+    @Override
     public void setNumeri(List<Integer> numeri) {
         this.numeri = numeri;
     }
     
     //gestire
+    @Override
     public void setEmail(List<String> email) {
         this.email = email;
     }
 
+    @Override
     public void setPreferito(boolean preferito) {
         this.preferito = preferito;
     }
@@ -79,7 +89,6 @@ public class Contatto implements Comparable<Contatto>, ContattoInterface {
         
     }
 
-    //modificare
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -99,10 +108,11 @@ public class Contatto implements Comparable<Contatto>, ContattoInterface {
         if (!Objects.equals(this.cognome, other.cognome)) {
             return false;
         }
-        if (!Objects.equals(this.numeri, other.numeri)) {
+        //fare controllo se i campi sono vuoti
+        if (!Objects.equals(this.numeri.get(0), other.numeri.get(0)) || !Objects.equals(this.numeri.get(1), other.numeri.get(1)) || !Objects.equals(this.numeri.get(2), other.numeri.get(2))) {
             return false;
         }
-        if (!Objects.equals(this.email, other.email)) {
+        if (!Objects.equals(this.email.get(0), other.email.get(0)) || !Objects.equals(this.email.get(1), other.email.get(1)) || !Objects.equals(this.email.get(2), other.email.get(2))) {
             return false;
         }
         return true;
@@ -110,7 +120,11 @@ public class Contatto implements Comparable<Contatto>, ContattoInterface {
 
     @Override
     public void modificaContatto(Contatto c) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.nome = c.nome;
+        this.cognome = c.cognome;
+        this.numeri = new ArrayList<>(c.numeri);
+        this.email = new ArrayList<>(c.email);
+        this.preferito = c.preferito;
     }
 
     @Override
