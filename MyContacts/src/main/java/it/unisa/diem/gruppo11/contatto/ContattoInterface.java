@@ -5,16 +5,33 @@
  */
 package it.unisa.diem.gruppo11.contatto;
 
+import java.util.List;
+
 /**
  *
  * @author lupo
  */
 public interface ContattoInterface {
-    
-    public void modificaContatto(Contatto c);
-    
-    public void switchPreferiti(Contatto c);
-    
-    public boolean contattoValido(Contatto c);
-    
+
+    // Metodi per accedere e modificare le proprietà del contatto
+    String getNome();
+    void setNome(String nome);
+
+    String getCognome();
+    void setCognome(String cognome);
+
+    List<Integer> getNumeri();
+    void setNumeri(List<Integer> numeri);
+
+    List<String> getEmail();
+    void setEmail(List<String> email);
+
+    boolean isPreferito();
+    void setPreferito(boolean preferito);
+
+    // Metodi per la gestione del contatto
+    void modificaContatto(Contatto c);
+    void switchPreferiti(Contatto c);
+    boolean contattoValido(Contatto c);
+
 }

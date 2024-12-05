@@ -55,11 +55,6 @@ public class GestoreOperazioniRubrica implements OperazioniRubricaInterface {
             return false;
         }
         
-        if(c.isPreferito()) {
-            //cambiare
-            System.out.println("Sicuro?");
-        }
-        
         rubrica.getElenco().remove(c);
         
         if(c.isPreferito()) rubrica.getElencoPreferiti().removeContattoPreferito(c);
