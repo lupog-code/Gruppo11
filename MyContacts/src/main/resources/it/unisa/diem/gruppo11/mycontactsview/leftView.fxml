@@ -14,7 +14,7 @@
         <menus>
           <Menu fx:id="addButton" mnemonicParsing="false" text="Aggiungi contatto">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#loadView1" text="Add" />
+              <MenuItem mnemonicParsing="false" onAction="#loadView2" text="Add" />
             </items>
           </Menu>
           <Menu fx:id="importButton" mnemonicParsing="false" text="Importa">
