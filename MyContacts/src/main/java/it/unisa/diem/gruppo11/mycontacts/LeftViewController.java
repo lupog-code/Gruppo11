@@ -58,7 +58,7 @@ public class LeftViewController implements Initializable {
     }
 
     @FXML
-    private void loadView1() {
+    private void loadView2() {
         if (mainViewController != null) {
             mainViewController.loadView1();
         }else System.err.print("Errore caricamento");
