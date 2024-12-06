@@ -33,11 +33,11 @@ public class MainViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            FXMLLoader loader1 = new FXMLLoader(getClass().getResource("leftView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("leftView.fxml"));
             leftPane.getChildren().clear();
-            leftPane.getChildren().add(loader1.load());
+            leftPane.getChildren().add(loader.load());
             
-            LeftViewController leftViewController = loader1.getController();
+            LeftViewController leftViewController = loader.getController();
             leftViewController.setMainViewController(this);
             
         } catch (IOException e) {
@@ -45,32 +45,30 @@ public class MainViewController implements Initializable {
         }
     }    
     
-    private void loadView(String fxmlFile, Object controller) {
+    public void loadView1() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            FXMLLoader loader =  new FXMLLoader(getClass().getResource("rightView1.fxml"));
             VBox root = loader.load();
             rightPane.getChildren().clear();
             rightPane.getChildren().add(root);
-
-            // Configura il controller della vista caricata
-            if (controller instanceof RightView1Controller) {
-                RightView1Controller ctrl = loader.getController();
-                ctrl.setMainViewController(this);
-            } else if (controller instanceof RightView2Controller) {
-                RightView2Controller ctrl = loader.getController();
-                ctrl.setMainViewController(this);
-            }
+            RightView1Controller ctrl = loader.getController();
+            ctrl.setMainViewController(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    
-    public void loadView1() {
-        loadView("rightPanel1.fxml", new RightView1Controller());
-    }
 
     public void loadView2() {
-        loadView("rightPanel2.fxml", new RightView2Controller());
+        try {
+            FXMLLoader loader =  new FXMLLoader(getClass().getResource("rightView2.fxml"));
+            VBox root = loader.load();
+            rightPane.getChildren().clear();
+            rightPane.getChildren().add(root);
+            RightView2Controller ctrl = loader.getController();
+            ctrl.setMainViewController(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     
 }
