@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unisa.diem.gruppo11.mycontactsview.RightView1Controller">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu fx:id="modifyButton" mnemonicParsing="false" text="Modifica">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#loadView2" text="Modify" />
+            </items>
+          </Menu>
+          <Menu fx:id="deletButton" mnemonicParsing="false" text="Elimina">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+         <children>
+            <Label text="Nome:" />
+            <Label fx:id="nomeLabel" text="NOME" />
+            <Label text="Cognome:" />
+            <Label fx:id="cognomeLabel" text="COGNOME" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+         <children>
+            <Label text="1. Numero:" />
+            <Label fx:id="numero1Label" text="NUMERO" />
+            <Label text="1. E-Mail:" />
+            <Label fx:id="email1Label" text="E-MAIL" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+         <children>
+            <Label text="2. Numero:" />
+            <Label fx:id="numero2Label" text="NUMERO" />
+            <Label text="2. E-Mail:" />
+            <Label fx:id="email2Label" text="E-MAIL" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+         <children>
+            <Label text="3. Numero:" />
+            <Label fx:id="numero3Label" text="NUMERO" />
+            <Label text="3. E-Mail:" />
+            <Label fx:id="email3Label" text="E-MAIL" />
+         </children>
+      </HBox>
+      <CheckBox fx:id="preferitoCheck" mnemonicParsing="false" text="Preferito">
+         <VBox.margin>
+            <Insets bottom="10.0" left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
+      </CheckBox>
+   </children>
+</VBox>

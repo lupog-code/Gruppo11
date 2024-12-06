@@ -7,12 +7,13 @@ package it.unisa.diem.gruppo11.mycontacts;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.function.Consumer;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Menu;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 
@@ -24,23 +25,23 @@ import javafx.scene.control.ToggleButton;
 public class LeftViewController implements Initializable {
 
     @FXML
-    private Menu addMB;
+    private Menu addButton;
     @FXML
-    private Menu importMB;
+    private Menu importButton;
     @FXML
-    private Menu exportMB;
-    @FXML
-    private Menu resetMB;
+    private Menu exportButton;
     @FXML
     private TextField searchField;
     @FXML
     private ToggleButton prefToggle;
     @FXML
+    private TableView<?> contattiTable;
+    @FXML
     private TableColumn<?, ?> nomeColumn;
     @FXML
     private TableColumn<?, ?> cognomeColumn;
     
-    private Consumer<String> onViewChangeRequested;
+    private MainViewController mainViewController;
 
     /**
      * Initializes the controller class.
@@ -50,40 +51,17 @@ public class LeftViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }  
-    
-    public void setOnViewChangeRequested(Consumer<String> handler) {
-        this.onViewChangeRequested = handler;
-    }  
+    }    
 
-    @FXML
-    private void addContatto(ActionEvent event) {
+    public void setMainViewController(MainViewController mainViewController) {
+        this.mainViewController = mainViewController;
     }
 
     @FXML
-    private void importRubrica(ActionEvent event) {
-        if (onViewChangeRequested != null) {
-            onViewChangeRequested.accept("RightView1.fxml");
-        }
-    }
-
-    @FXML
-    private void exportRubrica(ActionEvent event) {
-        if (onViewChangeRequested != null) {
-            onViewChangeRequested.accept("RightView2.fxml");
-        }
-    }
-
-    @FXML
-    private void resetRubrica(ActionEvent event) {
-    }
-
-    @FXML
-    private void ricercaContatti(ActionEvent event) {
-    }
-
-    @FXML
-    private void visualizzaPreferiti(ActionEvent event) {
+    private void loadView1() {
+        if (mainViewController != null) {
+            mainViewController.loadView1();
+        }else System.err.print("Errore caricamento");
     }
     
 }
