@@ -5,6 +5,7 @@
  */
 package it.unisa.diem.mycontacts.controller;
 
+import it.unisa.diem.mycontacts.datastructure.Rubrica;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,6 +30,8 @@ public class MainViewController implements Initializable {
     @FXML
     private StackPane rightPane;
     
+    private Rubrica rubrica;
+    
     /**
      * Initializes the controller class.
      * @param url
@@ -36,6 +39,7 @@ public class MainViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        rubrica = new Rubrica();
         try {
             FXMLLoader loader1 = new FXMLLoader(getClass().getResource("../view/leftView.fxml"));
             leftPane.getChildren().clear();
@@ -67,6 +71,10 @@ public class MainViewController implements Initializable {
         } catch (IOException e) {
             Logger.getLogger(MainViewController.class.getName()).severe("Errore durante il caricamento di " + fxmlFileName + ": " + e.getMessage());
         }
+    }
+
+    public Rubrica getRubrica() {
+        return rubrica;
     }
 
     

@@ -7,9 +7,6 @@ package it.unisa.diem.mycontacts.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import it.unisa.diem.mycontacts.data.Contatto;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableSet;
 import javafx.event.ActionEvent;
@@ -46,8 +43,6 @@ public class LeftViewController implements Initializable {
     @FXML
     private TableColumn<Contatto, String> cognomeColumn;
     
-    private ObservableSet<Contatto> contatti;
-    
     private MainViewController mainViewController;
     
     /**
@@ -55,10 +50,7 @@ public class LeftViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        contatti=FXCollections.observableSet();
         
-        
-
     }    
 
     public void setMainViewController(MainViewController mainViewController) {
@@ -71,6 +63,8 @@ public class LeftViewController implements Initializable {
         }else System.err.print("stampa dal left");
     }
 
+
+    
     @FXML
     private void aggiungiContatto(ActionEvent event) {
         loadView2();

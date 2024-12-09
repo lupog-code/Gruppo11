@@ -13,12 +13,12 @@
          <menus>
             <Menu mnemonicParsing="false" text="Annulla">
                <items>
-                  <MenuItem fx:id="stopButton" mnemonicParsing="false" onAction="#annullaAzione" text="Continua" />
+                  <MenuItem fx:id="stopButton" mnemonicParsing="false" onAction="#annullaAzione" text="Annulla" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Conferma">
                <items>
-                  <MenuItem fx:id="confirmButton" mnemonicParsing="false" onAction="#confermaAzione" text="Delete" />
+                  <MenuItem fx:id="confirmButton" mnemonicParsing="false" onAction="#confermaAzione" text="Conferma" />
                </items>
             </Menu>
          </menus>
