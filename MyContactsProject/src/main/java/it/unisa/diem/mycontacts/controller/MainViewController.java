@@ -41,11 +41,11 @@ public class MainViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         rubrica = new Rubrica();
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/leftView.fxml"));
+            FXMLLoader leftView = new FXMLLoader(getClass().getResource("../view/leftView.fxml"));
             leftPane.getChildren().clear();
-            leftPane.getChildren().add(loader.load());
+            leftPane.getChildren().add(leftView.load());
             
-            LeftViewController leftPanelController = loader.getController();
+            LeftViewController leftPanelController = leftView.getController();
             leftPanelController.setMainViewController(this);
             
         } catch (IOException e) {
@@ -55,16 +55,16 @@ public class MainViewController implements Initializable {
     
     private void loadView(String fxmlFileName) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/" + fxmlFileName));
-            VBox root = loader.load();
+            FXMLLoader rightView = new FXMLLoader(getClass().getResource("../view/" + fxmlFileName));
+            VBox root = rightView.load();
             rightPane.getChildren().clear();
             rightPane.getChildren().add(root);
 
             if (fxmlFileName.equals("rightView1.fxml")) {
-                RightView1Controller ctrl = loader.getController();
+                RightView1Controller ctrl = rightView.getController();
                 ctrl.setMainViewController(this);
             } else if (fxmlFileName.equals("rightView2.fxml")) {
-                RightView2Controller ctrl = loader.getController();
+                RightView2Controller ctrl = rightView.getController();
                 ctrl.setMainViewController(this);
             } else throw new IOException("File non trovato");
             

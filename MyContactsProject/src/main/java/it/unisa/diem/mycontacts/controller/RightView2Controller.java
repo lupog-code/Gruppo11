@@ -91,11 +91,13 @@ public class RightView2Controller implements Initializable {
         
         Contatto c = new Contatto(nomeField.getText(), cognomeField.getText(), numeri, email, preferitoCheck.isSelected());
         
+        mainViewController.getRubrica().aggiungiContatto(c);
+        
     }
 
     @FXML
     private void switchPreferito(ActionEvent event) {
-
+        
         
     }
     
