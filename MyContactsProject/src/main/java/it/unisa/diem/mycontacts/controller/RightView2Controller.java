@@ -8,10 +8,10 @@ package it.unisa.diem.mycontacts.controller;
 
 
 import it.unisa.diem.mycontacts.data.Contatto;
-import it.unisa.diem.mycontacts.datastructure.Rubrica;
 import java.net.URL;
 import java.util.HashSet;
 import java.util.ResourceBundle;
+import java.util.Set;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

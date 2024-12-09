@@ -47,8 +47,8 @@ public class Rubrica {
      *
      * @return un oggetto RubricaPreferiti per gestire i contatti preferiti.
      */
-    public RubricaPreferiti getElencoPreferiti() {
-        return elencoPreferiti;
+    public ObservableSet<Contatto> getElencoPreferiti() {
+        return elencoPreferiti.getElencoPreferiti();
     }
     
     
@@ -86,7 +86,7 @@ public class Rubrica {
 
         // Aggiunge il contatto ai preferiti se è contrassegnato come preferito.
         if (c.isPreferito()) {
-            getElencoPreferiti().addContattoPreferito(c);
+            elencoPreferiti.removeContattoPreferito(c);
         }
 
         return true;
@@ -109,7 +109,7 @@ public class Rubrica {
 
         // Rimuove il contatto dalla lista dei preferiti se esiste.
         if (c.isPreferito()) {
-            getElencoPreferiti().removeContattoPreferito(c);
+            elencoPreferiti.removeContattoPreferito(c);
         }
 
         return true;

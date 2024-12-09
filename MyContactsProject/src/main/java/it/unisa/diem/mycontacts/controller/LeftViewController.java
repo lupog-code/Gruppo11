@@ -5,8 +5,11 @@
  */
 package it.unisa.diem.mycontacts.controller;
 
+import it.unisa.diem.mycontacts.data.Contatto;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableSet;
 import javafx.event.ActionEvent;
@@ -17,6 +20,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 
 /**
@@ -51,6 +55,12 @@ public class LeftViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
+        nomeColumn.setCellValueFactory(new PropertyValueFactory("nome"));
+        cognomeColumn.setCellValueFactory(new PropertyValueFactory("cognome"));
+        
+        ObservableList<Contatto> contattiList = FXCollections.observableArrayList(mainViewController.getRubrica().getElenco());
+
+        contattiTable.setItems(contattiList);
     }    
 
     public void setMainViewController(MainViewController mainViewController) {
@@ -62,8 +72,6 @@ public class LeftViewController implements Initializable {
             mainViewController.loadView2();
         }else System.err.print("stampa dal left");
     }
-
-
     
     @FXML
     private void aggiungiContatto(ActionEvent event) {
@@ -82,45 +90,22 @@ public class LeftViewController implements Initializable {
     }
 
     @FXML
-private void ricercaContatto(KeyEvent event) {
-            String ricerca = searchField.getText().toLowerCase(); // Contiene il testo da cercare
-        ObservableSet<Contatto> ricercati = FXCollections.observableSet(); //creo il set
-    
-        for (Contatto contatto : contatti) {
-            // Concatenazione di nome, cognome, numeri e email in modo da fare solamente un .contains per ogni contatto
-            StringBuilder temporanea = new StringBuilder();
-            temporanea.append(contatto.getNome().toLowerCase()).append(" ")
-                      .append(contatto.getCognome().toLowerCase()).append(" ");
-            
-            // Concatenazione dei numeri e delle email in modo appropriato
-            for (int numero : contatto.getNumeri()) {
-                temporanea.append(numero).append(" ");
-            }
-            
-            for (String email : contatto.getEmail()) {
-                temporanea.append(email.toLowerCase()).append(" ");
-            }
-    
-            // Controlla se la stringa concatenata contiene la ricerca e in caso lo aggiungiamo alla lista dei contatti contenenti la parola ricercata 
-            if (temporanea.toString().contains(ricerca)) {
-                ricercati.add(contatto);
-            }
+    private void ricercaContatto(KeyEvent event) {
+        String ricerca = searchField.getText(); // Contiene il testo da cercare
+        
+        if(!ricerca.isEmpty()) {
+            ObservableList<Contatto> ricercati = FXCollections.observableArrayList(mainViewController.getRubrica().ricercaContatti(ricerca)); //creo il set
+
+            contattiTable.setItems(ricercati);
         }
+        
     }
 
     @FXML
     private void mostraPreferiti(ActionEvent event) {
-        ObservableSet<Contatto> preferiti = FXCollections.observableSet();
+        ObservableList<Contatto> preferiti = FXCollections.observableArrayList(mainViewController.getRubrica().getElencoPreferiti()); //creo il set
 
-        // Effettuo ricerca per verificare fra i contatti presenti se sono contrassegnati come preferiti quindi uso il metodo isPreferito()
-        for (Contatto contatto : contatti) {
-            if (contatto.isPreferito()) { 
-                preferiti.add(contatto);
-            }
-        }
-    
-        ObservableList<Contatto> preferitiList = FXCollections.observableArrayList(preferiti);
-    contattiTable.setItems(preferitiList);
+        contattiTable.setItems(preferiti);
     }
     
 }
