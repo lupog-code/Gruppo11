@@ -44,6 +44,7 @@ public class MainViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         rubrica = new Rubrica();
         rubrica.aggiungiContatto(new Contatto("Mario", "Rossi",new HashSet<>(),new HashSet<>(),false));
+        rubrica.aggiungiContatto(new Contatto("Gian", "Marco",new HashSet<>(),new HashSet<>(),true));
         
         try {
             FXMLLoader view = new FXMLLoader(getClass().getResource("../view/leftView.fxml"));
@@ -62,7 +63,7 @@ public class MainViewController implements Initializable {
         return rubrica;
     }
     
-    private void loadView(String fxmlFileName) {
+    private void loadView(String fxmlFileName, Contatto contatto) {
         try {
             FXMLLoader view = new FXMLLoader(getClass().getResource("../view/" + fxmlFileName));
             VBox root = view.load();
@@ -72,6 +73,7 @@ public class MainViewController implements Initializable {
             if (fxmlFileName.equals("rightView1.fxml")) {
                 RightView1Controller ctrl = view.getController();
                 ctrl.setMainViewController(this);
+                ctrl.setContatto(contatto);
             } else if (fxmlFileName.equals("rightView2.fxml")) {
                 RightView2Controller ctrl = view.getController();
                 ctrl.setMainViewController(this);
@@ -82,12 +84,12 @@ public class MainViewController implements Initializable {
         }
     }
     
-    public void loadView1() {
-        loadView("rightView1.fxml");
+    public void loadView1(Contatto contatto) {
+        loadView("rightView1.fxml", contatto);
     }
 
-    public void loadView2() {
-        loadView("rightView2.fxml");
+    public void loadView2(Contatto contatto) {
+        loadView("rightView2.fxml", contatto);
     }
     
 }

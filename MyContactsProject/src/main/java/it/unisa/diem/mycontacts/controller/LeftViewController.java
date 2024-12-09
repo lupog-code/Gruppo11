@@ -63,6 +63,13 @@ public class LeftViewController implements Initializable {
         
         listaContatti = FXCollections.observableArrayList();
         contattiTable.setItems(listaContatti);
+        
+        contattiTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                // Passa il contatto selezionato al MainViewController per caricare la RightView2
+                mainViewController.loadView1(newValue);
+            }
+        });
     }    
 
     public void setMainViewController(MainViewController mainViewController) {
@@ -83,15 +90,21 @@ public class LeftViewController implements Initializable {
         
     }
     
+    /*private void loadView1() {
+        if (mainViewController != null) {
+            mainViewController.loadView1(Contatto contatto);
+        }else System.err.print("stampa dal left");
+    }
+    
     private void loadView2() {
         if (mainViewController != null) {
             mainViewController.loadView2();
         }else System.err.print("stampa dal left");
-    }
+    }*/
 
     @FXML
     private void aggiungiContatto(ActionEvent event) {
-        loadView2();
+        mainViewController.loadView2(null);
     }
 
     @FXML
