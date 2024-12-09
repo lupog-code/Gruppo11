@@ -8,13 +8,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unisa.diem.mycontacts.controller.LeftViewController">
+<VBox alignment="CENTER" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unisa.diem.mycontacts.controller.LeftViewController">
    <children>
-      <MenuBar maxHeight="1.7976931348623157E308">
+      <MenuBar blendMode="ADD" depthTest="DISABLE" maxHeight="1.7976931348623157E308" style="-fx-background-color: black;">
         <menus>
-          <Menu mnemonicParsing="false" text="Aggiungi contatto">
+          <Menu mnemonicParsing="false" style="-fx-text-fill: white;" text="Aggiungi ">
             <items>
-              <MenuItem fx:id="addButton" mnemonicParsing="false" onAction="#aggiungiContatto" text="Add" />
+              <MenuItem fx:id="addButton" mnemonicParsing="false" onAction="#aggiungiContatto" style="-fx-text-fill: white;" text="Aggiungi" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Importa">
@@ -32,7 +32,7 @@
             <Insets />
          </opaqueInsets>
       </MenuBar>
-      <Label lineSpacing="4.0" text="Ricerca contatti:">
+      <Label lineSpacing="4.0" style="-fx-text-fill: white;" text="Ricerca contatti:">
          <font>
             <Font size="16.0" />
          </font>
@@ -40,7 +40,7 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </VBox.margin>
       </Label>
-      <TextField fx:id="searchField" maxWidth="1.7976931348623157E308" onKeyPressed="#ricercaContatto">
+      <TextField fx:id="searchField" maxWidth="1.7976931348623157E308" onKeyPressed="#ricercaContatto" style="-fx-background-color: grey; -fx-border-color: white;">
          <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </VBox.margin>
@@ -50,12 +50,12 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </VBox.margin>
       </ToggleButton>
-      <Label text="Rubrica:">
+      <Label style="-fx-text-fill: white;" text="Rubrica:">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <TableView fx:id="contattiTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+      <TableView fx:id="contattiTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: black; -fx-border-style: solid; -fx-border-color: grey;">
         <columns>
           <TableColumn fx:id="nomeColumn" prefWidth="75.0" text="Nome" />
           <TableColumn fx:id="cognomeColumn" prefWidth="75.0" text="Cognome" />
