@@ -8,6 +8,8 @@ package it.unisa.diem.mycontacts.datastructure;
 import it.unisa.diem.mycontacts.data.Contatto;
 import java.util.Set;
 import java.util.TreeSet;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableSet;
 
 /**
  * La classe RubricaPreferiti rappresenta un contenitore per gestire i contatti preferiti
@@ -17,14 +19,14 @@ import java.util.TreeSet;
 public class RubricaPreferiti {
     
     // Set che contiene i contatti preferiti, ordinato e senza duplicati.
-    private final Set<Contatto> elencoPreferiti;
+    private final ObservableSet<Contatto> elencoPreferiti;
 
     /**
      * Costruttore della classe RubricaPreferiti. Inizializza l'elenco dei contatti preferiti
      * come un TreeSet, che garantisce l'ordinamento naturale dei contatti.
      */
     public RubricaPreferiti() {
-        this.elencoPreferiti = new TreeSet<>();
+        this.elencoPreferiti = FXCollections.observableSet(new TreeSet<>());
     }
 
     /**
@@ -65,7 +67,7 @@ public class RubricaPreferiti {
      *
      * @return un Set contenente tutti i contatti preferiti.
      */
-    public Set<Contatto> getElencoPreferiti() {
+    public ObservableSet<Contatto> getElencoPreferiti() {
         return elencoPreferiti;
     }
 }
