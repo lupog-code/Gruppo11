@@ -37,11 +37,11 @@ public class MainViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            FXMLLoader loader1 = new FXMLLoader(getClass().getResource("../view/leftView.fxml"));
+            FXMLLoader view = new FXMLLoader(getClass().getResource("../view/leftView.fxml"));
             leftPane.getChildren().clear();
-            leftPane.getChildren().add(loader1.load());
+            leftPane.getChildren().add(view.load());
             
-            LeftViewController leftPanelController = loader1.getController();
+            LeftViewController leftPanelController = view.getController();
             leftPanelController.setMainViewController(this);
             
         } catch (IOException e) {
@@ -51,16 +51,16 @@ public class MainViewController implements Initializable {
     
     private void loadView(String fxmlFileName) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/" + fxmlFileName));
-            VBox root = loader.load();
+            FXMLLoader view = new FXMLLoader(getClass().getResource("../view/" + fxmlFileName));
+            VBox root = view.load();
             rightPane.getChildren().clear();
             rightPane.getChildren().add(root);
 
             if (fxmlFileName.equals("rightView1.fxml")) {
-                RightView1Controller ctrl = loader.getController();
+                RightView1Controller ctrl = view.getController();
                 ctrl.setMainViewController(this);
             } else if (fxmlFileName.equals("rightView2.fxml")) {
-                RightView2Controller ctrl = loader.getController();
+                RightView2Controller ctrl = view.getController();
                 ctrl.setMainViewController(this);
             } else throw new IOException("File non trovato");
             
@@ -68,7 +68,6 @@ public class MainViewController implements Initializable {
             Logger.getLogger(MainViewController.class.getName()).severe("Errore durante il caricamento di " + fxmlFileName + ": " + e.getMessage());
         }
     }
-
     
     public void loadView1() {
         loadView("rightView1.fxml");
