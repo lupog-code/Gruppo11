@@ -11,12 +11,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.HashSet;
 import java.util.ResourceBundle;
+import java.util.Set;
 import java.util.logging.Logger;
 import javafx.collections.ObservableSet;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -43,8 +43,15 @@ public class MainViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         rubrica = new Rubrica();
+        
+        /*Set <Integer>numeri = new HashSet<>();
+        numeri.add(3);*/
+        Set <String>email = new HashSet<>();
+        email.add("prova@gmail.com");
+        email.add("pro.34553.va@gmail.com");
+        
         rubrica.aggiungiContatto(new Contatto("Mario", "Rossi",new HashSet<>(),new HashSet<>(),false));
-        rubrica.aggiungiContatto(new Contatto("Gian", "Marco",new HashSet<>(),new HashSet<>(),true));
+        rubrica.aggiungiContatto(new Contatto("Gian", "Marco",new HashSet<>(),email,true));
         
         try {
             FXMLLoader view = new FXMLLoader(getClass().getResource("../view/leftView.fxml"));

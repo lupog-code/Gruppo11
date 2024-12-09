@@ -17,6 +17,8 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
@@ -76,7 +78,7 @@ public class RightView2Controller implements Initializable {
     @FXML
     private void confermaAzione(ActionEvent event) {
         
-        Set <Integer> numeri = new HashSet<>();
+        /*Set <Integer> numeri = new HashSet<>();
         numeri.add(Integer.parseInt(numero1Field.getText()));
         numeri.add(Integer.parseInt(numero2Field.getText()));
         numeri.add(Integer.parseInt(numero3Field.getText()));
@@ -84,14 +86,28 @@ public class RightView2Controller implements Initializable {
         Set <String> email = new HashSet<>();
         email.add(email1Field.getText());
         email.add(email2Field.getText());
-        email.add(email3Field.getText());
+        email.add(email3Field.getText());*/
         
-        Contatto c = new Contatto(nomeField.getText(), cognomeField.getText(), numeri, email, preferitoCheck.isSelected());
+        Contatto c = new Contatto(nomeField.getText(), cognomeField.getText(), null, null, preferitoCheck.isSelected());
+        
+        if(mainViewController.getRubrica().aggiungiContatto(c))
+            showAlert("Dati sbagliati", "I dati inseriti non sono compatibili");
+        
+        mainViewController.loadView1(c);
         
     }
 
     @FXML
     private void switchPreferito(ActionEvent event) {
+        
+    }
+    
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
     
 }
