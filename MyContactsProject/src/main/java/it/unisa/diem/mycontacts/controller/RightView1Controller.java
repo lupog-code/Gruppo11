@@ -89,7 +89,7 @@ public class RightView1Controller implements Initializable {
 
     @FXML
     private void modificaContatto(ActionEvent event) {
-        mainViewController.loadView2(null);
+        mainViewController.loadView2(contatto);
     }
 
      @FXML
@@ -112,25 +112,25 @@ public class RightView1Controller implements Initializable {
 
     @FXML
     private void switchPreferito(ActionEvent event) {
-       //inverte lo staso di preferito di un contatto ( da false a true e viceversa) 
-         // Verifica se un contatto è stato selezionato
-    if (contatto != null) {
-        // Inverte lo stato del contatto (da preferito a non preferito e viceversa)
-        boolean nuovoStato = !contatto.isPreferito();
-        contatto.setPreferito(nuovoStato);
-        
-        // Aggiorna l'interfaccia utente per riflettere il nuovo stato di preferito
-        preferitoCheck.setSelected(nuovoStato);
+        //inverte lo staso di preferito di un contatto ( da false a true e viceversa) 
+        // Verifica se un contatto è stato selezionato
+        if (contatto != null) {
+            // Inverte lo stato del contatto (da preferito a non preferito e viceversa)
+            boolean nuovoStato = !contatto.isPreferito();
+            contatto.setPreferito(nuovoStato);
 
-        // Se necessario, aggiorna la rubrica (aggiungi o rimuovi il contatto dai preferiti)
-        if (rubrica != null) {
-            if (nuovoStato) {
-                rubrica.aggiungiAPreferiti(contatto);
-            } else {
-                rubrica.rimuoviDaPreferiti(contatto);
+            // Aggiorna l'interfaccia utente per riflettere il nuovo stato di preferito
+            preferitoCheck.setSelected(nuovoStato);
+
+            // Se necessario, aggiorna la rubrica (aggiungi o rimuovi il contatto dai preferiti)
+            if (rubrica != null) {
+                if (nuovoStato) {
+                    rubrica.aggiungiAPreferiti(contatto);
+                } else {
+                    rubrica.rimuoviDaPreferiti(contatto);
+                }
             }
         }
-    }
     }
     
 }

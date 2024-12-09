@@ -58,6 +58,8 @@ public class RightView2Controller implements Initializable {
     
     private Rubrica rubrica;
     
+    private Contatto contatto;
+    
     /**
      * Initializes the controller class.
      * @param url
@@ -82,17 +84,17 @@ public class RightView2Controller implements Initializable {
     @FXML
     private void confermaAzione(ActionEvent event) {
         
-        /*Set <Integer> numeri = new HashSet<>();
-        numeri.add(Integer.parseInt(numero1Field.getText()));
-        numeri.add(Integer.parseInt(numero2Field.getText()));
-        numeri.add(Integer.parseInt(numero3Field.getText()));
+        Set <String> numeri = new HashSet<>();
+        numeri.add(numero1Field.getText());
+        numeri.add(numero2Field.getText());
+        numeri.add(numero3Field.getText());
         
         Set <String> email = new HashSet<>();
         email.add(email1Field.getText());
         email.add(email2Field.getText());
-        email.add(email3Field.getText());*/
+        email.add(email3Field.getText());
         
-        Contatto c = new Contatto(nomeField.getText(), cognomeField.getText(), null, null, preferitoCheck.isSelected());
+        Contatto c = new Contatto(nomeField.getText(), cognomeField.getText(), numeri, email, preferitoCheck.isSelected());
         
         if(rubrica.aggiungiContatto(c))
             showAlert("Dati sbagliati", "I dati inseriti non sono compatibili");
@@ -100,10 +102,47 @@ public class RightView2Controller implements Initializable {
         mainViewController.loadView1(c);
         
     }
+    
+    public void setContatto(Contatto contatto) {
+        this.contatto = contatto;
+        
+        if (contatto != null) {
+            nomeField.setText(contatto.getNome());
+            cognomeField.setText(contatto.getCognome());
+            preferitoCheck.setSelected(contatto.isPreferito());
+
+            // Popola i campi dei numeri di telefono e delle email
+            if (contatto.getNumeri().size() > 0) numero1Field.setText(contatto.getNumeri().toArray()[0].toString());
+            if (contatto.getNumeri().size() > 1) numero2Field.setText(contatto.getNumeri().toArray()[1].toString());
+            if (contatto.getNumeri().size() > 2) numero3Field.setText(contatto.getNumeri().toArray()[2].toString());
+
+            if (contatto.getEmail().size() > 0) email1Field.setText(contatto.getEmail().toArray()[0].toString());
+            if (contatto.getEmail().size() > 1) email2Field.setText(contatto.getEmail().toArray()[1].toString());
+            if (contatto.getEmail().size() > 2) email3Field.setText(contatto.getEmail().toArray()[2].toString());
+        }
+    }
 
     @FXML
     private void switchPreferito(ActionEvent event) {
-        
+        //inverte lo staso di preferito di un contatto ( da false a true e viceversa) 
+        // Verifica se un contatto è stato selezionato
+        if (contatto != null) {
+            // Inverte lo stato del contatto (da preferito a non preferito e viceversa)
+            boolean nuovoStato = !contatto.isPreferito();
+            contatto.setPreferito(nuovoStato);
+
+            // Aggiorna l'interfaccia utente per riflettere il nuovo stato di preferito
+            preferitoCheck.setSelected(nuovoStato);
+
+            // Se necessario, aggiorna la rubrica (aggiungi o rimuovi il contatto dai preferiti)
+            if (rubrica != null) {
+                if (nuovoStato) {
+                    rubrica.aggiungiAPreferiti(contatto);
+                } else {
+                    rubrica.rimuoviDaPreferiti(contatto);
+                }
+            }
+        }
     }
     
     private void showAlert(String title, String message) {

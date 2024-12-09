@@ -6,6 +6,7 @@
 package it.unisa.diem.mycontacts.controller;
 
 import it.unisa.diem.mycontacts.data.Contatto;
+import it.unisa.diem.mycontacts.datastructure.Rubrica;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
@@ -53,6 +54,8 @@ public class LeftViewController implements Initializable {
     
     private MainViewController mainViewController;
     
+    private Rubrica rubrica;
+    
     /**
      * Initializes the controller class.
      */
@@ -74,6 +77,7 @@ public class LeftViewController implements Initializable {
 
     public void setMainViewController(MainViewController mainViewController) {
         this.mainViewController = mainViewController;
+        this.rubrica = mainViewController.getRubrica();
         
         listaContatti = FXCollections.observableArrayList(mainViewController.getRubrica().getElenco());
         contattiTable.setItems(listaContatti); // Collega la lista osservabile alla TableView

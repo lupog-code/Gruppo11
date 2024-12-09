@@ -84,6 +84,7 @@ public class MainViewController implements Initializable {
             } else if (fxmlFileName.equals("rightView2.fxml")) {
                 RightView2Controller ctrl = view.getController();
                 ctrl.setMainViewController(this);
+                ctrl.setContatto(contatto);
             } else throw new IOException("File non trovato");
             
         } catch (IOException e) {
