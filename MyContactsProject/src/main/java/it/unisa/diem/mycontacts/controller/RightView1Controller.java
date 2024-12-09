@@ -49,8 +49,8 @@ public class RightView1Controller implements Initializable {
     private CheckBox preferitoCheck;
     
     private MainViewController mainViewController;
-    private Contatto contattoSelezionato=null;
-    private Rubrica rubrica;
+    
+    private Contatto contatto;
     
     /**
      * Initializes the controller class.
@@ -65,6 +65,8 @@ public class RightView1Controller implements Initializable {
     }
     
     public void setContatto(Contatto contatto) {
+        this.contatto = contatto;
+        
         if (contatto != null) {
             nomeLabel.setText(contatto.getNome());
             cognomeLabel.setText(contatto.getCognome());
@@ -88,19 +90,12 @@ public class RightView1Controller implements Initializable {
 
      @FXML
     private void eliminaContatto(ActionEvent event) {
-        if (contattoSelezionato != null && rubrica != null) {
-            boolean successo = rubrica.rimuoviContatto(contattoSelezionato);
-            if (successo) {
-                // Pulisci i campi dell'interfaccia
-                nomeLabel.setText("");
-                cognomeLabel.setText("");
-                numero1Label.setText("");
-                numero2Label.setText("");
-                numero3Label.setText("");
-                email1Label.setText("");
-                email2Label.setText("");
-                email3Label.setText("");
-                preferitoCheck.setSelected(false);
+        if (contatto != null && mainViewController.getRubrica() != null) {
+            
+            if (mainViewController.getRubrica().rimuoviContatto(contatto)) {
+                
+                if(mainViewController.getRubrica().isRubricaVuota())
+                    mainViewController.loadView2(null);
 
                 // Ricarica o aggiorna la visualizzazione dei contatti
                 // Se hai una TableView, chiamerai refresh o aggiornerai la lista
