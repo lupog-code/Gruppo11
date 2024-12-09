@@ -9,6 +9,8 @@ import it.unisa.diem.mycontacts.data.Contatto;
 import java.io.IOException;
 import java.util.Set;
 import java.util.TreeSet;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableSet;
 
 /**
  * La classe Rubrica rappresenta una raccolta di contatti con funzionalità per gestirli.
@@ -18,7 +20,7 @@ import java.util.TreeSet;
 public class Rubrica {
 
     // Contenitore per i contatti, ordinato e senza duplicati grazie all'implementazione TreeSet.
-    private Set<Contatto> elenco;
+    private ObservableSet<Contatto> elenco;
 
     // Oggetto per la gestione dei contatti preferiti.
     private RubricaPreferiti elencoPreferiti;
@@ -27,7 +29,7 @@ public class Rubrica {
      * Costruttore della classe Rubrica. Inizializza l'elenco dei contatti e l'elenco dei preferiti.
      */
     public Rubrica() {
-        this.elenco = new TreeSet<>(); // TreeSet garantisce l'ordinamento naturale dei contatti.
+        this.elenco = FXCollections.observableSet(new TreeSet()); // TreeSet garantisce l'ordinamento naturale dei contatti.
         this.elencoPreferiti = new RubricaPreferiti(); // Crea una nuova istanza di RubricaPreferiti.
     }
 
@@ -36,7 +38,7 @@ public class Rubrica {
      *
      * @return un Set contenente tutti i contatti presenti nella rubrica.
      */
-    public Set<Contatto> getElenco() {
+    public ObservableSet<Contatto> getElenco() {
         return elenco;
     }
 
