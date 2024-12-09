@@ -5,6 +5,7 @@
  */
 package it.unisa.diem.mycontacts.controller;
 
+import it.unisa.diem.mycontacts.data.Contatto;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -59,6 +60,23 @@ public class RightView1Controller implements Initializable {
     
     public void setMainViewController(MainViewController mainViewController) {
         this.mainViewController = mainViewController;
+    }
+    
+    public void setContatto(Contatto contatto) {
+        if (contatto != null) {
+            nomeLabel.setText(contatto.getNome());
+            cognomeLabel.setText(contatto.getCognome());
+            preferitoCheck.setSelected(contatto.isPreferito());
+
+            // Popola i campi dei numeri di telefono e delle email
+            if (contatto.getNumeri().size() > 0) numero1Label.setText(contatto.getNumeri().toArray()[0].toString());
+            if (contatto.getNumeri().size() > 1) numero2Label.setText(contatto.getNumeri().toArray()[1].toString());
+            if (contatto.getNumeri().size() > 2) numero3Label.setText(contatto.getNumeri().toArray()[2].toString());
+
+            if (contatto.getEmail().size() > 0) email1Label.setText(contatto.getEmail().toArray()[0].toString());
+            if (contatto.getEmail().size() > 1) email2Label.setText(contatto.getEmail().toArray()[1].toString());
+            if (contatto.getEmail().size() > 2) email3Label.setText(contatto.getEmail().toArray()[2].toString());
+        }
     }
 
     private void loadView2() {

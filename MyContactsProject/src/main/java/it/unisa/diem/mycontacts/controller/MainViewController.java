@@ -5,10 +5,14 @@
  */
 package it.unisa.diem.mycontacts.controller;
 
+import it.unisa.diem.mycontacts.data.Contatto;
+import it.unisa.diem.mycontacts.datastructure.Rubrica;
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashSet;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
+import javafx.collections.ObservableSet;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -29,6 +33,8 @@ public class MainViewController implements Initializable {
     @FXML
     private StackPane rightPane;
     
+    private Rubrica rubrica;
+    
     /**
      * Initializes the controller class.
      * @param url
@@ -36,6 +42,9 @@ public class MainViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        rubrica = new Rubrica();
+        rubrica.aggiungiContatto(new Contatto("Mario", "Rossi",new HashSet<>(),new HashSet<>(),false));
+        
         try {
             FXMLLoader view = new FXMLLoader(getClass().getResource("../view/leftView.fxml"));
             leftPane.getChildren().clear();
@@ -48,6 +57,10 @@ public class MainViewController implements Initializable {
             Logger.getLogger(MainViewController.class.getName()).severe("Errore durante il caricamento di leftView: " + e.getMessage());
         }
     }    
+
+    public Rubrica getRubrica() {
+        return rubrica;
+    }
     
     private void loadView(String fxmlFileName) {
         try {

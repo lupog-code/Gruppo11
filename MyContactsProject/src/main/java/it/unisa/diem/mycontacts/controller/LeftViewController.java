@@ -8,8 +8,11 @@ package it.unisa.diem.mycontacts.controller;
 import it.unisa.diem.mycontacts.data.Contatto;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableSet;
+import javafx.collections.SetChangeListener;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -46,7 +49,7 @@ public class LeftViewController implements Initializable {
     @FXML
     private TableColumn<Contatto, String> cognomeColumn;
     
-    private ObservableSet<Contatto> contatti;
+    private ObservableList<Contatto> listaContatti;  
     
     private MainViewController mainViewController;
     
@@ -55,11 +58,29 @@ public class LeftViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        nomeColumn.setCellValueFactory(c -> { return new SimpleStringProperty(c.getValue().getNome()); });
+        cognomeColumn.setCellValueFactory(c -> { return new SimpleStringProperty(c.getValue().getCognome()); });
         
+        listaContatti = FXCollections.observableArrayList();
+        contattiTable.setItems(listaContatti);
     }    
 
     public void setMainViewController(MainViewController mainViewController) {
         this.mainViewController = mainViewController;
+        
+        listaContatti = FXCollections.observableArrayList(mainViewController.getRubrica().getElenco());
+        contattiTable.setItems(listaContatti); // Collega la lista osservabile alla TableView
+        
+        ObservableSet<Contatto> rubricaSet = mainViewController.getRubrica().getElenco();
+        rubricaSet.addListener((SetChangeListener<Contatto>) change -> {
+                if (change.wasAdded()) {
+                    listaContatti.add(change.getElementAdded());
+                }
+                if (change.wasRemoved()) {
+                    listaContatti.remove(change.getElementRemoved());
+                }
+        });    
+        
     }
     
     private void loadView2() {
