@@ -7,12 +7,11 @@ package it.unisa.diem.mycontacts.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 
@@ -80,6 +79,8 @@ public class RightView2Controller implements Initializable {
 
     @FXML
     private void switchPreferito(ActionEvent event) {
+
+        
     }
     
 }
