@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unisa.diem.mycontacts.controller.RightView1Controller">
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unisa.diem.mycontacts.controller.RightView1Controller">
    <children>
       <MenuBar>
         <menus>
@@ -25,37 +25,37 @@
       </MenuBar>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
          <children>
-            <Label text="Nome:" />
-            <Label fx:id="nomeLabel" text="NOME" />
-            <Label text="Cognome:" />
-            <Label fx:id="cognomeLabel" text="COGNOME" />
+            <Label style="-fx-text-fill: white;" text="Nome:" />
+            <Label fx:id="nomeLabel" style="-fx-text-fill: white;" text="NOME" />
+            <Label style="-fx-text-fill: white;" text="Cognome:" />
+            <Label fx:id="cognomeLabel" style="-fx-text-fill: white;" text="COGNOME" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
          <children>
-            <Label text="1. Numero:" />
-            <Label fx:id="numero1Label" text="NUMERO" />
-            <Label text="1. E-Mail:" />
-            <Label fx:id="email1Label" text="E-MAIL" />
+            <Label style="-fx-text-fill: white;" text="1. Numero:" />
+            <Label fx:id="numero1Label" style="-fx-text-fill: white;" text="NUMERO" />
+            <Label style="-fx-text-fill: white;" text="1. E-Mail:" />
+            <Label fx:id="email1Label" style="-fx-text-fill: white;" text="E-MAIL" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
          <children>
-            <Label text="2. Numero:" />
-            <Label fx:id="numero2Label" text="NUMERO" />
-            <Label text="2. E-Mail:" />
-            <Label fx:id="email2Label" text="E-MAIL" />
+            <Label style="-fx-text-fill: white;" text="2. Numero:" />
+            <Label fx:id="numero2Label" style="-fx-text-fill: white;" text="NUMERO" />
+            <Label style="-fx-text-fill: white;" text="2. E-Mail:" />
+            <Label fx:id="email2Label" style="-fx-text-fill: white;" text="E-MAIL" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
          <children>
-            <Label text="3. Numero:" />
-            <Label fx:id="numero3Label" text="NUMERO" />
-            <Label text="3. E-Mail:" />
-            <Label fx:id="email3Label" text="E-MAIL" />
+            <Label style="-fx-text-fill: white;" text="3. Numero:" />
+            <Label fx:id="numero3Label" style="-fx-text-fill: white;" text="NUMERO" />
+            <Label style="-fx-text-fill: white;" text="3. E-Mail:" />
+            <Label fx:id="email3Label" style="-fx-text-fill: white;" text="E-MAIL" />
          </children>
       </HBox>
-      <CheckBox fx:id="preferitoCheck" mnemonicParsing="false" onAction="#switchPreferito" text="Preferito">
+      <CheckBox fx:id="preferitoCheck" mnemonicParsing="false" onAction="#switchPreferito" style="-fx-text-fill: white;" text="Preferito">
          <VBox.margin>
             <Insets bottom="10.0" left="5.0" right="5.0" top="5.0" />
          </VBox.margin>
