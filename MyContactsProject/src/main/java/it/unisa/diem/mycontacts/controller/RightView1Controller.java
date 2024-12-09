@@ -79,15 +79,9 @@ public class RightView1Controller implements Initializable {
         }
     }
 
-    private void loadView2() {
-        if (mainViewController != null) {
-            mainViewController.loadView2();
-        }else System.err.print("stampa dal left");
-    }
-
     @FXML
     private void modificaContatto(ActionEvent event) {
-        loadView2();
+        mainViewController.loadView2(null);
     }
 
     @FXML

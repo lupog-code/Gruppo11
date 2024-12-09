@@ -68,15 +68,9 @@ public class RightView2Controller implements Initializable {
         this.mainViewController = mainViewController;
     }
 
-    private void loadView1() {
-        if (mainViewController != null) {
-            mainViewController.loadView1();
-        }else System.err.print("stampa dal left");
-    }
-
     @FXML
     private void annullaAzione(ActionEvent event) {
-        loadView1();
+        mainViewController.loadView1(null);
     }
 
     @FXML
