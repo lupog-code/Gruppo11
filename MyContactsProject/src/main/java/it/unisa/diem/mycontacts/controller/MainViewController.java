@@ -41,11 +41,11 @@ public class MainViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         rubrica = new Rubrica();
         try {
-            FXMLLoader loader1 = new FXMLLoader(getClass().getResource("../view/leftView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/leftView.fxml"));
             leftPane.getChildren().clear();
-            leftPane.getChildren().add(loader1.load());
+            leftPane.getChildren().add(loader.load());
             
-            LeftViewController leftPanelController = loader1.getController();
+            LeftViewController leftPanelController = loader.getController();
             leftPanelController.setMainViewController(this);
             
         } catch (IOException e) {
@@ -77,7 +77,6 @@ public class MainViewController implements Initializable {
         return rubrica;
     }
 
-    
     public void loadView1() {
         loadView("rightView1.fxml");
     }

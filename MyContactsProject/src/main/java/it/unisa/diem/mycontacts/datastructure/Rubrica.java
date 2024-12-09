@@ -52,8 +52,8 @@ public class Rubrica {
     }
     
     
-    public Set<Contatto> ricercaContatti(String text) {
-        Set<Contatto> risultati = new TreeSet<>();
+    public ObservableSet<Contatto> ricercaContatti(String text) {
+        ObservableSet<Contatto> risultati = FXCollections.observableSet(new TreeSet<>());
 
         // Restituisce l'intera rubrica se il testo è nullo o vuoto.
         if (text == null || text.isEmpty()) return getElenco();
@@ -69,23 +69,12 @@ public class Rubrica {
         return risultati;
     }
     
-    
-    
-
     /**
-     * Aggiunge un contatto all'elenco della rubrica. Se il contatto è già presente, non verrà aggiunto nuovamente.
+     * Aggiunge un contatto all'elenco della rubrica.Se il contatto è già presente, non verrà aggiunto nuovamente.
      *
      * @param c il contatto da aggiungere.
-     * @throws IllegalArgumentException se il contatto è null.
+     * @return 
      */
-    public void addContatto(Contatto c) {
-        if (c == null) {
-            throw new IllegalArgumentException("Il contatto non può essere null.");
-        }
-        elenco.add(c);
-    }
-    
-    
     public boolean aggiungiContatto(Contatto c) {
         // Verifica la validità del contatto.
         if (!c.contattoValido()) {
@@ -93,7 +82,7 @@ public class Rubrica {
         }
 
         // Aggiunge il contatto alla rubrica.
-        addContatto(c);
+        elenco.add(c);
 
         // Aggiunge il contatto ai preferiti se è contrassegnato come preferito.
         if (c.isPreferito()) {
@@ -107,17 +96,8 @@ public class Rubrica {
      * Rimuove un contatto dall'elenco della rubrica.
      *
      * @param c il contatto da rimuovere.
-     * @throws IllegalArgumentException se il contatto è null.
+     * @return
      */
-    public void removeContatto(Contatto c) {
-        if (c == null) {
-            throw new IllegalArgumentException("Il contatto non può essere null.");
-        }
-        elenco.remove(c);
-    }
-    
-    
-    
     public boolean rimuoviContatto(Contatto c) {
         // Verifica se la rubrica è vuota.
         if (isRubricaVuota()) {
@@ -125,14 +105,14 @@ public class Rubrica {
         }
 
         // Rimuove il contatto dall'elenco principale.
-        boolean rimosso = getElenco().remove(c);
+        elenco.remove(c);
 
         // Rimuove il contatto dalla lista dei preferiti se esiste.
         if (c.isPreferito()) {
             getElencoPreferiti().removeContattoPreferito(c);
         }
 
-        return rimosso;
+        return true;
     }
 
     /**
@@ -140,25 +120,7 @@ public class Rubrica {
      */
     public void resetRubrica() {
         elenco.clear();
-    }
-    
-    
-    public void resetTotale() {
-        // Svuota l'elenco dei contatti e dei preferiti.
-        resetRubrica();
-        getElencoPreferiti().resetRubricaPreferiti();
-    }
-
-    /**
-     * Esporta la rubrica in un file specificato.
-     * Questo metodo deve essere implementato per salvare i dati su disco.
-     * 
-     * @param nomefile il nome del file su cui esportare la rubrica.
-     * @throws IOException se si verifica un errore durante l'esportazione.
-     */
-    public void esportaRubrica(String nomefile) throws IOException {
-        // Implementazione da completare per salvare la rubrica su un file.
-        throw new UnsupportedOperationException("Metodo non implementato.");
+        elencoPreferiti.resetRubricaPreferiti();
     }
 
     /**
@@ -177,9 +139,6 @@ public class Rubrica {
      * @throws IllegalArgumentException se il contatto non è presente nella rubrica.
      */
     public void aggiungiAPreferiti(Contatto c) {
-        if (!elenco.contains(c)) {
-            throw new IllegalArgumentException("Il contatto non è presente nella rubrica e non può essere aggiunto ai preferiti.");
-        }
         elencoPreferiti.addContattoPreferito(c);
     }
 
@@ -196,14 +155,22 @@ public class Rubrica {
         elencoPreferiti.removeContattoPreferito(c);
     }
     
-    
     public static void importaRubrica(String nomefile) throws IOException {
         // Implementazione da completare per leggere e importare la rubrica da un file.
         throw new UnsupportedOperationException("Metodo non implementato.");
     }
     
-    
-    
+    /**
+     * Esporta la rubrica in un file specificato.
+     * Questo metodo deve essere implementato per salvare i dati su disco.
+     * 
+     * @param nomefile il nome del file su cui esportare la rubrica.
+     * @throws IOException se si verifica un errore durante l'esportazione.
+     */
+    public void esportaRubrica(String nomefile) throws IOException {
+        // Implementazione da completare per salvare la rubrica su un file.
+        throw new UnsupportedOperationException("Metodo non implementato.");
+    }
     
 }
 
