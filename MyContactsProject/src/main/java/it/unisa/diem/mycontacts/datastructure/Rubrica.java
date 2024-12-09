@@ -6,6 +6,7 @@
 package it.unisa.diem.mycontacts.datastructure;
 
 import it.unisa.diem.mycontacts.data.Contatto;
+import java.io.IOException;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -47,6 +48,27 @@ public class Rubrica {
     public RubricaPreferiti getElencoPreferiti() {
         return elencoPreferiti;
     }
+    
+    
+    public Set<Contatto> ricercaContatti(String text) {
+        Set<Contatto> risultati = new TreeSet<>();
+
+        // Restituisce l'intera rubrica se il testo è nullo o vuoto.
+        if (text == null || text.isEmpty()) return getElenco();
+
+        // Aggiunge i contatti che corrispondono alla ricerca.
+        for (Contatto c : getElenco()) {
+            if (c.getCognome().toLowerCase().startsWith(text.toLowerCase()) || 
+                c.getNome().toLowerCase().startsWith(text.toLowerCase())) {
+                risultati.add(c);
+            }
+        }
+
+        return risultati;
+    }
+    
+    
+    
 
     /**
      * Aggiunge un contatto all'elenco della rubrica. Se il contatto è già presente, non verrà aggiunto nuovamente.
@@ -59,6 +81,24 @@ public class Rubrica {
             throw new IllegalArgumentException("Il contatto non può essere null.");
         }
         elenco.add(c);
+    }
+    
+    
+    public boolean aggiungiContatto(Contatto c) {
+        // Verifica la validità del contatto.
+        if (!c.contattoValido()) {
+            return false;
+        }
+
+        // Aggiunge il contatto alla rubrica.
+        addContatto(c);
+
+        // Aggiunge il contatto ai preferiti se è contrassegnato come preferito.
+        if (c.isPreferito()) {
+            getElencoPreferiti().addContattoPreferito(c);
+        }
+
+        return true;
     }
 
     /**
@@ -73,12 +113,50 @@ public class Rubrica {
         }
         elenco.remove(c);
     }
+    
+    
+    
+    public boolean rimuoviContatto(Contatto c) {
+        // Verifica se la rubrica è vuota.
+        if (isRubricaVuota()) {
+            return false;
+        }
+
+        // Rimuove il contatto dall'elenco principale.
+        boolean rimosso = getElenco().remove(c);
+
+        // Rimuove il contatto dalla lista dei preferiti se esiste.
+        if (c.isPreferito()) {
+            getElencoPreferiti().removeContattoPreferito(c);
+        }
+
+        return rimosso;
+    }
 
     /**
      * Rimuove tutti i contatti dalla rubrica, svuotandola completamente.
      */
     public void resetRubrica() {
         elenco.clear();
+    }
+    
+    
+    public void resetTotale() {
+        // Svuota l'elenco dei contatti e dei preferiti.
+        resetRubrica();
+        getElencoPreferiti().resetRubricaPreferiti();
+    }
+
+    /**
+     * Esporta la rubrica in un file specificato.
+     * Questo metodo deve essere implementato per salvare i dati su disco.
+     * 
+     * @param nomefile il nome del file su cui esportare la rubrica.
+     * @throws IOException se si verifica un errore durante l'esportazione.
+     */
+    public void esportaRubrica(String nomefile) throws IOException {
+        // Implementazione da completare per salvare la rubrica su un file.
+        throw new UnsupportedOperationException("Metodo non implementato.");
     }
 
     /**
@@ -115,4 +193,17 @@ public class Rubrica {
         }
         elencoPreferiti.removeContattoPreferito(c);
     }
+    
+    
+    public static void importaRubrica(String nomefile) throws IOException {
+        // Implementazione da completare per leggere e importare la rubrica da un file.
+        throw new UnsupportedOperationException("Metodo non implementato.");
+    }
+    
+    
+    
+    
 }
+
+    
+    

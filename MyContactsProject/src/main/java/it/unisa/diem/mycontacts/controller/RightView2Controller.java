@@ -5,8 +5,14 @@
  */
 package it.unisa.diem.mycontacts.controller;
 
+import it.unisa.diem.mycontacts.datastructure.GestoreOperazioniRubrica;
+
+import it.unisa.diem.mycontacts.data.Contatto;
+import it.unisa.diem.mycontacts.datastructure.Rubrica;
 import java.net.URL;
+import java.util.HashSet;
 import java.util.ResourceBundle;
+import java.util.Set;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -75,7 +81,17 @@ public class RightView2Controller implements Initializable {
 
     @FXML
     private void confermaAzione(ActionEvent event) {
-        loadView1();
+        
+        Set <Integer> numeri = new HashSet<>(numero1Field.getText(), numero2Field.getText(), numero3Field.getText());
+        Set <String> email = new HashSet<>(email1Field.getText(), email2Field.getText(), email3Field.getText());
+        
+        Contatto c = new Contatto(nomeField.getText(), cognomeField.getText(), numeri, email, preferitoCheck.isSelected());
+        if(Rubrica.aggiungiContatto(c)){
+            loadView1();
+        }
+        else{
+            
+        }
     }
 
     @FXML
