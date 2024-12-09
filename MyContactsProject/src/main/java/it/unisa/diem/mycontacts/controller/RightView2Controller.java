@@ -56,6 +56,8 @@ public class RightView2Controller implements Initializable {
     
     private MainViewController mainViewController;
     
+    private Rubrica rubrica;
+    
     /**
      * Initializes the controller class.
      * @param url
@@ -68,11 +70,13 @@ public class RightView2Controller implements Initializable {
     
     public void setMainViewController(MainViewController mainViewController) {
         this.mainViewController = mainViewController;
+        
+        this.rubrica = mainViewController.getRubrica();
     }
 
     @FXML
     private void annullaAzione(ActionEvent event) {
-        mainViewController.loadView1(null);
+        mainViewController.loadView1(null);//gestire
     }
 
     @FXML
@@ -90,7 +94,7 @@ public class RightView2Controller implements Initializable {
         
         Contatto c = new Contatto(nomeField.getText(), cognomeField.getText(), null, null, preferitoCheck.isSelected());
         
-        if(mainViewController.getRubrica().aggiungiContatto(c))
+        if(rubrica.aggiungiContatto(c))
             showAlert("Dati sbagliati", "I dati inseriti non sono compatibili");
         
         mainViewController.loadView1(c);

@@ -50,6 +50,8 @@ public class RightView1Controller implements Initializable {
     
     private MainViewController mainViewController;
     
+    private Rubrica rubrica;
+    
     private Contatto contatto;
     
     /**
@@ -62,6 +64,8 @@ public class RightView1Controller implements Initializable {
     
     public void setMainViewController(MainViewController mainViewController) {
         this.mainViewController = mainViewController;
+        
+        rubrica = mainViewController.getRubrica();
     }
     
     public void setContatto(Contatto contatto) {
@@ -90,11 +94,11 @@ public class RightView1Controller implements Initializable {
 
      @FXML
     private void eliminaContatto(ActionEvent event) {
-        if (contatto != null && mainViewController.getRubrica() != null) {
+        if (contatto != null && rubrica != null) {
             
-            if (mainViewController.getRubrica().rimuoviContatto(contatto)) {
+            if (rubrica.rimuoviContatto(contatto)) {
                 
-                if(mainViewController.getRubrica().isRubricaVuota())
+                if(rubrica.isRubricaVuota())
                     mainViewController.loadView2(null);
 
                 // Ricarica o aggiorna la visualizzazione dei contatti
@@ -110,10 +114,10 @@ public class RightView1Controller implements Initializable {
     private void switchPreferito(ActionEvent event) {
        //inverte lo staso di preferito di un contatto ( da false a true e viceversa) 
          // Verifica se un contatto è stato selezionato
-    if (contattoSelezionato != null) {
+    if (contatto != null) {
         // Inverte lo stato del contatto (da preferito a non preferito e viceversa)
-        boolean nuovoStato = !contattoSelezionato.isPreferito();
-        contattoSelezionato.setPreferito(nuovoStato);
+        boolean nuovoStato = !contatto.isPreferito();
+        contatto.setPreferito(nuovoStato);
         
         // Aggiorna l'interfaccia utente per riflettere il nuovo stato di preferito
         preferitoCheck.setSelected(nuovoStato);
@@ -121,9 +125,9 @@ public class RightView1Controller implements Initializable {
         // Se necessario, aggiorna la rubrica (aggiungi o rimuovi il contatto dai preferiti)
         if (rubrica != null) {
             if (nuovoStato) {
-                rubrica.aggiungiAPreferiti(contattoSelezionato);
+                rubrica.aggiungiAPreferiti(contatto);
             } else {
-                rubrica.rimuoviDaPreferiti(contattoSelezionato);
+                rubrica.rimuoviDaPreferiti(contatto);
             }
         }
     }
