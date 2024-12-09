@@ -6,6 +6,7 @@
 package it.unisa.diem.mycontacts.controller;
 
 import it.unisa.diem.mycontacts.data.Contatto;
+import it.unisa.diem.mycontacts.datastructure.Rubrica;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -48,7 +49,8 @@ public class RightView1Controller implements Initializable {
     private CheckBox preferitoCheck;
     
     private MainViewController mainViewController;
-    
+    private Contatto contattoSelezionato=null;
+    private Rubrica rubrica;
     
     /**
      * Initializes the controller class.
@@ -84,12 +86,52 @@ public class RightView1Controller implements Initializable {
         mainViewController.loadView2(null);
     }
 
-    @FXML
+     @FXML
     private void eliminaContatto(ActionEvent event) {
+        if (contattoSelezionato != null && rubrica != null) {
+            boolean successo = rubrica.rimuoviContatto(contattoSelezionato);
+            if (successo) {
+                // Pulisci i campi dell'interfaccia
+                nomeLabel.setText("");
+                cognomeLabel.setText("");
+                numero1Label.setText("");
+                numero2Label.setText("");
+                numero3Label.setText("");
+                email1Label.setText("");
+                email2Label.setText("");
+                email3Label.setText("");
+                preferitoCheck.setSelected(false);
+
+                // Ricarica o aggiorna la visualizzazione dei contatti
+                // Se hai una TableView, chiamerai refresh o aggiornerai la lista
+            } else {
+                System.out.println("Errore nella rimozione del contatto.");
+            }
+        }
     }
+    
 
     @FXML
     private void switchPreferito(ActionEvent event) {
+       //inverte lo staso di preferito di un contatto ( da false a true e viceversa) 
+         // Verifica se un contatto è stato selezionato
+    if (contattoSelezionato != null) {
+        // Inverte lo stato del contatto (da preferito a non preferito e viceversa)
+        boolean nuovoStato = !contattoSelezionato.isPreferito();
+        contattoSelezionato.setPreferito(nuovoStato);
+        
+        // Aggiorna l'interfaccia utente per riflettere il nuovo stato di preferito
+        preferitoCheck.setSelected(nuovoStato);
+
+        // Se necessario, aggiorna la rubrica (aggiungi o rimuovi il contatto dai preferiti)
+        if (rubrica != null) {
+            if (nuovoStato) {
+                rubrica.aggiungiAPreferiti(contattoSelezionato);
+            } else {
+                rubrica.rimuoviDaPreferiti(contattoSelezionato);
+            }
+        }
+    }
     }
     
 }
