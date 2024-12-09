@@ -12,7 +12,7 @@
    <children>
       <MenuBar blendMode="ADD" depthTest="DISABLE" maxHeight="1.7976931348623157E308" style="-fx-background-color: white;">
         <menus>
-          <Menu mnemonicParsing="false" style="-fx-text-fill: white;" text="Aggiungi ">
+          <Menu mnemonicParsing="false" text="Aggiungi ">
             <items>
               <MenuItem fx:id="addButton" mnemonicParsing="false" onAction="#aggiungiContatto" style="-fx-text-fill: white;" text="Aggiungi" />
             </items>
