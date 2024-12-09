@@ -137,6 +137,22 @@ public class Rubrica {
         throw new UnsupportedOperationException("Metodo non implementato.");
     }
     
+    public void aggiungiAPreferiti(Contatto c) {
+        elencoPreferiti.addContattoPreferito(c);
+    }
+
+    /**
+     * Rimuove un contatto dalla lista dei preferiti.
+     *
+     * @param c il contatto da rimuovere dai preferiti.
+     * @throws IllegalArgumentException se il contatto non è presente nella lista dei preferiti.
+     */
+    public void rimuoviDaPreferiti(Contatto c) {
+        if (!c.isPreferito()) {
+            throw new IllegalArgumentException("Il contatto non è presente nella lista dei preferiti.");
+        }
+        elencoPreferiti.removeContattoPreferito(c);
+    }
 }
 
     
