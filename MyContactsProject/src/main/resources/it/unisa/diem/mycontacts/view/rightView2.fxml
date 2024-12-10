@@ -27,21 +27,27 @@
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="300.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="300.0" spacing="30.0">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="300.0" spacing="30.0">
                      <children>
-                        <Label text="Nome:" textFill="#fcf9f9" />
-                        <TextField fx:id="nomeField" style="-fx-background-color: #555555;" />
+                        <Label prefHeight="21.0" prefWidth="53.0" text="Nome:" textFill="#fcf9f9" />
+                        <TextField fx:id="nomeField" alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="140.0" style="-fx-background-color: #555555;" />
                      </children>
+                     <padding>
+                        <Insets right="30.0" />
+                     </padding>
                   </HBox>
                </children>
             </VBox>
             <VBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="300.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="300.0" spacing="20.0">
                      <children>
                         <Label style="-fx-text-fill: white;" text="Cognome:" />
-                        <TextField fx:id="cognomeField" alignment="CENTER_RIGHT" style="-fx-background-color: #555555;" />
+                        <TextField fx:id="cognomeField" alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="143.0" style="-fx-background-color: #555555;" />
                      </children>
+                     <padding>
+                        <Insets right="30.0" />
+                     </padding>
                   </HBox>
                </children>
             </VBox>
@@ -51,21 +57,27 @@
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="300.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="300.0" spacing="10.0">
                      <children>
-                        <Label style="-fx-text-fill: white;" text="1. Numero:" />
-                        <TextField fx:id="numero1Field" style="-fx-background-color: #555555;" />
+                        <Label prefHeight="21.0" prefWidth="83.0" style="-fx-text-fill: white;" text="1. Numero:" />
+                        <TextField fx:id="numero1Field" alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="140.0" style="-fx-background-color: #555555;" />
                      </children>
+                     <padding>
+                        <Insets right="30.0" />
+                     </padding>
                   </HBox>
                </children>
             </VBox>
             <VBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="300.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="300.0" spacing="20.0">
                      <children>
-                        <Label style="-fx-text-fill: white;" text="1. E-Mail:" />
-                        <TextField fx:id="email1Field" style="-fx-background-color: #555555;" />
+                        <Label prefHeight="21.0" prefWidth="70.0" style="-fx-text-fill: white;" text="1. E-Mail:" />
+                        <TextField fx:id="email1Field" prefHeight="31.0" prefWidth="137.0" style="-fx-background-color: #555555;" />
                      </children>
+                     <padding>
+                        <Insets right="30.0" />
+                     </padding>
                   </HBox>
                </children>
             </VBox>
@@ -75,21 +87,27 @@
          <children>
             <VBox prefHeight="80.0" prefWidth="300.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="300.0" spacing="30.0">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="300.0" spacing="20.0">
                      <children>
                         <Label style="-fx-text-fill: white;" text="2. Numero:" />
-                        <TextField fx:id="numero2Field" style="-fx-background-color: #555555;" />
+                        <TextField fx:id="numero2Field" prefHeight="31.0" prefWidth="140.0" style="-fx-background-color: #555555;" />
                      </children>
+                     <padding>
+                        <Insets right="30.0" />
+                     </padding>
                   </HBox>
                </children>
             </VBox>
             <VBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="300.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="300.0" spacing="30.0">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="300.0" spacing="20.0">
                      <children>
                         <Label style="-fx-text-fill: white;" text="2. E-Mail:" />
-                        <TextField fx:id="email2Field" style="-fx-background-color: #555555;" />
+                        <TextField fx:id="email2Field" prefHeight="31.0" prefWidth="142.0" style="-fx-background-color: #555555;" />
                      </children>
+                     <padding>
+                        <Insets right="30.0" />
+                     </padding>
                   </HBox>
                </children>
             </VBox>
@@ -99,21 +117,27 @@
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="595.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="285.0" spacing="20.0">
                      <children>
-                        <Label style="-fx-text-fill: white;" text="3. Numero:" />
-                        <TextField fx:id="email3Field" style="-fx-background-color: #555555;" />
+                        <Label prefHeight="21.0" prefWidth="87.0" style="-fx-text-fill: white;" text="3. Numero:" />
+                        <TextField fx:id="email3Field" prefHeight="31.0" prefWidth="140.0" style="-fx-background-color: #555555;" />
                      </children>
+                     <padding>
+                        <Insets right="30.0" />
+                     </padding>
                   </HBox>
                </children>
             </VBox>
             <VBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="562.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="285.0" spacing="20.0">
                      <children>
                         <Label style="-fx-text-fill: white;" text="3. E-Mail:" />
-                        <TextField fx:id="numero3Field" style="-fx-background-color: #555555;" />
+                        <TextField fx:id="numero3Field" prefHeight="31.0" prefWidth="143.0" style="-fx-background-color: #555555;" />
                      </children>
+                     <padding>
+                        <Insets right="30.0" />
+                     </padding>
                   </HBox>
                </children>
             </VBox>
