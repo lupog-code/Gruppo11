@@ -114,22 +114,22 @@ public class RightView1Controller implements Initializable {
     private void switchPreferito(ActionEvent event) {
        //inverte lo staso di preferito di un contatto ( da false a true e viceversa) 
          // Verifica se un contatto è stato selezionato
-    if (contatto != null) {
-        // Inverte lo stato del contatto (da preferito a non preferito e viceversa)
-        contatto.switchPreferiti();
-        
-        // Aggiorna l'interfaccia utente per riflettere il nuovo stato di preferito
-        preferitoCheck.setSelected(contatto.isPreferito());
+        if (contatto != null) {
+            // Inverte lo stato del contatto (da preferito a non preferito e viceversa)
+            contatto.switchPreferiti();
 
-        // Se necessario, aggiorna la rubrica (aggiungi o rimuovi il contatto dai preferiti)
-        if (rubrica != null) {
-            if (contatto.isPreferito()) {
-                rubrica.aggiungiAPreferiti(contatto);
-            } else {
-                rubrica.rimuoviDaPreferiti(contatto);
+            // Aggiorna l'interfaccia utente per riflettere il nuovo stato di preferito
+            preferitoCheck.setSelected(contatto.isPreferito());
+
+            // Se necessario, aggiorna la rubrica (aggiungi o rimuovi il contatto dai preferiti)
+            if (rubrica != null) {
+                if (contatto.isPreferito()) {
+                    rubrica.aggiungiAPreferiti(contatto);
+                } else {
+                    rubrica.rimuoviDaPreferiti(contatto);
+                }
             }
         }
-    }
     }
     
 }

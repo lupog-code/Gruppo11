@@ -89,18 +89,6 @@ public class LeftViewController implements Initializable {
         });    
         
     }
-    
-    /*private void loadView1() {
-        if (mainViewController != null) {
-            mainViewController.loadView1(Contatto contatto);
-        }else System.err.print("stampa dal left");
-    }
-    
-    private void loadView2() {
-        if (mainViewController != null) {
-            mainViewController.loadView2();
-        }else System.err.print("stampa dal left");
-    }*/
 
     @FXML
     private void aggiungiContatto(ActionEvent event) {

@@ -97,34 +97,59 @@ public class RightView2Controller implements Initializable {
 
     @FXML
     private void annullaAzione(ActionEvent event) {
-        mainViewController.loadView1(null);//gestire
+        if(contatto != null) {
+            mainViewController.loadView1(contatto);//gestire
+        }
     }
 
     @FXML
     private void confermaAzione(ActionEvent event) {
         
-        /*Set <Integer> numeri = new HashSet<>();
-        numeri.add(Integer.parseInt(numero1Field.getText()));
-        numeri.add(Integer.parseInt(numero2Field.getText()));
-        numeri.add(Integer.parseInt(numero3Field.getText()));
+        Set <String> numeri = new HashSet<>();
+        numeri.add(numero1Field.getText());
+        numeri.add(numero2Field.getText());
+        numeri.add(numero3Field.getText());
         
         Set <String> email = new HashSet<>();
         email.add(email1Field.getText());
         email.add(email2Field.getText());
-        email.add(email3Field.getText());*/
+        email.add(email3Field.getText());
         
-        Contatto c = new Contatto(nomeField.getText(), cognomeField.getText(), null, null, preferitoCheck.isSelected());
+        Contatto c = new Contatto(nomeField.getText(), cognomeField.getText(), numeri, email, preferitoCheck.isSelected());
         
-        if(rubrica.aggiungiContatto(c))
-            showAlert("Dati sbagliati", "I dati inseriti non sono compatibili");
+        if(!rubrica.aggiungiContatto(c)) {
+            showAlert("Errore nel caricamento", "Controlla che i campi nome o cognome siano presenti");
+        } else {
+            if(contatto != null)
+            rubrica.rimuoviContatto(contatto);
         
-        mainViewController.loadView1(c);
+            contatto = c;
+        
+            mainViewController.loadView1(contatto);
+        }
         
     }
 
     @FXML
     private void switchPreferito(ActionEvent event) {
-        
+       //inverte lo staso di preferito di un contatto ( da false a true e viceversa) 
+         // Verifica se un contatto è stato selezionato
+        if (contatto != null) {
+            // Inverte lo stato del contatto (da preferito a non preferito e viceversa)
+            contatto.switchPreferiti();
+
+            // Aggiorna l'interfaccia utente per riflettere il nuovo stato di preferito
+            preferitoCheck.setSelected(contatto.isPreferito());
+
+            // Se necessario, aggiorna la rubrica (aggiungi o rimuovi il contatto dai preferiti)
+            if (rubrica != null) {
+                if (contatto.isPreferito()) {
+                    rubrica.aggiungiAPreferiti(contatto);
+                } else {
+                    rubrica.rimuoviDaPreferiti(contatto);
+                }
+            }
+        }
     }
     
     private void showAlert(String title, String message) {
