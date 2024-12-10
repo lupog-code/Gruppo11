@@ -117,9 +117,9 @@
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="595.0">
                <children>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="285.0" spacing="20.0">
+                  <HBox alignment="CENTER_RIGHT" maxWidth="-Infinity" prefHeight="80.0" prefWidth="285.0" spacing="20.0">
                      <children>
-                        <Label prefHeight="21.0" prefWidth="87.0" style="-fx-text-fill: white;" text="3. Numero:" />
+                        <Label prefHeight="21.0" prefWidth="75.0" style="-fx-text-fill: white;" text="3. Numero:" />
                         <TextField fx:id="email3Field" prefHeight="31.0" prefWidth="140.0" style="-fx-background-color: #555555;" />
                      </children>
                      <padding>
