@@ -58,6 +58,8 @@ public class RightView2Controller implements Initializable {
     
     private Rubrica rubrica;
     
+    private Contatto contatto;
+    
     /**
      * Initializes the controller class.
      * @param url
@@ -72,6 +74,25 @@ public class RightView2Controller implements Initializable {
         this.mainViewController = mainViewController;
         
         this.rubrica = mainViewController.getRubrica();
+    }
+    
+    public void setContatto(Contatto contatto) {
+        this.contatto = contatto;
+        
+        if (contatto != null) {
+            nomeField.setText(contatto.getNome());
+            cognomeField.setText(contatto.getCognome());
+            preferitoCheck.setSelected(contatto.isPreferito());
+
+            // Popola i campi dei numeri di telefono e delle email
+            if (contatto.getNumeri().size() > 0) numero1Field.setText(contatto.getNumeri().toArray()[0].toString());
+            if (contatto.getNumeri().size() > 1) numero2Field.setText(contatto.getNumeri().toArray()[1].toString());
+            if (contatto.getNumeri().size() > 2) numero3Field.setText(contatto.getNumeri().toArray()[2].toString());
+
+            if (contatto.getEmail().size() > 0) email1Field.setText(contatto.getEmail().toArray()[0].toString());
+            if (contatto.getEmail().size() > 1) email2Field.setText(contatto.getEmail().toArray()[1].toString());
+            if (contatto.getEmail().size() > 2) email3Field.setText(contatto.getEmail().toArray()[2].toString());
+        }
     }
 
     @FXML

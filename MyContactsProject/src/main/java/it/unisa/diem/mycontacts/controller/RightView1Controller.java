@@ -89,7 +89,7 @@ public class RightView1Controller implements Initializable {
 
     @FXML
     private void modificaContatto(ActionEvent event) {
-        mainViewController.loadView2(null);
+        mainViewController.loadView2(contatto);
     }
 
      @FXML
@@ -116,15 +116,14 @@ public class RightView1Controller implements Initializable {
          // Verifica se un contatto è stato selezionato
     if (contatto != null) {
         // Inverte lo stato del contatto (da preferito a non preferito e viceversa)
-        boolean nuovoStato = !contatto.isPreferito();
-        contatto.setPreferito(nuovoStato);
+        contatto.switchPreferiti();
         
         // Aggiorna l'interfaccia utente per riflettere il nuovo stato di preferito
-        preferitoCheck.setSelected(nuovoStato);
+        preferitoCheck.setSelected(contatto.isPreferito());
 
         // Se necessario, aggiorna la rubrica (aggiungi o rimuovi il contatto dai preferiti)
         if (rubrica != null) {
-            if (nuovoStato) {
+            if (contatto.isPreferito()) {
                 rubrica.aggiungiAPreferiti(contatto);
             } else {
                 rubrica.rimuoviDaPreferiti(contatto);
