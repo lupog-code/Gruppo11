@@ -123,9 +123,7 @@ public class RightView2Controller implements Initializable {
             if(contatto != null)
             rubrica.rimuoviContatto(contatto);
         
-            contatto = c;
-        
-            mainViewController.loadView1(contatto);
+            mainViewController.loadView1(c);
         }
         
     }

@@ -29,7 +29,7 @@ import javafx.scene.layout.VBox;
 public class MainViewController implements Initializable {
 
     @FXML
-    private AnchorPane leftPane;
+    private StackPane leftPane;
     @FXML
     private StackPane rightPane;
     
