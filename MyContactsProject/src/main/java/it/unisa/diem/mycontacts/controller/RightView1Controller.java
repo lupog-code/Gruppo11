@@ -59,7 +59,7 @@ public class RightView1Controller implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        preferitoCheck.setDisable(true);
     }    
     
     public void setMainViewController(MainViewController mainViewController) {

@@ -67,7 +67,7 @@ public class RightView2Controller implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        preferitoCheck.setDisable(false);
     }    
     
     public void setMainViewController(MainViewController mainViewController) {
@@ -120,7 +120,7 @@ public class RightView2Controller implements Initializable {
         if(!rubrica.aggiungiContatto(c)) {
             showAlert("Errore nel caricamento", "Controlla che i campi nome o cognome siano presenti");
         } else {
-            if(contatto != null)
+            if(contatto != null && contatto.equals(c))
             rubrica.rimuoviContatto(contatto);
         
             mainViewController.loadView1(c);
