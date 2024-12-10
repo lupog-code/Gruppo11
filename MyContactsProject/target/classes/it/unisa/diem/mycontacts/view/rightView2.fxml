@@ -30,7 +30,7 @@
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="300.0" spacing="30.0">
                      <children>
                         <Label text="Nome:" textFill="#fcf9f9" />
-                        <TextField fx:id="cognomeField" alignment="CENTER_RIGHT" style="-fx-background-color: #555555;" />
+                        <TextField fx:id="nomeField" style="-fx-background-color: #555555;" />
                      </children>
                   </HBox>
                </children>
@@ -40,7 +40,7 @@
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                      <children>
                         <Label style="-fx-text-fill: white;" text="Cognome:" />
-                        <TextField fx:id="nomeField" style="-fx-background-color: #555555;" />
+                        <TextField fx:id="cognomeField" alignment="CENTER_RIGHT" style="-fx-background-color: #555555;" />
                      </children>
                   </HBox>
                </children>
