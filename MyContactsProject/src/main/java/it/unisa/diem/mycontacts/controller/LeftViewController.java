@@ -220,7 +220,15 @@ public class LeftViewController implements Initializable {
 
     @FXML
     private void ricercaContatto(KeyEvent event) {
-        
+            // Ottieni il testo dalla searchField
+    String searchText = searchField.getText();
+
+    // Esegui la ricerca nella rubrica
+    ObservableSet<Contatto> risultati = mainViewController.getRubrica().ricercaContatti(searchText);
+
+    // Aggiorna la TableView con i risultati della ricerca
+    ObservableList<Contatto> risultatiList = FXCollections.observableArrayList(risultati);
+    contattiTable.setItems(risultatiList);  // Imposta i risultati filtrati nella TableView
     }
 
     @FXML
