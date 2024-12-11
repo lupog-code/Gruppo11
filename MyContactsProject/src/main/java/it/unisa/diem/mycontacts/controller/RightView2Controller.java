@@ -107,14 +107,14 @@ public class RightView2Controller implements Initializable {
     private void confermaAzione(ActionEvent event) {
         
         Set <String> numeri = new HashSet<>();
-        numeri.add(numero1Field.getText());
-        numeri.add(numero2Field.getText());
-        numeri.add(numero3Field.getText());
+        if(!numero1Field.getText().isEmpty()) numeri.add(numero1Field.getText());
+        if(!numero2Field.getText().isEmpty()) numeri.add(numero2Field.getText());
+        if(!numero3Field.getText().isEmpty()) numeri.add(numero3Field.getText());
         
         Set <String> email = new HashSet<>();
-        email.add(email1Field.getText());
-        email.add(email2Field.getText());
-        email.add(email3Field.getText());
+        if(!email1Field.getText().isEmpty()) email.add(email1Field.getText());
+        if(!email2Field.getText().isEmpty()) email.add(email2Field.getText());
+        if(!email3Field.getText().isEmpty()) email.add(email3Field.getText());
         
         Contatto c = new Contatto(nomeField.getText(), cognomeField.getText(), numeri, email, preferitoCheck.isSelected());
         
@@ -123,10 +123,9 @@ public class RightView2Controller implements Initializable {
         } else {
             if(contatto != null && !contatto.equals(c))
             rubrica.rimuoviContatto(contatto);
-        
-            mainViewController.loadView1(c);
         }
         
+        mainViewController.loadView1(c);
     }
 
     @FXML
