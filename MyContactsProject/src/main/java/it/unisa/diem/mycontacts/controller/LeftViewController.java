@@ -168,57 +168,53 @@ public class LeftViewController implements Initializable {
 
      
 }
-
-
-
-
+    
     @FXML
     private void esportaRubrica(ActionEvent event) {
-         // Crea un FileChooser per salvare il file
-    FileChooser fileChooser = new FileChooser();
-    fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text File", "*.txt"));
-    fileChooser.setTitle("Salva Rubrica");
-    
-    // Imposta un nome di file predefinito
-    fileChooser.setInitialFileName("rubrica.txt");
-    
-    // Mostra la finestra di dialogo per scegliere il file
-    File file = fileChooser.showSaveDialog(null);
-    
-    if (file != null) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(file))) {
-            // Itera attraverso i contatti della rubrica
-            for (Contatto contatto : mainViewController.getRubrica().getElenco()) {
-                // Costruisci una stringa per ogni contatto
-                StringBuilder contattoLine = new StringBuilder();
-                contattoLine.append(contatto.getNome()).append(",");
-                contattoLine.append(contatto.getCognome()).append(",");
-                
-                // Aggiungi numeri (se presenti)
-                List<String> numeri = new ArrayList<>(contatto.getNumeri());
-                for (int i = 0; i < 3; i++) {
-                    contattoLine.append(i < numeri.size() ? numeri.get(i) : "").append(",");
-                }
-                // Aggiungi email (se presenti)
-                 List<String> email = new ArrayList<>(contatto.getEmail());
-                for (int i = 0; i < 3; i++) {
-                    contattoLine.append(i < email.size() ? email.get(i) : "").append(",");
-                }
-                
-                // Aggiungi il flag preferito
-                contattoLine.append(contatto.isPreferito());
-                
-                // Scrivi nel file
-                writer.println(contattoLine.toString());
-            }
-            
-            System.out.println("Rubrica esportata con successo.");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Errore durante l'esportazione della rubrica.");
-        }
-    }
+        // Crea un FileChooser per salvare il file
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text File", "*.txt"));
+        fileChooser.setTitle("Salva Rubrica");
 
+        // Imposta un nome di file predefinito
+        fileChooser.setInitialFileName("rubrica.txt");
+
+        // Mostra la finestra di dialogo per scegliere il file
+        File file = fileChooser.showSaveDialog(null);
+
+        if (file != null) {
+            try (PrintWriter writer = new PrintWriter(new FileWriter(file))) {
+                // Itera attraverso i contatti della rubrica
+                for (Contatto contatto : mainViewController.getRubrica().getElenco()) {
+                    // Costruisci una stringa per ogni contatto
+                    StringBuilder contattoLine = new StringBuilder();
+                    contattoLine.append(contatto.getNome()).append(",");
+                    contattoLine.append(contatto.getCognome()).append(",");
+
+                    // Aggiungi numeri (se presenti)
+                    List<String> numeri = new ArrayList<>(contatto.getNumeri());
+                    for (int i = 0; i < 3; i++) {
+                        contattoLine.append(i < numeri.size() ? numeri.get(i) : "").append(",");
+                    }
+                    // Aggiungi email (se presenti)
+                     List<String> email = new ArrayList<>(contatto.getEmail());
+                    for (int i = 0; i < 3; i++) {
+                        contattoLine.append(i < email.size() ? email.get(i) : "").append(",");
+                    }
+
+                    // Aggiungi il flag preferito
+                    contattoLine.append(contatto.isPreferito());
+
+                    // Scrivi nel file
+                    writer.println(contattoLine.toString());
+                }
+
+                System.out.println("Rubrica esportata con successo.");
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("Errore durante l'esportazione della rubrica.");
+            }
+        }
 
     }
 
@@ -229,21 +225,21 @@ public class LeftViewController implements Initializable {
 
     @FXML
     private void mostraPreferiti(ActionEvent event) {
-      // Verifica se il bottone è attivo
-    if (prefToggle.isSelected()) {
-        // Se il toggle è selezionato, mostra solo i contatti preferiti
-        ObservableList<Contatto> preferiti = FXCollections.observableArrayList();
-        for (Contatto contatto : mainViewController.getRubrica().getElenco()) {
-            if (contatto.isPreferito()) {
-                preferiti.add(contatto);
+        // Verifica se il bottone è attivo
+        if (prefToggle.isSelected()) {
+            // Se il toggle è selezionato, mostra solo i contatti preferiti
+            ObservableList<Contatto> preferiti = FXCollections.observableArrayList();
+            for (Contatto contatto : mainViewController.getRubrica().getElenco()) {
+                if (contatto.isPreferito()) {
+                    preferiti.add(contatto);
+                }
             }
+            contattiTable.setItems(preferiti); // Imposta la lista di contatti preferiti
+        } else {
+            // Se il toggle non è selezionato, mostra tutti i contatti
+            ObservableList<Contatto> tuttiContatti = FXCollections.observableArrayList(mainViewController.getRubrica().getElenco());
+            contattiTable.setItems(tuttiContatti); // Imposta la lista di tutti i contatti
         }
-        contattiTable.setItems(preferiti); // Imposta la lista di contatti preferiti
-    } else {
-        // Se il toggle non è selezionato, mostra tutti i contatti
-        ObservableList<Contatto> tuttiContatti = FXCollections.observableArrayList(mainViewController.getRubrica().getElenco());
-        contattiTable.setItems(tuttiContatti); // Imposta la lista di tutti i contatti
-    }
     }
     
 }
