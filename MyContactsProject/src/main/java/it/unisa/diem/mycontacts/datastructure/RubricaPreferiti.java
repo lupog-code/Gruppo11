@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.unisa.diem.mycontacts.datastructure;
 
 import it.unisa.diem.mycontacts.data.Contatto;
@@ -12,28 +7,36 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableSet;
 
 /**
- * La classe RubricaPreferiti rappresenta un contenitore per gestire i contatti preferiti
- * all'interno di una rubrica. Utilizza un Set per garantire che i contatti siano univoci
- * e ordinati.
+ * @class RubricaPreferiti
+ * @brief Classe che rappresenta un contenitore per gestire i contatti preferiti in una rubrica.
+ * 
+ * La classe utilizza un Set per garantire che i contatti siano univoci e ordinati.
  */
 public class RubricaPreferiti {
     
-    // Set che contiene i contatti preferiti, ordinato e senza duplicati.
+    /**
+     * @brief Set che contiene i contatti preferiti.
+     * 
+     * Utilizza un TreeSet per garantire l'ordinamento naturale dei contatti 
+     * e l'assenza di duplicati. È avvolto in un ObservableSet per supportare il binding.
+     */
     private ObservableSet<Contatto> elencoPreferiti;
 
     /**
-     * Costruttore della classe RubricaPreferiti. Inizializza l'elenco dei contatti preferiti
-     * come un TreeSet, che garantisce l'ordinamento naturale dei contatti.
+     * @brief Costruttore della classe RubricaPreferiti.
+     * 
+     * Inizializza l'elenco dei contatti preferiti come un TreeSet, 
+     * garantendo l'ordinamento naturale e l'unicità dei contatti.
      */
     public RubricaPreferiti() {
         this.elencoPreferiti = FXCollections.observableSet(new TreeSet<>());
     }
 
     /**
-     * Aggiunge un contatto alla lista dei preferiti.
-     *
-     * @param c il contatto da aggiungere.
-     * @throws IllegalArgumentException se il contatto è null.
+     * @brief Aggiunge un contatto alla lista dei preferiti.
+     * 
+     * @param c Il contatto da aggiungere.
+     * @throw IllegalArgumentException Se il contatto passato è null.
      */
     public void addContattoPreferito(Contatto c) {
         if (c == null) {
@@ -43,10 +46,10 @@ public class RubricaPreferiti {
     }
 
     /**
-     * Rimuove un contatto dalla lista dei preferiti.
-     *
-     * @param c il contatto da rimuovere.
-     * @throws IllegalArgumentException se il contatto è null.
+     * @brief Rimuove un contatto dalla lista dei preferiti.
+     * 
+     * @param c Il contatto da rimuovere.
+     * @throw IllegalArgumentException Se il contatto passato è null.
      */
     public void removeContattoPreferito(Contatto c) {
         if (c == null) {
@@ -56,16 +59,18 @@ public class RubricaPreferiti {
     }
 
     /**
-     * Rimuove tutti i contatti dalla lista dei preferiti, svuotando l'elenco.
+     * @brief Rimuove tutti i contatti dalla lista dei preferiti.
+     * 
+     * Svuota completamente l'elenco dei contatti preferiti.
      */
     public void resetRubricaPreferiti() {
         elencoPreferiti.clear();
     }
 
     /**
-     * Restituisce l'elenco dei contatti preferiti.
-     *
-     * @return un Set contenente tutti i contatti preferiti.
+     * @brief Restituisce l'elenco dei contatti preferiti.
+     * 
+     * @return Un ObservableSet contenente tutti i contatti contrassegnati come preferiti.
      */
     public ObservableSet<Contatto> getElencoPreferiti() {
         return elencoPreferiti;

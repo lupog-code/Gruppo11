@@ -1,8 +1,3 @@
-/**
- * @file Contatto.java
- * @brief Classe che rappresenta un contatto con nome, cognome, numeri di telefono, indirizzi email e stato di preferito.
- */
-
 package it.unisa.diem.mycontacts.data;
 
 import java.util.HashSet;
