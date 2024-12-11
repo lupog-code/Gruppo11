@@ -14,8 +14,7 @@ import javafx.collections.ObservableSet;
 /**
  * La classe RubricaPreferiti rappresenta un contenitore per gestire i contatti preferiti
  * all'interno di una rubrica. Utilizza un Set per garantire che i contatti siano univoci
- * e ordinati. La struttura dati utilizzata è un ObservableSet, che consente anche di 
- * notificare automaticamente gli ascoltatori (come l'interfaccia utente) in caso di modifiche.
+ * e ordinati.
  */
 public class RubricaPreferiti {
     
@@ -25,48 +24,51 @@ public class RubricaPreferiti {
     /**
      * Costruttore della classe RubricaPreferiti. Inizializza l'elenco dei contatti preferiti
      * come un TreeSet, che garantisce l'ordinamento naturale dei contatti.
-     * Inoltre, l'ObservableSet permette di monitorare e aggiornare la UI quando la lista dei preferiti cambia.
      */
     public RubricaPreferiti() {
-        // Inizializzazione dell'elenco dei preferiti come un TreeSet ordinato
         this.elencoPreferiti = FXCollections.observableSet(new TreeSet<>());
     }
 
     /**
      * Aggiunge un contatto alla lista dei preferiti.
-     * Se il contatto è già presente nell'elenco, non verrà aggiunto di nuovo (grazie al comportamento del Set).
      *
      * @param c il contatto da aggiungere.
+     * @throws IllegalArgumentException se il contatto è null.
      */
     public void addContattoPreferito(Contatto c) {
-        elencoPreferiti.add(c);  // Aggiunge il contatto all'elenco dei preferiti.
+        if (c == null) {
+            throw new IllegalArgumentException("Il contatto non può essere null.");
+        }
+        elencoPreferiti.add(c);
     }
 
     /**
      * Rimuove un contatto dalla lista dei preferiti.
-     * Se il contatto non è presente, non succede nulla (comportamento del Set).
      *
      * @param c il contatto da rimuovere.
+     * @throws IllegalArgumentException se il contatto è null.
      */
     public void removeContattoPreferito(Contatto c) {
-        elencoPreferiti.remove(c);  // Rimuove il contatto dall'elenco dei preferiti.
+        if (c == null) {
+            throw new IllegalArgumentException("Il contatto non può essere null.");
+        }
+        elencoPreferiti.remove(c);
     }
 
     /**
-     * Rimuove tutti i contatti dalla lista dei preferiti, svuotando completamente l'elenco.
+     * Rimuove tutti i contatti dalla lista dei preferiti, svuotando l'elenco.
      */
     public void resetRubricaPreferiti() {
-        elencoPreferiti.clear();  // Svuota l'elenco dei preferiti.
+        elencoPreferiti.clear();
     }
 
     /**
      * Restituisce l'elenco dei contatti preferiti.
-     * L'elenco è rappresentato come un ObservableSet, che permette di monitorare 
-     * eventuali modifiche e riflettere automaticamente le modifiche nell'interfaccia utente.
      *
      * @return un Set contenente tutti i contatti preferiti.
      */
     public ObservableSet<Contatto> getElencoPreferiti() {
-        return elencoPreferiti;  // Restituisce l'elenco dei contatti preferiti.
+        return elencoPreferiti;
     }
 }
+

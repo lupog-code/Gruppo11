@@ -59,12 +59,7 @@ public class Rubrica {
         return elencoPreferiti.getElencoPreferiti();
     }
     
-    /**
-     * Esegue una ricerca di contatti basata su un testo. La ricerca viene effettuata sui campi nome e cognome.
-     *
-     * @param text il testo da cercare (nome o cognome)
-     * @return un ObservableSet contenente i contatti che corrispondono alla ricerca.
-     */
+    
     public ObservableSet<Contatto> ricercaContatti(String text) {
         ObservableSet<Contatto> risultati = FXCollections.observableSet(new TreeSet<>());
 
@@ -82,13 +77,6 @@ public class Rubrica {
         return risultati;
     }
 
-    /**
-     * Aggiunge un contatto alla rubrica.
-     * Se il contatto è preferito, viene aggiunto anche alla lista dei preferiti.
-     *
-     * @param c il contatto da aggiungere
-     * @return true se il contatto è stato aggiunto correttamente, false altrimenti.
-     */
     public boolean aggiungiContatto(Contatto c) {
         // Verifica la validità del contatto.
         if (!c.contattoValido()) {
@@ -105,13 +93,7 @@ public class Rubrica {
 
         return true;
     }
-
-    /**
-     * Rimuove un contatto dalla rubrica e dalla lista dei preferiti se presente.
-     *
-     * @param c il contatto da rimuovere.
-     * @return true se il contatto è stato rimosso correttamente, false altrimenti.
-     */
+    
     public boolean rimuoviContatto(Contatto c) {
         // Verifica se la rubrica è vuota.
         if (isRubricaVuota()) {
@@ -145,16 +127,9 @@ public class Rubrica {
     public boolean isRubricaVuota() {
         return elenco.isEmpty();
     }
-
-    /**
-     * Aggiunge un contatto ai preferiti, se non è già contrassegnato come preferito.
-     *
-     * @param c il contatto da aggiungere ai preferiti.
-     */
+    
     public void aggiungiAPreferiti(Contatto c) {
-        if (!c.isPreferito()) {
-            elencoPreferiti.addContattoPreferito(c);
-        }
+        elencoPreferiti.addContattoPreferito(c);
     }
 
     /**
@@ -164,18 +139,20 @@ public class Rubrica {
      * @throws IllegalArgumentException se il contatto non è presente nella lista dei preferiti.
      */
     public void rimuoviDaPreferiti(Contatto c) {
-        if (c.isPreferito()) {
-            elencoPreferiti.removeContattoPreferito(c);
+        if (!c.isPreferito()) {
+            throw new IllegalArgumentException("Il contatto non è presente nella lista dei preferiti.");
         }
+        elencoPreferiti.removeContattoPreferito(c);
     }
-
-    /**
+    
+     /**
      * Esporta la rubrica in un file specificato.
-     * Questo metodo salva i contatti su disco in un formato leggibile (testo).
+     * Questo metodo deve essere implementato per salvare i dati su disco.
      * 
      * @throws IOException se si verifica un errore durante l'esportazione.
      */
     public void esportaRubrica() throws IOException {
+        // Implementazione da completare per salvare la rubrica su un file.
         // Crea un FileChooser per salvare il file
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text File", "*.txt"));
@@ -202,7 +179,7 @@ public class Rubrica {
                         contattoLine.append(i < numeri.size() ? numeri.get(i) : "").append(",");
                     }
                     // Aggiungi email (se presenti)
-                    List<String> email = new ArrayList<>(contatto.getEmail());
+                     List<String> email = new ArrayList<>(contatto.getEmail());
                     for (int i = 0; i < 3; i++) {
                         contattoLine.append(i < email.size() ? email.get(i) : "").append(",");
                     }
@@ -217,16 +194,10 @@ public class Rubrica {
                 System.out.println("Rubrica esportata con successo.");
             } catch (IOException e) {
                 System.out.println("Errore durante l'esportazione della rubrica.");
-                throw e; // Propaga l'eccezione dopo aver loggato l'errore
             }
         }
     }
-
-    /**
-     * Importa i contatti da un file di testo e aggiunge i contatti nella rubrica.
-     * 
-     * @throws IOException se si verifica un errore durante l'importazione.
-     */
+    
     public void importaRubrica() throws IOException {
         // Crea un FileChooser per selezionare il file da importare
         FileChooser fileChooser = new FileChooser();
@@ -237,7 +208,10 @@ public class Rubrica {
         File file = fileChooser.showOpenDialog(null);
 
         if (file != null) {
-            try (Scanner scanner = new Scanner(file)) {
+            try {
+                // Crea uno scanner per leggere il file
+                Scanner scanner = new Scanner(file);
+
                 // Leggi il file riga per riga
                 while (scanner.hasNextLine()) {
                     String line = scanner.nextLine();
@@ -245,11 +219,13 @@ public class Rubrica {
                     // Dividi la riga in base alla virgola
                     String[] contattoData = line.split(",");
 
+
+
                     String nome = contattoData[0];
                     String cognome = contattoData[1];
 
                     // Gestisci i numeri (assumendo che siano separati da virgola)
-                    Set<String> numeri = new HashSet<>();
+                   Set<String> numeri = new HashSet<>();
                     for (int i = 2; i < 5; i++) {  // Fino a 3 numeri
                         if (i < contattoData.length && !contattoData[i].trim().isEmpty()) {
                             numeri.add(contattoData[i].trim());  // Aggiungi solo se non vuoto
@@ -257,7 +233,7 @@ public class Rubrica {
                     }
 
                     // Gestisci le email (assumendo che siano separati da virgola)
-                    Set<String> email = new HashSet<>();
+                      Set<String> email = new HashSet<>();
                     for (int i = 5; i < 8; i++) {  // Fino a 3 email
                         if (i < contattoData.length && !contattoData[i].trim().isEmpty()) {
                             email.add(contattoData[i].trim());  // Aggiungi solo se non vuoto
@@ -269,16 +245,18 @@ public class Rubrica {
 
                     // Crea il nuovo contatto
                     Contatto nuovoContatto = new Contatto(nome, cognome, numeri, email, preferito);
-
-                    // Aggiungi il nuovo contatto alla rubrica
                     aggiungiContatto(nuovoContatto);
                 }
 
+                scanner.close();
                 System.out.println("Rubrica importata con successo.");
             } catch (IOException e) {
                 System.out.println("Errore nell'importazione del file.");
-                throw e; // Propaga l'eccezione dopo aver loggato l'errore
             }
         }
     }
+    
 }
+
+    
+    
