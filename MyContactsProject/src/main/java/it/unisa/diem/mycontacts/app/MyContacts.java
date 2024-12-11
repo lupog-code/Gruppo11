@@ -19,6 +19,8 @@ public class MyContacts extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("../view/mainView"), 1000, 600);
         stage.setScene(scene);
+        stage.setMinHeight(500);
+        stage.setMinWidth(800);
         stage.setTitle("MyContacts");
         stage.show();
     }

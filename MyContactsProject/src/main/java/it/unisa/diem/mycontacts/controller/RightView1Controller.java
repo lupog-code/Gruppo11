@@ -8,6 +8,8 @@ package it.unisa.diem.mycontacts.controller;
 import it.unisa.diem.mycontacts.data.Contatto;
 import it.unisa.diem.mycontacts.datastructure.Rubrica;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -98,9 +100,13 @@ public class RightView1Controller implements Initializable {
             
             if (rubrica.rimuoviContatto(contatto)) {
                 
-                if(rubrica.isRubricaVuota())
+                if(rubrica.isRubricaVuota()) {
                     mainViewController.loadView2(null);
-
+                } else {
+                    List<Contatto> list = new ArrayList<>(rubrica.getElenco());
+                    mainViewController.loadView2(list.get(0));
+                }
+                
                 // Ricarica o aggiorna la visualizzazione dei contatti
                 // Se hai una TableView, chiamerai refresh o aggiornerai la lista
             } else {

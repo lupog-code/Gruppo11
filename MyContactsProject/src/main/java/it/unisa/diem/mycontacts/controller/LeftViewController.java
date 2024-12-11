@@ -81,10 +81,10 @@ public class LeftViewController implements Initializable {
         listaContatti = FXCollections.observableArrayList();
         contattiTable.setItems(listaContatti);
         
-        contattiTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null) {
+        contattiTable.getSelectionModel().selectedItemProperty().addListener((observable, oldVContact, newContact) -> {
+            if (newContact != null) {
                 // Passa il contatto selezionato al MainViewController per caricare la RightView2
-                mainViewController.loadView1(newValue);
+                mainViewController.loadView1(newContact);
             }
         });
     }    
@@ -142,7 +142,7 @@ public class LeftViewController implements Initializable {
     String searchText = searchField.getText();
 
     // Esegui la ricerca nella rubrica
-    ObservableSet<Contatto> risultati = mainViewController.getRubrica().ricercaContatti(searchText);
+    ObservableSet<Contatto> risultati = rubrica.ricercaContatti(searchText);
 
     // Aggiorna la TableView con i risultati della ricerca
     ObservableList<Contatto> risultatiList = FXCollections.observableArrayList(risultati);
