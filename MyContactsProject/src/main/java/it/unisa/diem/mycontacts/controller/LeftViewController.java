@@ -104,7 +104,6 @@ public class LeftViewController implements Initializable {
 
     @FXML
     private void importaRubrica(ActionEvent event) {
- private void importaRubrica(ActionEvent event) {
     // Crea un FileChooser per selezionare il file da importare
     FileChooser fileChooser = new FileChooser();
     fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text File", "*.txt"));
