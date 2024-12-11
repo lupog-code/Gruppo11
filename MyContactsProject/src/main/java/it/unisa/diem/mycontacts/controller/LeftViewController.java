@@ -8,6 +8,7 @@ package it.unisa.diem.mycontacts.controller;
 import it.unisa.diem.mycontacts.data.Contatto;
 import it.unisa.diem.mycontacts.datastructure.Rubrica;
 import it.unisa.diem.mycontacts.datastructure.RubricaPreferiti;
+import java.awt.Image;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -20,6 +21,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.Set;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -35,6 +38,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.FileChooser;
 
@@ -69,6 +73,10 @@ public class LeftViewController implements Initializable {
     private ObservableList<Contatto> listaContattiPreferiti;  
     
     private MainViewController mainViewController;
+    @FXML
+    private ImageView notSelectedImagine;
+    @FXML
+    private ImageView selectedImagine;
     
     /**
      * Initializes the controller class.
@@ -155,6 +163,11 @@ public class LeftViewController implements Initializable {
         if (prefToggle.isSelected()) {
             // Se il toggle è selezionato, mostra solo i contatti preferiti
             contattiTable.setItems(listaContattiPreferiti); // Imposta la lista di contatti preferiti
+            
+            ObjectProperty<Image> imageProperty = new SimpleObjectProperty<>();
+            
+            
+            
         } else {
             // Se il toggle non è selezionato, mostra tutti i contatti
             contattiTable.setItems(listaContatti); // Imposta la lista di tutti i contatti
