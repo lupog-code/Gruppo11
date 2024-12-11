@@ -62,6 +62,8 @@ public class LeftViewController implements Initializable {
     
     private ObservableList<Contatto> listaContatti;  
     
+    private ObservableList<Contatto> listaContattiPreferiti;  
+    
     private MainViewController mainViewController;
     
     /**
@@ -98,6 +100,18 @@ public class LeftViewController implements Initializable {
                     listaContatti.remove(change.getElementRemoved());
                 }
         });    
+        
+        listaContattiPreferiti = FXCollections.observableArrayList(mainViewController.getRubrica().getElencoPreferiti().getElencoPreferiti());
+        
+        ObservableSet<Contatto> rubricaPreferitiSet = mainViewController.getRubrica().getElencoPreferiti().getElencoPreferiti();
+        rubricaPreferitiSet.addListener((SetChangeListener<Contatto>) change -> {
+                if (change.wasAdded()) {
+                    listaContatti.add(change.getElementAdded());
+                }
+                if (change.wasRemoved()) {
+                    listaContatti.remove(change.getElementRemoved());
+                }
+        });
         
     }
 

@@ -44,15 +44,6 @@ public class MainViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         rubrica = new Rubrica();
         
-        /*Set <Integer>numeri = new HashSet<>();
-        numeri.add(3);*/
-        Set <String>email = new HashSet<>();
-        email.add("prova@gmail.com");
-        email.add("pro.34553.va@gmail.com");
-        
-        rubrica.aggiungiContatto(new Contatto("Mario", "Rossi",new HashSet<>(),new HashSet<>(),false));
-        rubrica.aggiungiContatto(new Contatto("Gian", "Marco",new HashSet<>(),email,true));
-        
         try {
             FXMLLoader view = new FXMLLoader(getClass().getResource("../view/leftView.fxml"));
             leftPane.getChildren().clear();
