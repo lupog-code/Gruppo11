@@ -32,6 +32,7 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -76,6 +77,8 @@ public class LeftViewController implements Initializable {
     private ObservableList<Contatto> listaContattiPreferiti;  
     
     private MainViewController mainViewController;
+    @FXML
+    private Label labelRubrica;
     
     
     /**
@@ -164,12 +167,14 @@ public class LeftViewController implements Initializable {
         if (prefToggle.isSelected()) {
             // Se il toggle è selezionato, mostra solo i contatti preferiti
             contattiTable.setItems(listaContattiPreferiti); // Imposta la lista di contatti preferiti
+            labelRubrica.setText("Rubrica preferiti:");
             
             
             
         } else {
             // Se il toggle non è selezionato, mostra tutti i contatti
             contattiTable.setItems(listaContatti); // Imposta la lista di tutti i contatti
+             labelRubrica.setText("Rubrica:");
             
         }
     }

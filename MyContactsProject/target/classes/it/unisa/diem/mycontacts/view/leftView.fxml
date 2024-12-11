@@ -60,7 +60,7 @@
       </Label>
       <TextField fx:id="searchField" maxWidth="1.7976931348623157E308" onKeyPressed="#ricercaContatto" prefHeight="33.0" prefWidth="202.0" style="-fx-background-color: grey; -fx-border-color: white;" />
       <ToggleButton fx:id="prefToggle" blendMode="SOFT_LIGHT" mnemonicParsing="false" onAction="#mostraPreferiti" text="Preferiti" />
-      <Label style="-fx-text-fill: white;" text="Rubrica:">
+      <Label fx:id="labelRubrica" style="-fx-text-fill: white;" text="Rubrica:">
          <font>
             <Font size="16.0" />
          </font>
