@@ -8,9 +8,13 @@ package it.unisa.diem.mycontacts.controller;
 import it.unisa.diem.mycontacts.data.Contatto;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.Set;
@@ -104,7 +108,7 @@ public class LeftViewController implements Initializable {
 
     @FXML
     private void importaRubrica(ActionEvent event) {
-    // Crea un FileChooser per selezionare il file da importare
+     // Crea un FileChooser per selezionare il file da importare
     FileChooser fileChooser = new FileChooser();
     fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text File", "*.txt"));
     fileChooser.setTitle("Seleziona un file da importare");
@@ -130,23 +134,23 @@ public class LeftViewController implements Initializable {
                 String cognome = contattoData[1];
 
                 // Gestisci i numeri (assumendo che siano separati da virgola)
-                Set<String> numeri = new HashSet<>();
-                for (int i = 2; i < 4; i++) {
-                    try {
-                        numeri.add((contattoData[i]));
-                    } catch (NumberFormatException e) {
-                        System.out.println("Numero non valido nella riga: " + line);
+               Set<String> numeri = new HashSet<>();
+                for (int i = 2; i < 5; i++) {  // Fino a 3 numeri
+                    if (i < contattoData.length && !contattoData[i].trim().isEmpty()) {
+                        numeri.add(contattoData[i].trim());  // Aggiungi solo se non vuoto
                     }
                 }
 
                 // Gestisci le email (assumendo che siano separati da virgola)
-                Set<String> email = new HashSet<>();
-                for (int i = 4; i < 6; i++) {
-                    email.add(contattoData[i]);
+                  Set<String> email = new HashSet<>();
+                for (int i = 5; i < 8; i++) {  // Fino a 3 email
+                    if (i < contattoData.length && !contattoData[i].trim().isEmpty()) {
+                        email.add(contattoData[i].trim());  // Aggiungi solo se non vuoto
+                    }
                 }
 
                 // Gestisci il campo preferito (vero o falso)
-                boolean preferito = Boolean.parseBoolean(contattoData[6]);
+                boolean preferito = Boolean.parseBoolean(contattoData[8]);
 
                 // Crea il nuovo contatto
                 Contatto nuovoContatto = new Contatto(nome, cognome, numeri, email, preferito);
@@ -161,6 +165,7 @@ public class LeftViewController implements Initializable {
         }
     }
 
+
      
 }
 
@@ -169,6 +174,52 @@ public class LeftViewController implements Initializable {
 
     @FXML
     private void esportaRubrica(ActionEvent event) {
+         // Crea un FileChooser per salvare il file
+    FileChooser fileChooser = new FileChooser();
+    fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text File", "*.txt"));
+    fileChooser.setTitle("Salva Rubrica");
+    
+    // Imposta un nome di file predefinito
+    fileChooser.setInitialFileName("rubrica.txt");
+    
+    // Mostra la finestra di dialogo per scegliere il file
+    File file = fileChooser.showSaveDialog(null);
+    
+    if (file != null) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(file))) {
+            // Itera attraverso i contatti della rubrica
+            for (Contatto contatto : mainViewController.getRubrica().getElenco()) {
+                // Costruisci una stringa per ogni contatto
+                StringBuilder contattoLine = new StringBuilder();
+                contattoLine.append(contatto.getNome()).append(",");
+                contattoLine.append(contatto.getCognome()).append(",");
+                
+                // Aggiungi numeri (se presenti)
+                List<String> numeri = new ArrayList<>(contatto.getNumeri());
+                for (int i = 0; i < 3; i++) {
+                    contattoLine.append(i < numeri.size() ? numeri.get(i) : "").append(",");
+                }
+                // Aggiungi email (se presenti)
+                 List<String> email = new ArrayList<>(contatto.getEmail());
+                for (int i = 0; i < 3; i++) {
+                    contattoLine.append(i < email.size() ? email.get(i) : "").append(",");
+                }
+                
+                // Aggiungi il flag preferito
+                contattoLine.append(contatto.isPreferito());
+                
+                // Scrivi nel file
+                writer.println(contattoLine.toString());
+            }
+            
+            System.out.println("Rubrica esportata con successo.");
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Errore durante l'esportazione della rubrica.");
+        }
+    }
+
+
     }
 
     @FXML
@@ -178,7 +229,7 @@ public class LeftViewController implements Initializable {
 
     @FXML
     private void mostraPreferiti(ActionEvent event) {
-        // Verifica se il bottone è attivo
+      // Verifica se il bottone è attivo
     if (prefToggle.isSelected()) {
         // Se il toggle è selezionato, mostra solo i contatti preferiti
         ObservableList<Contatto> preferiti = FXCollections.observableArrayList();
