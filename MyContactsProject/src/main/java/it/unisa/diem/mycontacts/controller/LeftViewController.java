@@ -33,6 +33,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -56,6 +57,8 @@ public class LeftViewController implements Initializable {
     @FXML
     private MenuItem exportButton;
     @FXML
+    private MenuItem resetButton;
+    @FXML
     private TextField searchField;
     @FXML
     private ToggleButton prefToggle;
@@ -73,7 +76,7 @@ public class LeftViewController implements Initializable {
     private ObservableList<Contatto> listaContattiPreferiti;  
     
     private MainViewController mainViewController;
-  
+    
     
     /**
      * Initializes the controller class.
@@ -92,6 +95,7 @@ public class LeftViewController implements Initializable {
                 mainViewController.loadView1(newContact);
             }
         });
+        
     }    
 
     public void setMainViewController(MainViewController mainViewController) {
@@ -168,6 +172,12 @@ public class LeftViewController implements Initializable {
             contattiTable.setItems(listaContatti); // Imposta la lista di tutti i contatti
             
         }
+    }
+
+    @FXML
+    private void resetRubrica(ActionEvent event) {
+        rubrica.resetRubrica();
+        mainViewController.loadView2(null);
     }
     
 }
