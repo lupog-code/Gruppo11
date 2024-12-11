@@ -23,6 +23,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 
 /**
  * FXML Controller class
@@ -120,7 +121,7 @@ public class RightView2Controller implements Initializable {
         if(!rubrica.aggiungiContatto(c)) {
             showAlert("Errore nel caricamento", "Controlla che i campi nome o cognome siano presenti");
         } else {
-            if(contatto != null && contatto.equals(c))
+            if(contatto != null && !contatto.equals(c))
             rubrica.rimuoviContatto(contatto);
         
             mainViewController.loadView1(c);
@@ -156,6 +157,12 @@ public class RightView2Controller implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    @FXML
+    private void controlloNumero(KeyEvent event) {
+        if(!event.getCharacter().matches("\\d"))
+            event.consume();
     }
     
 }
