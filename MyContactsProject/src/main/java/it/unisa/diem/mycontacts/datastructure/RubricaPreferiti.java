@@ -19,7 +19,7 @@ import javafx.collections.ObservableSet;
 public class RubricaPreferiti {
     
     // Set che contiene i contatti preferiti, ordinato e senza duplicati.
-    private final ObservableSet<Contatto> elencoPreferiti;
+    private ObservableSet<Contatto> elencoPreferiti;
 
     /**
      * Costruttore della classe RubricaPreferiti. Inizializza l'elenco dei contatti preferiti

@@ -165,30 +165,7 @@ public class Contatto implements Comparable<Contatto> {
      */
     public boolean contattoValido() {
         // Verifica che il contatto abbia almeno un nome o un cognome non vuoto
-        if (cognome.isEmpty() && nome.isEmpty()) {
-            return false;
-        }
-
-        /*
-        if(!numeri.isEmpty()) {
-            // Verifica la lunghezza dei numeri di telefono (tra 3 e 10 cifre)
-            for (String numero : numeri) {
-                if (numero.length() > 10 || numero.length() < 3) {
-                    return false;  // I numeri devono avere tra 3 e 10 cifre
-                }
-            }
-        }
-
-        if(!email.isEmpty()) {
-            // Verifica la validità degli indirizzi email (struttura corretta e nessun spazio)
-            for (String mail : email) {
-                if (!mail.matches("^[a-zA-Z0-9](\\.?[a-zA-Z0-9])*@[a-zA-Z0-9]+\\.[a-zA-Z]{2,3}$") || mail.contains(" ")) {
-                    return false;  // Le email devono avere una struttura valida e non devono contenere spazi
-                }
-            }
-        }*/
-
-        return true;
+        return !(cognome.isEmpty() && nome.isEmpty());
     }
 }
 

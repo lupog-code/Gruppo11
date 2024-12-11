@@ -119,7 +119,7 @@ public class RightView2Controller implements Initializable {
         Contatto c = new Contatto(nomeField.getText(), cognomeField.getText(), numeri, email, preferitoCheck.isSelected());
         
         // Controllo se i campi nome e cognome sono validi
-        if (c.getNome().isEmpty() && c.getCognome().isEmpty()) {
+        if (!c.contattoValido()) {
             showAlert("Errore nel caricamento", "Controlla che i campi nome o cognome siano presenti");
             return;
         }
@@ -130,8 +130,8 @@ public class RightView2Controller implements Initializable {
         }
 
         // Aggiungi il nuovo contatto alla rubrica
-        if (!rubrica.aggiungiContatto(c)) {
-            showAlert("Errore", "Esiste già un contatto con gli stessi dati.");
+        if (!rubrica.aggiungiContatto(contatto)) {
+            showAlert("Errore nel caricamento", "Controlla che i campi nome o cognome siano presenti");
             return;
         }
 
@@ -142,7 +142,7 @@ public class RightView2Controller implements Initializable {
             rubrica.rimuoviContatto(contatto);
         }*/
         
-        mainViewController.loadView1(c);
+        mainViewController.loadView1(contatto);
     }
 
     @FXML
