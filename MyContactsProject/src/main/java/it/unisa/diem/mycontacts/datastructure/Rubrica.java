@@ -120,22 +120,8 @@ public class Rubrica {
         return elenco.isEmpty();
     }
     
-        /**
-     * Esporta la rubrica in un file specificato.
-     * Questo metodo deve essere implementato per salvare i dati su disco.
-     * 
-     * @param nomefile il nome del file su cui esportare la rubrica.
-     * @throws IOException se si verifica un errore durante l'esportazione.
-     */
-    public void esportaRubrica(String nomefile) throws IOException {
-        // Implementazione da completare per salvare la rubrica su un file.
-        throw new UnsupportedOperationException("Metodo non implementato.");
-    }
     
-    public static void importaRubrica(String nomefile) throws IOException {
-        // Implementazione da completare per leggere e importare la rubrica da un file.
-        throw new UnsupportedOperationException("Metodo non implementato.");
-    }
+    
     
     public void aggiungiAPreferiti(Contatto c) {
         elencoPreferiti.addContattoPreferito(c);
