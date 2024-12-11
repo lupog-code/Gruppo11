@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.unisa.diem.mycontacts.controller;
 
 import it.unisa.diem.mycontacts.data.Contatto;
@@ -27,12 +22,14 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.input.KeyEvent;
 
 /**
- * FXML Controller class
- *
- * @author lupo
+ * @class LeftViewController
+ * @brief Questa classe funge da controller per la vista a sinistra dell'applicazione, gestendo
+ *        la visualizzazione e l'interazione con la rubrica di contatti. Gestisce l'aggiunta,
+ *        ricerca, importazione, esportazione e visualizzazione dei contatti preferiti.
  */
 public class LeftViewController implements Initializable {
 
+    // Riferimenti agli elementi dell'interfaccia utente
     @FXML
     private MenuItem addButton;
     @FXML
@@ -52,97 +49,143 @@ public class LeftViewController implements Initializable {
     @FXML
     private TableColumn<Contatto, String> cognomeColumn;
     
+    // Oggetti per gestire la rubrica e le liste di contatti
     private Rubrica rubrica;
-    
     private ObservableList<Contatto> listaContatti;  
-    
     private ObservableList<Contatto> listaContattiPreferiti;  
     
+    // Riferimento al controller della vista principale
     private MainViewController mainViewController;
+
+    // Etichetta per il titolo della rubrica
     @FXML
     private Label labelRubrica;
     
-    
     /**
-     * Initializes the controller class.
+     * @brief Metodo di inizializzazione del controller. Configura le colonne della TableView
+     *        e imposta i listener per le modifiche nella rubrica.
+     * 
+     * @param url L'URL del file FXML.
+     * @param rb Le risorse locali utilizzate nel file FXML.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        // Configura le celle per le colonne nome e cognome
         nomeColumn.setCellValueFactory(c -> { return new SimpleStringProperty(c.getValue().getNome()); });
         cognomeColumn.setCellValueFactory(c -> { return new SimpleStringProperty(c.getValue().getCognome()); });
         
+        // Inizializza la lista dei contatti e la associa alla TableView
         listaContatti = FXCollections.observableArrayList();
         contattiTable.setItems(listaContatti);
         
+        // Aggiunge un listener per la selezione di un contatto nella TableView
         contattiTable.getSelectionModel().selectedItemProperty().addListener((observable, oldVContact, newContact) -> {
             if (newContact != null) {
                 // Passa il contatto selezionato al MainViewController per caricare la RightView2
                 mainViewController.loadView1(newContact);
             }
         });
-        
     }    
 
+    /**
+     * @brief Imposta il controller della vista principale e inizializza la rubrica.
+     *        Popola la TableView con i contatti della rubrica e aggiorna le liste di contatti preferiti.
+     * 
+     * @param mainViewController Il controller della vista principale.
+     */
     public void setMainViewController(MainViewController mainViewController) {
         this.mainViewController = mainViewController;
         
+        // Ottiene la rubrica dal MainViewController e la associa alla TableView
         rubrica = mainViewController.getRubrica();
-        
         listaContatti = FXCollections.observableArrayList(rubrica.getElenco());
-        contattiTable.setItems(listaContatti); // Collega la lista osservabile alla TableView
+        contattiTable.setItems(listaContatti);
         
+        // Crea e aggiorna la lista dei contatti preferiti
         listaContattiPreferiti = FXCollections.observableArrayList(rubrica.getElencoPreferiti());
         
+        // Aggiunge un listener per gestire le modifiche nella rubrica
         ObservableSet<Contatto> rubricaSet = rubrica.getElenco();
         rubricaSet.addListener((SetChangeListener<Contatto>) change -> {
-                if (change.wasAdded()) {
-                    listaContatti.add(change.getElementAdded());
-                }
-                if (change.wasRemoved()) {
-                    listaContatti.remove(change.getElementRemoved());
-                }
-        });  
+            if (change.wasAdded()) {
+                listaContatti.add(change.getElementAdded());
+            }
+            if (change.wasRemoved()) {
+                listaContatti.remove(change.getElementRemoved());
+            }
+        });
         
+        // Aggiunge un listener per gestire le modifiche nei contatti preferiti
         ObservableSet<Contatto> rubricaPreferitiSet = rubrica.getElencoPreferiti();
         rubricaPreferitiSet.addListener((SetChangeListener<Contatto>) change -> {
-                if (change.wasAdded()) {
-                    listaContattiPreferiti.add(change.getElementAdded());
-                }
-                if (change.wasRemoved()) {
-                    listaContattiPreferiti.remove(change.getElementRemoved());
-                }
-        });  
-        
+            if (change.wasAdded()) {
+                listaContattiPreferiti.add(change.getElementAdded());
+            }
+            if (change.wasRemoved()) {
+                listaContattiPreferiti.remove(change.getElementRemoved());
+            }
+        });
     }
 
+    /**
+     * @brief Gestisce l'azione di aggiunta di un nuovo contatto.
+     *        Carica la vista per aggiungere un nuovo contatto.
+     * 
+     * @param event L'evento scatenato dal clic sul bottone.
+     */
     @FXML
     private void aggiungiContatto(ActionEvent event) {
-        mainViewController.loadView2(null);
+        mainViewController.loadView2(null); // Carica la vista per aggiungere un contatto
     }
 
+    /**
+     * @brief Gestisce l'azione di importazione della rubrica.
+     *        Carica i contatti da un file esterno.
+     * 
+     * @param event L'evento scatenato dal clic sul bottone.
+     * @throws IOException Se si verifica un errore durante l'importazione.
+     */
     @FXML
     private void importaRubrica(ActionEvent event) throws IOException {
-        rubrica.importaRubrica();
+        rubrica.importaRubrica(); // Importa la rubrica
     }
     
+    /**
+     * @brief Gestisce l'azione di esportazione della rubrica.
+     *        Salva i contatti su un file esterno.
+     * 
+     * @param event L'evento scatenato dal clic sul bottone.
+     * @throws IOException Se si verifica un errore durante l'esportazione.
+     */
     @FXML
     private void esportaRubrica(ActionEvent event) throws IOException {
-        rubrica.esportaRubrica();
+        rubrica.esportaRubrica(); // Esporta la rubrica
     }
 
+    /**
+     * @brief Gestisce la ricerca di contatti nella rubrica.
+     *        Filtra i contatti in base al testo inserito nel campo di ricerca.
+     * 
+     * @param event L'evento scatenato dalla pressione di un tasto nel campo di ricerca.
+     */
     @FXML
     private void ricercaContatto(KeyEvent event) {
-            // Ottieni il testo dalla searchField
-    String searchText = searchField.getText();
+        // Ottieni il testo dalla searchField
+        String searchText = searchField.getText();
 
-    // Esegui la ricerca nella rubrica
-    ObservableSet<Contatto> risultati = rubrica.ricercaContatti(searchText);
+        // Esegui la ricerca nella rubrica
+        ObservableSet<Contatto> risultati = rubrica.ricercaContatti(searchText);
 
-    // Aggiorna la TableView con i risultati della ricerca
-    ObservableList<Contatto> risultatiList = FXCollections.observableArrayList(risultati);
-    contattiTable.setItems(risultatiList);  // Imposta i risultati filtrati nella TableView
+        // Aggiorna la TableView con i risultati della ricerca
+        ObservableList<Contatto> risultatiList = FXCollections.observableArrayList(risultati);
+        contattiTable.setItems(risultatiList); // Imposta i risultati filtrati nella TableView
     }
 
+    /**
+     * @brief Mostra i contatti preferiti o tutti i contatti in base allo stato del ToggleButton.
+     * 
+     * @param event L'evento scatenato dal clic sul bottone di Toggle.
+     */
     @FXML
     private void mostraPreferiti(ActionEvent event) {
         // Verifica se il bottone è attivo
@@ -150,21 +193,21 @@ public class LeftViewController implements Initializable {
             // Se il toggle è selezionato, mostra solo i contatti preferiti
             contattiTable.setItems(listaContattiPreferiti); // Imposta la lista di contatti preferiti
             labelRubrica.setText("Rubrica preferiti:");
-            
-            
-            
         } else {
             // Se il toggle non è selezionato, mostra tutti i contatti
             contattiTable.setItems(listaContatti); // Imposta la lista di tutti i contatti
-             labelRubrica.setText("Rubrica:");
-            
+            labelRubrica.setText("Rubrica:");
         }
     }
 
+    /**
+     * @brief Resetta la rubrica e carica la vista per aggiungere un nuovo contatto.
+     * 
+     * @param event L'evento scatenato dal clic sul bottone di reset.
+     */
     @FXML
     private void resetRubrica(ActionEvent event) {
-        rubrica.resetRubrica();
-        mainViewController.loadView2(null);
+        rubrica.resetRubrica(); // Resetta la rubrica
+        mainViewController.loadView2(null); // Carica la vista per aggiungere un contatto
     }
-    
 }

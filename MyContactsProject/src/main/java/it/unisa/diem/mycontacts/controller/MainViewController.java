@@ -1,9 +1,3 @@
-/**
- * @file MainViewController.java
- * @brief Controller principale per gestire la vista principale dell'applicazione.
- * Gestisce il caricamento dinamico delle viste a sinistra (leftPane) e a destra (rightPane).
- */
-
 package it.unisa.diem.mycontacts.controller;
 
 import it.unisa.diem.mycontacts.data.Contatto;
