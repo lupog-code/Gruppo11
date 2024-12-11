@@ -74,8 +74,6 @@ public class LeftViewController implements Initializable {
     
     private MainViewController mainViewController;
     @FXML
-    private ImageView notSelectedImagine;
-    @FXML
     private ImageView selectedImagine;
     
     /**
@@ -164,13 +162,12 @@ public class LeftViewController implements Initializable {
             // Se il toggle è selezionato, mostra solo i contatti preferiti
             contattiTable.setItems(listaContattiPreferiti); // Imposta la lista di contatti preferiti
             
-            ObjectProperty<Image> imageProperty = new SimpleObjectProperty<>();
-            
             
             
         } else {
             // Se il toggle non è selezionato, mostra tutti i contatti
             contattiTable.setItems(listaContatti); // Imposta la lista di tutti i contatti
+            //selectedImagine.setMouseTransparent(true); // fa scomparire l'icona preferito
         }
     }
     

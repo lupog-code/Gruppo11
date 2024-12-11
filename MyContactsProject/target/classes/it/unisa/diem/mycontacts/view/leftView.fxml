@@ -11,23 +11,23 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="TOP_CENTER" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unisa.diem.mycontacts.controller.LeftViewController">
+<VBox alignment="TOP_CENTER" spacing="5.0" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unisa.diem.mycontacts.controller.LeftViewController">
    <children>
       <MenuBar blendMode="SOFT_LIGHT" depthTest="DISABLE" maxHeight="1.7976931348623157E308" style="-fx-background-color: white;">
         <menus>
-          <Menu mnemonicParsing="false" style="-fx-text-fill: white;" text="Aggiungi ">
+          <Menu mnemonicParsing="false" style="-fx-text-fill: black;" text="Aggiungi ">
             <items>
-              <MenuItem fx:id="addButton" mnemonicParsing="false" onAction="#aggiungiContatto" style="-fx-text-fill: white;" text="Aggiungi" />
+              <MenuItem fx:id="addButton" mnemonicParsing="false" onAction="#aggiungiContatto" style="-fx-text-fill: black;" text="Aggiungi" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Importa">
+          <Menu mnemonicParsing="false" style="-fx-text-fill: black;" text="Importa">
             <items>
-              <MenuItem fx:id="importButton" mnemonicParsing="false" onAction="#importaRubrica" text="Import" />
+              <MenuItem fx:id="importButton" mnemonicParsing="false" onAction="#importaRubrica" style="-fx-text-fill: black;" text="Import" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Esporta">
             <items>
-              <MenuItem fx:id="exportButton" mnemonicParsing="false" onAction="#esportaRubrica" text="Export" />
+              <MenuItem fx:id="exportButton" mnemonicParsing="false" onAction="#esportaRubrica" style="fx-text-fill: black;" text="Export" />
             </items>
           </Menu>
         </menus>
@@ -53,33 +53,8 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </VBox.margin>
       </Label>
-      <HBox prefHeight="20.0" prefWidth="248.0" spacing="5.0">
-         <children>
-            <TextField fx:id="searchField" maxWidth="1.7976931348623157E308" onKeyPressed="#ricercaContatto" prefHeight="33.0" prefWidth="202.0" style="-fx-background-color: grey; -fx-border-color: white;" />
-            <Button mnemonicParsing="false" text="..." />
-         </children>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-      </HBox>
-      <HBox alignment="TOP_CENTER" prefHeight="0.0" prefWidth="204.0" spacing="5.0">
-         <children>
-            <ToggleButton fx:id="prefToggle" blendMode="SOFT_LIGHT" mnemonicParsing="false" onAction="#mostraPreferiti" text="Preferiti" />
-            <StackPane prefHeight="31.0" prefWidth="19.0">
-               <children>
-                  <ImageView fx:id="notSelectedImagine" fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="selectedImagine" fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                     <image>
-                        <Image url="@../../../../../../../../../../../stella.jpg" />
-                     </image>
-                  </ImageView>
-               </children>
-            </StackPane>
-         </children>
-         <padding>
-            <Insets bottom="5.0" left="38.0" right="5.0" top="5.0" />
-         </padding>
-      </HBox>
+      <TextField fx:id="searchField" maxWidth="1.7976931348623157E308" onKeyPressed="#ricercaContatto" prefHeight="33.0" prefWidth="202.0" style="-fx-background-color: grey; -fx-border-color: white;" />
+      <ToggleButton fx:id="prefToggle" blendMode="SOFT_LIGHT" mnemonicParsing="false" onAction="#mostraPreferiti" text="Preferiti" />
       <Label style="-fx-text-fill: white;" text="Rubrica:">
          <font>
             <Font size="16.0" />
