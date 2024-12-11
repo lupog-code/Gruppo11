@@ -6,6 +6,7 @@
 package it.unisa.diem.mycontacts.controller;
 
 import it.unisa.diem.mycontacts.data.Contatto;
+import it.unisa.diem.mycontacts.datastructure.Rubrica;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -60,6 +61,8 @@ public class LeftViewController implements Initializable {
     @FXML
     private TableColumn<Contatto, String> cognomeColumn;
     
+    private Rubrica rubrica;
+    
     private ObservableList<Contatto> listaContatti;  
     
     private ObservableList<Contatto> listaContattiPreferiti;  
@@ -88,10 +91,14 @@ public class LeftViewController implements Initializable {
     public void setMainViewController(MainViewController mainViewController) {
         this.mainViewController = mainViewController;
         
-        listaContatti = FXCollections.observableArrayList(mainViewController.getRubrica().getElenco());
+        rubrica = mainViewController.getRubrica();
+        
+        listaContatti = FXCollections.observableArrayList(rubrica.getElenco());
         contattiTable.setItems(listaContatti); // Collega la lista osservabile alla TableView
         
-        ObservableSet<Contatto> rubricaSet = mainViewController.getRubrica().getElenco();
+        listaContattiPreferiti = FXCollections.observableArrayList(rubrica.getElencoPreferiti().getElencoPreferiti());
+        
+        ObservableSet<Contatto> rubricaSet = rubrica.getElenco();
         rubricaSet.addListener((SetChangeListener<Contatto>) change -> {
                 if (change.wasAdded()) {
                     listaContatti.add(change.getElementAdded());
@@ -99,11 +106,9 @@ public class LeftViewController implements Initializable {
                 if (change.wasRemoved()) {
                     listaContatti.remove(change.getElementRemoved());
                 }
-        });    
+        });  
         
-        listaContattiPreferiti = FXCollections.observableArrayList(mainViewController.getRubrica().getElencoPreferiti().getElencoPreferiti());
-        
-        ObservableSet<Contatto> rubricaPreferitiSet = mainViewController.getRubrica().getElencoPreferiti().getElencoPreferiti();
+        ObservableSet<Contatto> rubricaPreferitiSet = rubrica.getElencoPreferiti().getElencoPreferiti();
         rubricaPreferitiSet.addListener((SetChangeListener<Contatto>) change -> {
                 if (change.wasAdded()) {
                     listaContatti.add(change.getElementAdded());
@@ -111,7 +116,7 @@ public class LeftViewController implements Initializable {
                 if (change.wasRemoved()) {
                     listaContatti.remove(change.getElementRemoved());
                 }
-        });
+        });  
         
     }
 
@@ -250,17 +255,10 @@ public class LeftViewController implements Initializable {
         // Verifica se il bottone è attivo
         if (prefToggle.isSelected()) {
             // Se il toggle è selezionato, mostra solo i contatti preferiti
-            ObservableList<Contatto> preferiti = FXCollections.observableArrayList();
-            for (Contatto contatto : mainViewController.getRubrica().getElenco()) {
-                if (contatto.isPreferito()) {
-                    preferiti.add(contatto);
-                }
-            }
-            contattiTable.setItems(preferiti); // Imposta la lista di contatti preferiti
+            contattiTable.setItems(listaContattiPreferiti); // Imposta la lista di contatti preferiti
         } else {
             // Se il toggle non è selezionato, mostra tutti i contatti
-            ObservableList<Contatto> tuttiContatti = FXCollections.observableArrayList(mainViewController.getRubrica().getElenco());
-            contattiTable.setItems(tuttiContatti); // Imposta la lista di tutti i contatti
+            contattiTable.setItems(listaContatti); // Imposta la lista di tutti i contatti
         }
     }
     
