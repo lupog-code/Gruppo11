@@ -67,7 +67,7 @@
                   <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="80.0" prefWidth="300.0" spacing="20.0">
                      <children>
                         <Label style="-fx-text-fill: white;" text="3. Numero:" />
-                        <TextField fx:id="email3Field" onKeyTyped="#controlloNumero" prefHeight="30.0" style="-fx-background-color: #555555;">
+                        <TextField fx:id="numero3Field" onKeyTyped="#controlloNumero" prefHeight="30.0" style="-fx-background-color: #555555;">
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>
@@ -112,7 +112,7 @@
                   <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="285.0" spacing="20.0">
                      <children>
                         <Label style="-fx-text-fill: white;" text="3. E-Mail:" />
-                        <TextField fx:id="numero3Field" prefHeight="30.0" style="-fx-background-color: #555555;">
+                        <TextField fx:id="email3Field" prefHeight="30.0" style="-fx-background-color: #555555;">
                            <HBox.margin>
                               <Insets left="7.0" />
                            </HBox.margin></TextField>
