@@ -7,6 +7,7 @@ import java.util.Set;
 /**
  * @class Contatto
  * @brief Classe che rappresenta un contatto, implementa l'interfaccia Comparable per permettere l'ordinamento.
+ * @author Gruppo11
  */
 public class Contatto implements Comparable<Contatto> {
 

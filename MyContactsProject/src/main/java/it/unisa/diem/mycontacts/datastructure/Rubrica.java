@@ -20,6 +20,7 @@ import javafx.stage.FileChooser;
  * @brief Classe che rappresenta una raccolta di contatti con funzionalità per gestirli.
  *        Utilizza un `Set` per garantire che i contatti siano univoci e ordinati.
  *        Include anche un elenco separato per gestire i contatti preferiti.
+ * @author Gruppo11
  */
 public class Rubrica {
 

@@ -1,11 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.unisa.diem.mycontacts.controller;
-
-
 
 import it.unisa.diem.mycontacts.data.Contatto;
 import it.unisa.diem.mycontacts.datastructure.Rubrica;
@@ -20,63 +13,79 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 
 /**
- * FXML Controller class
- *
- * @author lupo
+ * @class RightView2Controller
+ * @brief Controller per la visualizzazione e modifica dei dettagli di un contatto nella vista RightView2.
+ * Gestisce la visualizzazione dei dettagli del contatto e l'aggiornamento dei dati.
+ * Permette di aggiungere o modificare un contatto e gestirne lo stato "preferito".
+ * 
+ * @author Gruppo11
  */
 public class RightView2Controller implements Initializable {
 
     @FXML
-    private MenuItem stopButton;
+    private MenuItem stopButton;  /**< Bottone per annullare l'operazione */
     @FXML
-    private MenuItem confirmButton;
+    private MenuItem confirmButton; /**< Bottone per confermare le modifiche */
     @FXML
-    private TextField nomeField;
+    private TextField nomeField; /**< Campo di testo per il nome del contatto */
     @FXML
-    private TextField cognomeField;
+    private TextField cognomeField; /**< Campo di testo per il cognome del contatto */
     @FXML
-    private TextField numero1Field;
+    private TextField numero1Field; /**< Campo di testo per il primo numero di telefono */
     @FXML
-    private TextField email1Field;
+    private TextField email1Field; /**< Campo di testo per la prima email */
     @FXML
-    private TextField numero2Field;
+    private TextField numero2Field; /**< Campo di testo per il secondo numero di telefono */
     @FXML
-    private TextField email2Field;
+    private TextField email2Field; /**< Campo di testo per la seconda email */
     @FXML
-    private TextField numero3Field;
+    private TextField numero3Field; /**< Campo di testo per il terzo numero di telefono */
     @FXML
-    private TextField email3Field;
+    private TextField email3Field; /**< Campo di testo per la terza email */
     @FXML
-    private CheckBox preferitoCheck;
+    private CheckBox preferitoCheck; /**< CheckBox per segnare il contatto come preferito */
     
-    private MainViewController mainViewController;
+    private MainViewController mainViewController; /**< Controller della vista principale */
     
-    private Rubrica rubrica;
+    private Rubrica rubrica; /**< La rubrica che gestisce i contatti */
     
-    private Contatto contatto;
+    private Contatto contatto; /**< Il contatto corrente da modificare o visualizzare */
     
     /**
-     * Initializes the controller class.
-     * @param url
-     * @param rb
+     * @brief Inizializza il controller della vista.
+     * Configura gli elementi dell'interfaccia utente, come la disabilitazione della checkbox preferito.
+     * 
+     * @param url URL per la localizzazione
+     * @param rb Risorse di localizzazione
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         preferitoCheck.setDisable(false);
     }    
     
+    /**
+     * @brief Imposta il controller principale della vista.
+     * Assegna la rubrica gestita dal controller principale.
+     * 
+     * @param mainViewController il controller della vista principale.
+     */
     public void setMainViewController(MainViewController mainViewController) {
         this.mainViewController = mainViewController;
         
         this.rubrica = mainViewController.getRubrica();
     }
     
+    /**
+     * @brief Imposta il contatto da visualizzare o modificare.
+     * Popola i campi con i dati del contatto selezionato.
+     * 
+     * @param contatto Il contatto da visualizzare o modificare.
+     */
     public void setContatto(Contatto contatto) {
         this.contatto = contatto;
         
@@ -96,13 +105,26 @@ public class RightView2Controller implements Initializable {
         }
     }
 
+    /**
+     * @brief Annulla l'operazione e torna alla vista principale con il contatto precedente.
+     * Se il contatto è stato modificato, lo salva e aggiorna la vista.
+     * 
+     * @param event L'evento di clic del bottone "annulla".
+     */
     @FXML
     private void annullaAzione(ActionEvent event) {
         if(contatto != null) {
-            mainViewController.loadView1(contatto);//gestire
+            mainViewController.loadView1(contatto); // Gestire il ritorno alla vista principale
         }
     }
 
+    /**
+     * @brief Conferma l'operazione di modifica del contatto.
+     * Crea un nuovo oggetto `Contatto` con i dati inseriti e aggiorna la rubrica.
+     * Se il contatto esiste già, lo rimuove dalla rubrica e lo sostituisce con i nuovi dati.
+     * 
+     * @param event L'evento di clic del bottone "conferma".
+     */
     @FXML
     private void confermaAzione(ActionEvent event) {
         
@@ -116,38 +138,30 @@ public class RightView2Controller implements Initializable {
         if(!email2Field.getText().isEmpty()) email.add(email2Field.getText());
         if(!email3Field.getText().isEmpty()) email.add(email3Field.getText());
         
-        Contatto c = new Contatto(nomeField.getText(), cognomeField.getText(), numeri, email, preferitoCheck.isSelected());
-        
-        if(contatto == null){
-            if (!rubrica.aggiungiContatto(c)) {
-            showAlert("Errore nel caricamento", "Controlla che i campi nome o cognome siano presenti");
-            return;
-            }
-        } else if (rubrica.getElenco().contains(contatto)) {
+        if(contatto != null)
             rubrica.rimuoviContatto(contatto);
-            if (!rubrica.aggiungiContatto(c)) {
-            showAlert("Errore nel caricamento", "Controlla che i campi nome o cognome siano presenti");
-            }
-        }
 
-
-        /*if(!rubrica.aggiungiContatto(c)) {
-            showAlert("Errore nel caricamento", "Controlla che i campi nome o cognome siano presenti");
-        } else {
-            if(contatto != null && !contatto.equals(c))
-            rubrica.rimuoviContatto(contatto);
-        }*/
+            
+        contatto = new Contatto(nomeField.getText(), cognomeField.getText(), numeri, email, preferitoCheck.isSelected());
         
-        mainViewController.loadView1(c);
+        if (!rubrica.aggiungiContatto(contatto)) showAlert("Errore nel caricamento", "Controlla che i campi nome o cognome siano presenti");
+        
+        mainViewController.loadView1(contatto);
     }
 
+    /**
+     * @brief Cambia lo stato "preferito" del contatto.
+     * Inverte lo stato di preferito del contatto e aggiorna la rubrica e l'interfaccia.
+     * 
+     * @param event L'evento di clic del bottone "preferito".
+     */
     @FXML
     private void switchPreferito(ActionEvent event) {
-       //inverte lo staso di preferito di un contatto ( da false a true e viceversa) 
-         // Verifica se un contatto è stato selezionato
+       // Inverte lo stato di preferito di un contatto (da false a true e viceversa)
         if (contatto != null) {
             // Inverte lo stato del contatto (da preferito a non preferito e viceversa)
             contatto.switchPreferiti();
+            
 
             // Aggiorna l'interfaccia utente per riflettere il nuovo stato di preferito
             preferitoCheck.setSelected(contatto.isPreferito());
@@ -163,6 +177,13 @@ public class RightView2Controller implements Initializable {
         }
     }
     
+    /**
+     * @brief Mostra un messaggio di errore in un alert.
+     * Visualizza un messaggio di errore con il titolo e il testo specificati.
+     * 
+     * @param title Il titolo dell'alert.
+     * @param message Il messaggio da visualizzare nell'alert.
+     */
     private void showAlert(String title, String message) {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle(title);
@@ -171,10 +192,15 @@ public class RightView2Controller implements Initializable {
         alert.showAndWait();
     }
 
+    /**
+     * @brief Controlla che l'input nel campo numero sia numerico.
+     * Intercetta l'evento di inserimento carattere per garantire che solo numeri siano inseriti.
+     * 
+     * @param event L'evento di inserimento di un carattere.
+     */
     @FXML
     private void controlloNumero(KeyEvent event) {
         if(!event.getCharacter().matches("\\d"))
             event.consume();
     }
-    
 }

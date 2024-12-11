@@ -165,7 +165,7 @@ public class LeftViewController implements Initializable {
             contattiTable.setItems(listaContattiPreferiti); // Imposta la lista di contatti preferiti
             
             ObjectProperty<Image> imageProperty = new SimpleObjectProperty<>();
-            
+        
             
             
         } else {

@@ -15,6 +15,8 @@ import javafx.scene.layout.VBox;
 /**
  * @class MainViewController
  * @brief Classe controller per la gestione della vista principale dell'applicazione.
+ * 
+ * @author Gruppo11
  */
 public class MainViewController implements Initializable {
 

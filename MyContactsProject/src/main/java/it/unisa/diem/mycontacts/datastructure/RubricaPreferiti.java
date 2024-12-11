@@ -9,6 +9,7 @@ import javafx.collections.ObservableSet;
 /**
  * @class RubricaPreferiti
  * @brief Classe che rappresenta un contenitore per gestire i contatti preferiti in una rubrica.
+ * @author Gruppo11
  * 
  * La classe utilizza un Set per garantire che i contatti siano univoci e ordinati.
  */
