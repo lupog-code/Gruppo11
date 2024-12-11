@@ -6,7 +6,6 @@
 package it.unisa.diem.mycontacts.datastructure;
 
 import it.unisa.diem.mycontacts.data.Contatto;
-import java.util.Set;
 import java.util.TreeSet;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableSet;
