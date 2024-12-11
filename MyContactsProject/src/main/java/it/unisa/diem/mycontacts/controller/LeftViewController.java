@@ -7,6 +7,7 @@ package it.unisa.diem.mycontacts.controller;
 
 import it.unisa.diem.mycontacts.data.Contatto;
 import it.unisa.diem.mycontacts.datastructure.Rubrica;
+import it.unisa.diem.mycontacts.datastructure.RubricaPreferiti;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;

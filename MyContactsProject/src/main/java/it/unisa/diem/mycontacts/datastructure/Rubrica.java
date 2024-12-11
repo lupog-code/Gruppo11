@@ -245,7 +245,7 @@ public class Rubrica {
 
                     // Crea il nuovo contatto
                     Contatto nuovoContatto = new Contatto(nome, cognome, numeri, email, preferito);
-                    elenco.add(nuovoContatto);
+                    aggiungiContatto(nuovoContatto);
                 }
 
                 scanner.close();
