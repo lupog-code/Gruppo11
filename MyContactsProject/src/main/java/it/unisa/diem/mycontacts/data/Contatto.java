@@ -1,8 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @file Contatto.java
+ * @brief Classe che rappresenta un contatto con nome, cognome, numeri di telefono, indirizzi email e stato di preferito.
  */
+
 package it.unisa.diem.mycontacts.data;
 
 import java.util.HashSet;
@@ -10,86 +10,76 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * Classe che rappresenta un contatto con nome, cognome, numeri di telefono,
- * indirizzi email e uno stato di preferito. Implementa l'interfaccia Comparable
- * per consentire il confronto tra contatti.
+ * @class Contatto
+ * @brief Classe che rappresenta un contatto, implementa l'interfaccia Comparable per permettere l'ordinamento.
  */
 public class Contatto implements Comparable<Contatto> {
 
-    private String nome;  // Nome del contatto
-    private String cognome;  // Cognome del contatto
-    private Set<String> numeri;  // Set di numeri di telefono del contatto (senza duplicati e ignorando l'ordine)
-    private Set<String> email;  // Set di indirizzi email del contatto (senza duplicati e ignorando l'ordine)
-    private boolean preferito;  // Stato che indica se il contatto è preferito
+    private final String nome;  /**< Nome del contatto */
+    private final String cognome;  /**< Cognome del contatto */
+    private final Set<String> numeri;  /**< Set di numeri di telefono (può essere null) */
+    private final Set<String> email;  /**< Set di indirizzi email (può essere null) */
+    private boolean preferito;  /**< Stato di preferito del contatto */
 
     /**
-     * Costruttore per creare un contatto con tutti i suoi attributi.
-     *
-     * @param nome Nome del contatto
-     * @param cognome Cognome del contatto
-     * @param numeri Set di numeri di telefono
-     * @param email Set di indirizzi email
-     * @param preferito Stato di preferito del contatto
+     * @brief Costruttore per creare un contatto con tutti i suoi attributi.
+     * 
+     * @param nome Nome del contatto.
+     * @param cognome Cognome del contatto.
+     * @param numeri Set di numeri di telefono del contatto (può essere null).
+     * @param email Set di indirizzi email del contatto (può essere null).
+     * @param preferito Stato di preferito del contatto.
      */
     public Contatto(String nome, String cognome, Set<String> numeri, Set<String> email, boolean preferito) {
         this.nome = nome;
         this.cognome = cognome;
-        this.numeri = new HashSet<>(numeri); 
-        this.email = new HashSet<>(email);    
+        this.numeri = numeri; // Può essere null
+        this.email = email;   // Può essere null
         this.preferito = preferito;
     }
 
-    // Getter e setter per nome e cognome
+    /** @brief Getter per il nome del contatto.
+     *  @return Il nome del contatto.
+     */
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
+    /** @brief Getter per il cognome del contatto.
+     *  @return Il cognome del contatto.
+     */
     public String getCognome() {
         return cognome;
     }
 
-    public void setCognome(String cognome) {
-        this.cognome = cognome;
-    }
-
-    // Getter e setter per numeri di telefono
+    /** @brief Getter per i numeri di telefono del contatto.
+     *  @return Un set con i numeri di telefono o null.
+     */
     public Set<String> getNumeri() {
-        return new HashSet<>(numeri);  // Restituisce una copia per garantire la sicurezza
+        return numeri != null ? new HashSet<>(numeri) : null;
     }
 
-    public void setNumeri(Set<String> numeri) {
-        this.numeri = new HashSet<>(numeri);  // Creazione di una copia per garantire l'immutabilità
-    }
-
-    // Getter e setter per email
+    /** @brief Getter per gli indirizzi email del contatto.
+     *  @return Un set con gli indirizzi email o null.
+     */
     public Set<String> getEmail() {
-        return new HashSet<>(email);  // Restituisce una copia per garantire la sicurezza
+        return email != null ? new HashSet<>(email) : null;
     }
 
-    public void setEmail(Set<String> email) {
-        this.email = new HashSet<>(email);  // Creazione di una copia per garantire l'immutabilità
-    }
-
-    // Getter e setter per lo stato di preferito
+    /** @brief Getter per lo stato di preferito del contatto.
+     *  @return true se il contatto è preferito, false altrimenti.
+     */
     public boolean isPreferito() {
         return preferito;
     }
 
-    public void setPreferito(boolean preferito) {
-        this.preferito = preferito;
-    }
-
     /**
-     * Confronta il contatto corrente con un altro per determinarne l'uguaglianza.
-     * Due contatti sono considerati uguali se hanno lo stesso nome, cognome, 
-     * numeri di telefono e email (senza considerare l'ordine).
-     *
-     * @param obj Oggetto da confrontare
-     * @return true se i contatti sono uguali, false altrimenti
+     * @brief Verifica l'uguaglianza tra due contatti.
+     * Due contatti sono considerati uguali se hanno lo stesso nome, cognome,
+     * numeri di telefono ed email.
+     * 
+     * @param obj Oggetto da confrontare.
+     * @return true se i contatti sono uguali, false altrimenti.
      */
     @Override
     public boolean equals(Object obj) {
@@ -100,20 +90,16 @@ public class Contatto implements Comparable<Contatto> {
             return false;
         }
         Contatto other = (Contatto) obj;
-        
-        // Confronta nome, cognome, numeri e email
         return Objects.equals(nome, other.nome) &&
                Objects.equals(cognome, other.cognome) &&
-               numeri.equals(other.numeri) &&
-               email.equals(other.email);
+               Objects.equals(numeri, other.numeri) &&
+               Objects.equals(email, other.email);
     }
 
     /**
-     * Calcola l'hash code del contatto.
-     * L'hash code è basato sugli attributi del contatto(senza preferito) per garantire
-     * un comportamento corretto nelle strutture dati come HashSet e HashMap.
-     *
-     * @return L'hash code del contatto
+     * @brief Calcola l'hash code del contatto.
+     * 
+     * @return Un valore hash basato sugli attributi del contatto.
      */
     @Override
     public int hashCode() {
@@ -121,11 +107,11 @@ public class Contatto implements Comparable<Contatto> {
     }
 
     /**
-     * Confronta il contatto corrente con un altro per determinarne l'ordinamento.
+     * @brief Confronta il contatto corrente con un altro per determinare l'ordinamento.
      * L'ordinamento è basato sul cognome e poi sul nome.
-     *
-     * @param o Contatto da confrontare
-     * @return un valore negativo, zero o positivo a seconda dell'ordinamento
+     * 
+     * @param o Contatto da confrontare.
+     * @return Un valore negativo, zero o positivo a seconda dell'ordinamento.
      */
     @Override
     public int compareTo(Contatto o) {
@@ -137,35 +123,39 @@ public class Contatto implements Comparable<Contatto> {
     }
 
     /**
-     * Modifica i dettagli di un contatto esistente con i dati di un altro contatto.
-     *
-     * @param c Contatto da cui copiare i dettagli
+     * @brief Modifica i dettagli di un contatto esistente con i dati di un altro contatto.
+     * 
+     * @param c Contatto da cui copiare i dettagli.
      */
     public void modificaContatto(Contatto c) {
-        this.nome = c.nome;
-        this.cognome = c.cognome;
-        this.numeri = new HashSet<>(c.numeri);
-        this.email = new HashSet<>(c.email);
+        if (c == null) {
+            throw new IllegalArgumentException("Il contatto passato è null");
+        }
+        this.numeri.clear();
+        if (c.numeri != null) {
+            this.numeri.addAll(c.numeri);
+        }
+        this.email.clear();
+        if (c.email != null) {
+            this.email.addAll(c.email);
+        }
         this.preferito = c.preferito;
     }
 
     /**
-     * Inverte lo stato di preferito di un contatto.
+     * @brief Inverte lo stato di preferito di un contatto.
      */
     public void switchPreferiti() {
-        this.preferito = !(this.preferito); 
+        this.preferito = !this.preferito; 
     }
 
     /**
-     * Verifica se un contatto è valido.
-     * Un contatto è considerato valido se ha un nome o un cognome non vuoti,
-     * e se i numeri di telefono e le email sono conformi a specifiche condizioni.
-     *
-     * @return true se il contatto è valido, false altrimenti
+     * @brief Verifica se un contatto è valido.
+     * Un contatto è considerato valido se ha un nome o un cognome non vuoti.
+     * 
+     * @return true se il contatto è valido, false altrimenti.
      */
     public boolean contattoValido() {
-        // Verifica che il contatto abbia almeno un nome o un cognome non vuoto
-        return !(cognome.isEmpty() && nome.isEmpty());
+        return !(cognome == null || cognome.isEmpty()) || !(nome == null || nome.isEmpty());
     }
 }
-
