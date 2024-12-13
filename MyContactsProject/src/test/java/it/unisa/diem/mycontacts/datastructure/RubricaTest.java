@@ -58,42 +58,42 @@ public class RubricaTest {
         
     }
 
-    /**
-     * Test of getElenco method, of class Rubrica.
-     */
+    
     @Test
     public void testGetElenco() {
-  
+        
+        assertEquals(0,rubrica.getElenco().size()); //controllo che l'elenco sia inzialmente vuoto
+        
         rubrica.aggiungiContatto(c1);
         rubrica.aggiungiContatto(c2);
 
         ObservableSet<Contatto> elenco = rubrica.getElenco();
         assertEquals(2, elenco.size());
-        assertTrue(elenco.contains(c1));
-        assertTrue(elenco.contains(c2));
+        assertTrue(elenco.contains(c1)); //controllo che sia stato inserito il contatto c1
+        assertTrue(elenco.contains(c2)); //controllo che sia stato inserito il contatto c2
     }
 
-    /**
-     * Test of getElencoPreferiti method, of class Rubrica.
-     */
+    
     @Test
     public void testGetElencoPreferiti() {
         
+        assertEquals(0,rubrica.getElenco().size()); //controllo che l'elenco sia inzialmente vuoto
+
         rubrica.aggiungiContatto(c1);
         rubrica.aggiungiContatto(c2);
 
         ObservableSet<Contatto> preferiti = rubrica.getElencoPreferiti();
-        assertEquals(1, preferiti.size());
-        assertTrue(preferiti.contains(c2));
-        assertFalse(preferiti.contains(c1));
+        assertEquals(1, preferiti.size()); //controlla la dimensione dei preferiti
+        assertTrue(preferiti.contains(c2)); //lo contiene poichè preferito
+        assertFalse(preferiti.contains(c1)); //non è contenuto poichè non preferito
     }
 
-    /**
-     * Test of ricercaContatti method, of class Rubrica.
-     */
+    
     @Test
     public void testRicercaContatti() {
         
+        assertEquals(0,rubrica.getElenco().size()); //controllo che l'elenco sia inzialmente vuoto
+
         rubrica.aggiungiContatto(c1);
         rubrica.aggiungiContatto(c2);
 
@@ -109,12 +109,12 @@ public class RubricaTest {
         assertEquals(2, risultati.size());
     }
 
-    /**
-     * Test of aggiungiContatto method, of class Rubrica.
-     */
+    
     @Test
     public void testAggiungiContatto() {
-         
+        
+        assertEquals(0,rubrica.getElenco().size()); //controllo che l'elenco sia inzialmente vuoto
+
         rubrica.aggiungiContatto(c1);
         assertTrue(rubrica.getElenco().contains(c1));
 
@@ -122,11 +122,11 @@ public class RubricaTest {
         assertTrue(rubrica.getElenco().contains(c2));
     }
 
-    /**
-     * Test of rimuoviContatto method, of class Rubrica.
-     */
+    
     @Test
     public void testRimuoviContatto() {
+        
+        assertEquals(0,rubrica.getElenco().size()); //controllo che l'elenco sia inzialmente vuoto
 
         rubrica.aggiungiContatto(c1);
         assertTrue(rubrica.getElenco().contains(c1));
@@ -136,12 +136,12 @@ public class RubricaTest {
         
     }
 
-    /**
-     * Test of resetRubrica method, of class Rubrica.
-     */
+    
     @Test
     public void testResetRubrica() {
         
+        assertEquals(0,rubrica.getElenco().size()); //controllo che l'elenco sia inzialmente vuoto
+
         rubrica.aggiungiContatto(c1);
         rubrica.aggiungiContatto(c2);
 
@@ -151,13 +151,13 @@ public class RubricaTest {
         assertTrue(rubrica.getElencoPreferiti().isEmpty());
     }
 
-    /**
-     * Test of isRubricaVuota method, of class Rubrica.
-     */
+    
     @Test
     public void testIsRubricaVuota() {
-           
-       assertTrue(rubrica.isRubricaVuota());
+        
+        assertEquals(0,rubrica.getElenco().size()); //controllo che l'elenco sia inzialmente vuoto
+
+        assertTrue(rubrica.isRubricaVuota());
 
         rubrica.aggiungiContatto(c1);
         assertFalse(rubrica.isRubricaVuota());
@@ -167,28 +167,30 @@ public class RubricaTest {
     }
     
 
-    /**
-     * Test of aggiungiAPreferiti method, of class Rubrica.
-     */
+    
     @Test
     public void testAggiungiAPreferiti() {
         
-       rubrica.aggiungiContatto(c2);
+        assertEquals(0,rubrica.getElenco().size()); //controllo che l'elenco sia inzialmente vuoto
+
+        rubrica.aggiungiContatto(c2);
         rubrica.aggiungiAPreferiti(c2);
 
         assertTrue(rubrica.getElencoPreferiti().contains(c2));
     }
 
-    /**
-     * Test of rimuoviDaPreferiti method, of class Rubrica.
-     */
     @Test
     public void testRimuoviDaPreferiti() {
-           
+        
+        assertEquals(0,rubrica.getElenco().size()); //controllo che l'elenco sia inzialmente vuoto
+
         rubrica.aggiungiContatto(c2);
+        assertTrue(rubrica.getElenco().contains(c2)); //controllo che sia presente
         rubrica.rimuoviDaPreferiti(c2);
 
-        assertFalse(rubrica.getElencoPreferiti().contains(c1));
+        assertFalse(rubrica.getElencoPreferiti().contains(c2)); //controllo che sia stao eliminato
+        
+        assertEquals(0,rubrica.getElenco().size()); //controllo che l'elenco sia vuoto
     }
 
     /**
