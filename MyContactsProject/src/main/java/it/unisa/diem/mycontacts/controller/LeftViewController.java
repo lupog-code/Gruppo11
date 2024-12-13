@@ -32,6 +32,8 @@ public class LeftViewController implements Initializable {
 
     // Riferimenti agli elementi dell'interfaccia utente
     @FXML
+    private Label labelRubrica;
+    @FXML
     private MenuItem addButton;
     @FXML
     private MenuItem importButton;
@@ -57,10 +59,6 @@ public class LeftViewController implements Initializable {
     
     // Riferimento al controller della vista principale
     private MainViewController mainViewController;
-
-    // Etichetta per il titolo della rubrica
-    @FXML
-    private Label labelRubrica;
     
     /**
      * @brief Metodo di inizializzazione del controller. Configura le colonne della TableView
@@ -137,8 +135,6 @@ public class LeftViewController implements Initializable {
     @FXML
     private void aggiungiContatto(ActionEvent event) {
         mainViewController.loadView2(null); // Carica la vista per aggiungere un contatto
-       
-        
     }
 
     /**

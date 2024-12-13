@@ -27,13 +27,8 @@ public class RubricaPreferiti {
      * @brief Aggiunge un contatto alla lista dei preferiti.
      * 
      * @param c Il contatto da aggiungere alla lista dei preferiti.
-     * @throws IllegalArgumentException Se il contatto è null, viene lanciata un'eccezione.
      */
     public void addContattoPreferito(Contatto c) {
-        // Verifica che il contatto non sia null.
-        if (c == null) {
-            throw new IllegalArgumentException("Il contatto non può essere null.");
-        }
         if(c.isPreferito()){
         elencoPreferiti.add(c); // Aggiunge il contatto ai preferiti.
         }
@@ -43,13 +38,8 @@ public class RubricaPreferiti {
      * @brief Rimuove un contatto dalla lista dei preferiti.
      * 
      * @param c Il contatto da rimuovere dalla lista dei preferiti.
-     * @throws IllegalArgumentException Se il contatto è null, viene lanciata un'eccezione.
      */
     public void removeContattoPreferito(Contatto c) {
-        // Verifica che il contatto non sia null.
-        if (c == null) {
-            throw new IllegalArgumentException("Il contatto non può essere null.");
-        }
         if(c.isPreferito()){
             elencoPreferiti.remove(c); // Rimuove il contatto dai preferiti.
         }
