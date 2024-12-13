@@ -14,12 +14,12 @@
         <menus>
           <Menu mnemonicParsing="false" onAction="#modificaContatto" text="Modifica">
             <items>
-              <MenuItem fx:id="modifyButton" mnemonicParsing="false" onAction="#modificaContatto" text="Conferma" />
+              <MenuItem fx:id="modifyButton" mnemonicParsing="false" onAction="#modificaContatto" text="Modifica" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Elimina">
             <items>
-              <MenuItem fx:id="deleteButton" mnemonicParsing="false" onAction="#eliminaContatto" text="Conferma" />
+              <MenuItem fx:id="deleteButton" mnemonicParsing="false" onAction="#eliminaContatto" text="Elimina" />
             </items>
           </Menu>
         </menus>
