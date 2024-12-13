@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="it.unisa.diem.mycontacts.data.ContattoTest" time="0" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="it.unisa.diem.mycontacts.datastructure.RubricaPreferitiTest" time="0.001" tests="5" errors="0" skipped="0" failures="1">
   <properties>
     <property name="gopherProxySet" value="false"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -60,12 +60,15 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="testContattoValido" classname="it.unisa.diem.mycontacts.data.ContattoTest" time="0"/>
-  <testcase name="testGetEmail" classname="it.unisa.diem.mycontacts.data.ContattoTest" time="0"/>
-  <testcase name="testIsPreferito" classname="it.unisa.diem.mycontacts.data.ContattoTest" time="0"/>
-  <testcase name="testCompareTo" classname="it.unisa.diem.mycontacts.data.ContattoTest" time="0"/>
-  <testcase name="testGetNome" classname="it.unisa.diem.mycontacts.data.ContattoTest" time="0"/>
-  <testcase name="testGetCognome" classname="it.unisa.diem.mycontacts.data.ContattoTest" time="0"/>
-  <testcase name="testEquals" classname="it.unisa.diem.mycontacts.data.ContattoTest" time="0"/>
-  <testcase name="testGetNumeri" classname="it.unisa.diem.mycontacts.data.ContattoTest" time="0"/>
+  <testcase name="testRemoveContattoPreferito" classname="it.unisa.diem.mycontacts.datastructure.RubricaPreferitiTest" time="0"/>
+  <testcase name="testAddContattoPreferito" classname="it.unisa.diem.mycontacts.datastructure.RubricaPreferitiTest" time="0"/>
+  <testcase name="testResetRubricaPreferiti" classname="it.unisa.diem.mycontacts.datastructure.RubricaPreferitiTest" time="0"/>
+  <testcase name="testGetElencoPreferiti" classname="it.unisa.diem.mycontacts.datastructure.RubricaPreferitiTest" time="0"/>
+  <testcase name="testRicercaContattiPreferiti" classname="it.unisa.diem.mycontacts.datastructure.RubricaPreferitiTest" time="0.001">
+    <failure message="expected: &lt;0&gt; but was: &lt;1&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <0> but was: <1>
+	at it.unisa.diem.mycontacts.datastructure.RubricaPreferitiTest.testRicercaContattiPreferiti(RubricaPreferitiTest.java:124)
+]]></failure>
+    <system-out><![CDATA[ricercaContattiPreferiti
+]]></system-out>
+  </testcase>
 </testsuite>

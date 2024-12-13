@@ -93,7 +93,7 @@ public class RubricaTest {
     @Test
     public void testRicercaContatti() {
         
-       rubrica.aggiungiContatto(c1);
+        rubrica.aggiungiContatto(c1);
         rubrica.aggiungiContatto(c2);
 
         ObservableSet<Contatto> risultati = rubrica.ricercaContatti("Mario");

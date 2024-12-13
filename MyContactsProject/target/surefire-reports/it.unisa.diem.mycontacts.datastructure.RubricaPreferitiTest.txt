@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: it.unisa.diem.mycontacts.datastructure.RubricaPreferitiTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in it.unisa.diem.mycontacts.datastructure.RubricaPreferitiTest
+testRicercaContattiPreferiti  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <1>
+	at it.unisa.diem.mycontacts.datastructure.RubricaPreferitiTest.testRicercaContattiPreferiti(RubricaPreferitiTest.java:124)
+
