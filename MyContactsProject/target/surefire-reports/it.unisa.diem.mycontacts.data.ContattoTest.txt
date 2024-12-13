@@ -1,0 +1,36 @@
+-------------------------------------------------------------------------------
+Test set: it.unisa.diem.mycontacts.data.ContattoTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 8, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec <<< FAILURE!
+it.unisa.diem.mycontacts.data.ContattoTest.testGetEmail()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at it.unisa.diem.mycontacts.data.ContattoTest.testGetEmail(ContattoTest.java:107)
+
+it.unisa.diem.mycontacts.data.ContattoTest.testIsPreferito()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at it.unisa.diem.mycontacts.data.ContattoTest.testIsPreferito(ContattoTest.java:120)
+
+it.unisa.diem.mycontacts.data.ContattoTest.testContattoValido()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at it.unisa.diem.mycontacts.data.ContattoTest.testContattoValido(ContattoTest.java:159)
+
+it.unisa.diem.mycontacts.data.ContattoTest.testEquals()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at it.unisa.diem.mycontacts.data.ContattoTest.testEquals(ContattoTest.java:134)
+
+it.unisa.diem.mycontacts.data.ContattoTest.testCompareTo()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at it.unisa.diem.mycontacts.data.ContattoTest.testCompareTo(ContattoTest.java:147)
+
+it.unisa.diem.mycontacts.data.ContattoTest.testGetNumeri()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at it.unisa.diem.mycontacts.data.ContattoTest.testGetNumeri(ContattoTest.java:90)
+
+it.unisa.diem.mycontacts.data.ContattoTest.testGetCognome()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at it.unisa.diem.mycontacts.data.ContattoTest.testGetCognome(ContattoTest.java:73)
+
+it.unisa.diem.mycontacts.data.ContattoTest.testGetNome()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at it.unisa.diem.mycontacts.data.ContattoTest.testGetNome(ContattoTest.java:60)
+
