@@ -56,90 +56,83 @@ public class RubricaPreferitiTest {
         c2 = new Contatto("Umberto","Zorro",numeri2,email2,true);
     }
     
-    /**
-     * Test of addContattoPreferito method, of class RubricaPreferiti.
-     */
+   
     @Test
     public void testAddContattoPreferito() {
-        System.out.println("addContattoPreferito");
         
+        assertEquals(0,rubrica.getElencoPreferiti().size()); //controllo che l'elenco sia inzialmente vuoto
+
         rubrica.addContattoPreferito(c1);
         rubrica.addContattoPreferito(c2);
 
-        assertFalse(rubrica.getElencoPreferiti().contains(c1));
-        assertTrue(rubrica.getElencoPreferiti().contains(c2));
+        assertFalse(rubrica.getElencoPreferiti().contains(c1)); //controllo che c1 non sia stato inserito
+        assertTrue(rubrica.getElencoPreferiti().contains(c2)); //controllo che c2 sia stato inserito
     }
 
-    /**
-     * Test of removeContattoPreferito method, of class RubricaPreferiti.
-     */
+    
     @Test
     public void testRemoveContattoPreferito() {
-        System.out.println("removeContattoPreferito");
+        
+        assertEquals(0,rubrica.getElencoPreferiti().size()); //controllo che l'elenco sia inzialmente vuoto
         
         rubrica.addContattoPreferito(c2);
-        assertTrue(rubrica.getElencoPreferiti().contains(c2));
+        assertTrue(rubrica.getElencoPreferiti().contains(c2)); //controllo che il contatto sia correttamente inserito
 
         rubrica.removeContattoPreferito(c2);
        
-        assertFalse(rubrica.getElencoPreferiti().contains(c2));
+        assertFalse(rubrica.getElencoPreferiti().contains(c2));//controllo che il contatto sia correttamente rimosso
     }
 
-    /**
-     * Test of resetRubricaPreferiti method, of class RubricaPreferiti.
-     */
     @Test
     public void testResetRubricaPreferiti() {
-        System.out.println("resetRubricaPreferiti");
-        
-        rubrica.addContattoPreferito(c1);
-        rubrica.resetRubricaPreferiti();
 
-        assertTrue(rubrica.getElencoPreferiti().isEmpty());
+        assertEquals(0,rubrica.getElencoPreferiti().size()); //controllo che l'elenco sia inzialmente vuoto
+        rubrica.addContattoPreferito(c2);
+        assertTrue(rubrica.getElencoPreferiti().contains(c2)); //controllo inserimento corretto del contatto
+        
+        rubrica.resetRubricaPreferiti();
+        assertTrue(rubrica.getElencoPreferiti().isEmpty()); //controllo che la rubrica sia vuota dopo il reset
     }
 
-    /**
-     * Test of getElencoPreferiti method, of class RubricaPreferiti.
-     */
     @Test
     public void testGetElencoPreferiti() {
-        System.out.println("getElencoPreferiti");
-       
+        
+        assertEquals(0,rubrica.getElencoPreferiti().size()); //controllo che l'elenco sia inzialmente vuoto
+
         rubrica.addContattoPreferito(c1);
         rubrica.addContattoPreferito(c2);
-        ObservableSet<Contatto> result = rubrica.getElencoPreferiti();
+        ObservableSet<Contatto> result = rubrica.getElencoPreferiti(); //prende l'elenco dei preferiti
         
-        assertEquals(result.size(), 1);
-        assertTrue(rubrica.getElencoPreferiti().contains(c2));
-        assertFalse(rubrica.getElencoPreferiti().contains(c1));
+        assertEquals(result.size(), 1); //1 poiche solo c2 è stato inserito
+        assertTrue(rubrica.getElencoPreferiti().contains(c2)); //c2 è presente
+        assertFalse(rubrica.getElencoPreferiti().contains(c1)); //c1 non è presente
     }
 
-    /**
-     * Test of ricercaContattiPreferiti method, of class RubricaPreferiti.
-     */
+    
     @Test
     public void testRicercaContattiPreferiti() {
-        System.out.println("ricercaContattiPreferiti");
         
-        rubrica.addContattoPreferito(c1);
-        rubrica.addContattoPreferito(c2);
+        assertEquals(0,rubrica.getElencoPreferiti().size()); //controllo che l'elenco sia inzialmente vuoto
+        
+        rubrica.addContattoPreferito(c1); //non sarà agigunto poichè non preferito
+        rubrica.addContattoPreferito(c2); //sarà aggiunto poichè preferito
 
         ObservableSet<Contatto> risultati; 
         
         risultati = rubrica.ricercaContattiPreferiti("Rossi");
-        assertEquals(0, risultati.size());
-        assertFalse(risultati.contains(c1));
-        assertTrue(risultati.contains(c2));
+        assertEquals(0, risultati.size()); //0 poichè Rossi è contenuto in c1 che non è stato aggiunto a preferiti
+        assertFalse(risultati.contains(c1)); //non contiene c1 poiche non è preferito
+        assertFalse(risultati.contains(c2)); //non contiene c2 poichè Rossi non è predente al suo interno
         
         risultati = rubrica.ricercaContattiPreferiti("Umberto");
-        assertEquals(1, risultati.size());
-        assertTrue(risultati.contains(c2));
-        assertFalse(risultati.contains(c1));
+        assertEquals(1, risultati.size()); //1 poichè umberto è contenuto in c2 che è aggiunto a preferiti
+        assertTrue(risultati.contains(c2)); //true poichè c2 è predente in preferiti
+        assertFalse(risultati.contains(c1)); // false poichè c1 non è presente in preferiti
 
-        risultati = rubrica.ricercaContattiPreferiti("");
-        assertEquals(1, risultati.size());
-        assertTrue(risultati.contains(c2));
-        assertFalse(risultati.contains(c1));
+        risultati = rubrica.ricercaContattiPreferiti(""); //mostra tutti i contatti all'interno dei preferiti
+        assertEquals(1, risultati.size()); //1 poichè solo 1 contatto presente in preferiti
+        assertTrue(risultati.contains(c2)); //c2 è presente
+        assertFalse(risultati.contains(c1)); //c1 non è presente
     }
     
 }
