@@ -28,8 +28,8 @@ public class Contatto implements Comparable<Contatto> {
     public Contatto(String nome, String cognome, Set<String> numeri, Set<String> email, boolean preferito) {
         this.nome = nome;
         this.cognome = cognome;
-        this.numeri = numeri; // Può essere null
-        this.email = email;   // Può essere null
+        this.numeri = numeri != null ? numeri : new HashSet<>(); // Può essere vuota
+        this.email = email != null ? email : new HashSet<>();   // Può essere vuota
         this.preferito = preferito;
     }
 
@@ -51,15 +51,15 @@ public class Contatto implements Comparable<Contatto> {
      *  @return Un set con i numeri di telefono o null.
      */
     public Set<String> getNumeri() {
-        return numeri != null ? new HashSet<>(numeri) : null;
+        return numeri != null ? new HashSet<>(numeri) : new HashSet<>(); 
     }
 
     /** @brief Getter per gli indirizzi email del contatto.
      *  @return Un set con gli indirizzi email o null.
      */
     public Set<String> getEmail() {
-        return email != null ? new HashSet<>(email) : null;
-    }
+        return email != null ? new HashSet<>(email) : new HashSet<>(); 
+    }   
 
     /** @brief Getter per lo stato di preferito del contatto.
      *  @return true se il contatto è preferito, false altrimenti.
