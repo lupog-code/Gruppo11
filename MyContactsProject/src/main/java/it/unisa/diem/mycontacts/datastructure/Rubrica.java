@@ -14,6 +14,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableSet;
+import javafx.scene.control.Alert;
 import javafx.stage.FileChooser;
 
 /**
@@ -212,7 +213,6 @@ public class Rubrica {
                     writer.println(contattoLine.toString());
                 }
 
-                System.out.println("Rubrica esportata con successo.");
             } catch (IOException e) {
                 System.out.println("Errore durante l'esportazione della rubrica.");
             }
@@ -270,16 +270,32 @@ public class Rubrica {
 
                     // Crea il nuovo contatto.
                     Contatto nuovoContatto = new Contatto(nome, cognome, numeri, email, preferito);
+                    
                     aggiungiContatto(nuovoContatto);
                 }
 
                 scanner.close();
-                System.out.println("Rubrica importata con successo.");
-            } catch (IOException e) {
+            } catch (IOException e1) {
                 System.out.println("Errore nell'importazione del file.");
+            } catch (InvalidContactException e2) {
+                showAlert("Errore di importazione", "Verifica che i dati di tutti i contatti siano conformi");
             }
             
         }
+    }
+    
+    /**
+     * @brief Mostra un messaggio di errore in un'alert box.
+     * 
+     * @param title Il titolo della finestra di alert.
+     * @param message Il messaggio da visualizzare nell'alert.
+     */
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR); // Crea un alert di tipo errore
+        alert.setTitle(title); // Imposta il titolo dell'alert
+        alert.setHeaderText(null); // Nessun header
+        alert.setContentText(message); // Imposta il messaggio dell'alert
+        alert.showAndWait(); // Mostra l'alert e aspetta che l'utente lo chiuda
     }
 
 }
