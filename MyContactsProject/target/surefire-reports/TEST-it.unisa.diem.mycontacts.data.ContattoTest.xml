@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="8" name="it.unisa.diem.mycontacts.data.ContattoTest" time="0" errors="0" skipped="0">
+<testsuite tests="8" failures="0" name="it.unisa.diem.mycontacts.data.ContattoTest" time="0.003" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/jre/lib"/>
@@ -64,60 +64,12 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testGetEmail" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at it.unisa.diem.mycontacts.data.ContattoTest.testGetEmail(ContattoTest.java:107)
-</failure>
-    <system-out>getEmail
-</system-out>
-  </testcase>
-  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testIsPreferito" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at it.unisa.diem.mycontacts.data.ContattoTest.testIsPreferito(ContattoTest.java:120)
-</failure>
-    <system-out>isPreferito
-</system-out>
-  </testcase>
-  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testContattoValido" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at it.unisa.diem.mycontacts.data.ContattoTest.testContattoValido(ContattoTest.java:159)
-</failure>
-    <system-out>contattoValido
-</system-out>
-  </testcase>
-  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testEquals" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at it.unisa.diem.mycontacts.data.ContattoTest.testEquals(ContattoTest.java:134)
-</failure>
-    <system-out>equals
-</system-out>
-  </testcase>
-  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testCompareTo" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at it.unisa.diem.mycontacts.data.ContattoTest.testCompareTo(ContattoTest.java:147)
-</failure>
-    <system-out>compareTo
-</system-out>
-  </testcase>
-  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testGetNumeri" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at it.unisa.diem.mycontacts.data.ContattoTest.testGetNumeri(ContattoTest.java:90)
-</failure>
-    <system-out>getNumeri
-</system-out>
-  </testcase>
-  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testGetCognome" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at it.unisa.diem.mycontacts.data.ContattoTest.testGetCognome(ContattoTest.java:73)
-</failure>
-    <system-out>getCognome
-</system-out>
-  </testcase>
-  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testGetNome" time="0">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at it.unisa.diem.mycontacts.data.ContattoTest.testGetNome(ContattoTest.java:60)
-</failure>
-    <system-out>getNome
-</system-out>
-  </testcase>
+  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testGetNome" time="0.003"/>
+  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testGetCognome" time="0"/>
+  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testGetNumeri" time="0"/>
+  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testGetEmail" time="0"/>
+  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testIsPreferito" time="0"/>
+  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testEquals" time="0"/>
+  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testCompareTo" time="0"/>
+  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testContattoValido" time="0"/>
 </testsuite>
