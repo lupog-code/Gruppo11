@@ -2,6 +2,7 @@ package it.unisa.diem.mycontacts.controller;
 
 import it.unisa.diem.mycontacts.data.Contatto;
 import it.unisa.diem.mycontacts.datastructure.Rubrica;
+import it.unisa.diem.mycontacts.exceptions.InvalidContactException;
 import java.net.URL;
 import java.util.HashSet;
 import java.util.ResourceBundle;
@@ -119,7 +120,7 @@ public class RightView2Controller implements Initializable {
      * @param event L'evento scatenato dal clic sul bottone "Conferma".
      */
     @FXML
-    private void confermaAzione(ActionEvent event) {
+    private void confermaAzione(ActionEvent event) throws InvalidContactException {
         // Crea un set di numeri di telefono, escludendo i campi vuoti
         Set <String> numeri = new HashSet<>();
         if(!numero1Field.getText().isEmpty()) numeri.add(numero1Field.getText());
@@ -133,22 +134,23 @@ public class RightView2Controller implements Initializable {
         if(!email3Field.getText().isEmpty()) email.add(email3Field.getText());
         
         // Crea il nuovo contatto
-        Contatto c = new Contatto(nomeField.getText(), cognomeField.getText(), numeri, email, preferitoCheck.isSelected());
+        Contatto c;
+        try {
+            c = new Contatto(nomeField.getText(), cognomeField.getText(), numeri, email, preferitoCheck.isSelected());
+        } catch(InvalidContactException e) {
+            showAlert("Errore nel caricamento", "Controlla che i campi nome o cognome siano presenti");
+            return;
+        }
         
         // Aggiunge o aggiorna il contatto nella rubrica
         if(contatto == null){
-            if (!rubrica.aggiungiContatto(c)) {
-                showAlert("Errore nel caricamento", "Controlla che i campi nome o cognome siano presenti");
-                return; // Interrompe l'operazione in caso di errore
-            }
+            rubrica.aggiungiContatto(c);  
         } else if (rubrica.getElenco().contains(contatto)) {
             rubrica.rimuoviContatto(contatto); // Rimuove il contatto esistente
-            if (!rubrica.aggiungiContatto(c)) {
-                showAlert("Errore nel caricamento", "Controlla che i campi nome o cognome siano presenti");
-            }
+            rubrica.aggiungiContatto(c);
         }
+        
         LeftViewController.getListaContatti().setAll(rubrica.getElenco());
-    
         
         // Ritorna alla vista precedente con il contatto aggiornato
         mainViewController.loadView1(c);

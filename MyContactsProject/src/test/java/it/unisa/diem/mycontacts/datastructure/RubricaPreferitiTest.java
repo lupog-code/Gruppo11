@@ -22,13 +22,13 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class RubricaPreferitiTest {
     
-    private Rubrica rubrica;
+    private RubricaPreferiti rubrica;
     private Contatto c1;
     private Contatto c2;
     
     @BeforeEach
     public void setUp() {
-        rubrica = new Rubrica();
+        rubrica = new RubricaPreferiti();
         
         Set<String> numeri = new HashSet<>();
         numeri.add("3331234567");
@@ -62,12 +62,9 @@ public class RubricaPreferitiTest {
     public void testAddContattoPreferito() {
         System.out.println("addContattoPreferito");
         
-        rubrica.aggiungiContatto(c1);
-        rubrica.aggiungiContatto(c2);
+        rubrica.addContattoPreferito(c1);
 
-        assertFalse(rubrica.getElencoPreferiti().contains(c1));
-        assertTrue(rubrica.getElencoPreferiti().contains(c2));
-
+        assertTrue(rubrica.getElencoPreferiti().contains(c1));
     }
 
     /**
@@ -77,12 +74,10 @@ public class RubricaPreferitiTest {
     public void testRemoveContattoPreferito() {
         System.out.println("removeContattoPreferito");
         
-        rubrica.aggiungiContatto(c2);
-        assertTrue(rubrica.getElencoPreferiti().contains(c2));
-
-        rubrica.rimuoviContatto(c2);
+        rubrica.addContattoPreferito(c1);
+        rubrica.removeContattoPreferito(c1);
         
-        assertFalse(rubrica.getElencoPreferiti().contains(c2));
+        assertFalse(rubrica.getElencoPreferiti().contains(c1));
     }
 
     /**
@@ -92,10 +87,8 @@ public class RubricaPreferitiTest {
     public void testResetRubricaPreferiti() {
         System.out.println("resetRubricaPreferiti");
         
-        rubrica.aggiungiContatto(c2);
-        assertTrue(rubrica.getElencoPreferiti().contains(c2));
-
-        rubrica.resetRubrica();
+        rubrica.addContattoPreferito(c1);
+        rubrica.resetRubricaPreferiti();
 
         assertTrue(rubrica.getElencoPreferiti().isEmpty());
     }
@@ -107,14 +100,12 @@ public class RubricaPreferitiTest {
     public void testGetElencoPreferiti() {
         System.out.println("getElencoPreferiti");
        
-        rubrica.aggiungiContatto(c1);
-        rubrica.aggiungiContatto(c2); 
-
+        rubrica.addContattoPreferito(c1); 
         ObservableSet<Contatto> result = rubrica.getElencoPreferiti();
         
         assertEquals(result.size(), 1);
-        assertFalse(rubrica.getElencoPreferiti().contains(c1));
-        assertTrue(rubrica.getElencoPreferiti().contains(c2));
+        assertTrue(rubrica.getElencoPreferiti().contains(c1));
+        assertFalse(rubrica.getElencoPreferiti().contains(c2));
     }
 
     /**
@@ -124,22 +115,22 @@ public class RubricaPreferitiTest {
     public void testRicercaContattiPreferiti() {
         System.out.println("ricercaContattiPreferiti");
         
-        rubrica.aggiungiContatto(c1);
-        rubrica.aggiungiContatto(c2);
+        rubrica.addContattoPreferito(c1);
+        rubrica.addContattoPreferito(c2);
 
         ObservableSet<Contatto> risultati; 
         
-        risultati = rubrica.ricercaPreferiti("Rossi");
+        risultati = rubrica.ricercaContattiPreferiti("Rossi");
         assertEquals(0, risultati.size());
         assertFalse(risultati.contains(c1));
         assertFalse(risultati.contains(c2));
         
-        risultati = rubrica.ricercaPreferiti("Umberto");
+        risultati = rubrica.ricercaContattiPreferiti("Umberto");
         assertEquals(1, risultati.size());
         assertTrue(risultati.contains(c2));
         assertFalse(risultati.contains(c1));
 
-        risultati = rubrica.ricercaPreferiti("");
+        risultati = rubrica.ricercaContattiPreferiti("");
         assertEquals(1, risultati.size());
         assertTrue(risultati.contains(c2));
         assertFalse(risultati.contains(c1));

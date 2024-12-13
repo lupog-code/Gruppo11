@@ -1,5 +1,6 @@
 package it.unisa.diem.mycontacts.data;
 
+import it.unisa.diem.mycontacts.exceptions.InvalidContactException;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -24,8 +25,11 @@ public class Contatto implements Comparable<Contatto> {
      * @param numeri Set di numeri di telefono del contatto (può essere null).
      * @param email Set di indirizzi email del contatto (può essere null).
      * @param preferito Stato di preferito del contatto.
+     * @throws it.unisa.diem.mycontacts.exceptions.InvalidContactException
      */
-    public Contatto(String nome, String cognome, Set<String> numeri, Set<String> email, boolean preferito) {
+    public Contatto(String nome, String cognome, Set<String> numeri, Set<String> email, boolean preferito) throws InvalidContactException {
+        if(nome.isEmpty() && cognome.isEmpty())
+            throw new InvalidContactException("Dati contatto non validi");
         this.nome = nome;
         this.cognome = cognome;
         this.numeri = numeri != null ? numeri : new HashSet<>(); // Può essere vuota
@@ -117,13 +121,4 @@ public class Contatto implements Comparable<Contatto> {
         return this.nome.compareTo(o.nome);
     }
 
-    /**
-     * @brief Verifica se un contatto è valido.
-     * Un contatto è considerato valido se ha un nome o un cognome non vuoti.
-     * 
-     * @return true se il contatto è valido, false altrimenti.
-     */
-    public boolean contattoValido() {
-        return !(cognome == null || cognome.isEmpty()) || !(nome == null || nome.isEmpty());
-    }
 }

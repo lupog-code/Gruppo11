@@ -2,6 +2,7 @@ package it.unisa.diem.mycontacts.controller;
 
 import it.unisa.diem.mycontacts.data.Contatto;
 import it.unisa.diem.mycontacts.datastructure.Rubrica;
+import it.unisa.diem.mycontacts.exceptions.InvalidContactException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -148,7 +149,7 @@ public class LeftViewController implements Initializable {
      * @throws IOException Se si verifica un errore durante l'importazione.
      */
     @FXML
-    private void importaRubrica(ActionEvent event) throws IOException {
+    private void importaRubrica(ActionEvent event) throws IOException, InvalidContactException {
         rubrica.importaRubrica(); // Importa la rubrica
     }
     

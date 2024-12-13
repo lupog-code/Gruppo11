@@ -119,19 +119,16 @@ public class RightView1Controller implements Initializable {
     private void eliminaContatto(ActionEvent event) {
         if (contatto != null && rubrica != null) {
             // Rimuove il contatto dalla rubrica
-            if (rubrica.rimuoviContatto(contatto)) {
-                // Se la rubrica è vuota, carica una vista vuota
-                if(rubrica.isRubricaVuota()) {
-                    mainViewController.loadView2(null); // Carica una vista vuota
-                } else {
-                    // Se ci sono altri contatti, carica il primo contatto della lista
-                    List<Contatto> list = new ArrayList<>(rubrica.getElenco());
-                    mainViewController.loadView2(list.get(0)); // Carica il primo contatto
-                }
+            rubrica.rimuoviContatto(contatto);
+            // Se la rubrica è vuota, carica una vista vuota
+            if(rubrica.isRubricaVuota()) {
+                mainViewController.loadView2(null); // Carica una vista vuota
             } else {
-                // Stampa un errore se la rimozione non è andata a buon fine
-                System.out.println("Errore nella rimozione del contatto.");
+                // Se ci sono altri contatti, carica il primo contatto della lista
+                List<Contatto> list = new ArrayList<>(rubrica.getElenco());
+                mainViewController.loadView2(list.get(0)); // Carica il primo contatto
             }
+             
         }
     }
 }

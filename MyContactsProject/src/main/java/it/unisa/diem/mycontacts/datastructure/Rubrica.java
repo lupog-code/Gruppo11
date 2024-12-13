@@ -1,6 +1,7 @@
 package it.unisa.diem.mycontacts.datastructure;
 
 import it.unisa.diem.mycontacts.data.Contatto;
+import it.unisa.diem.mycontacts.exceptions.InvalidContactException;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -94,14 +95,8 @@ public class Rubrica {
      * Se il contatto è marcato come preferito, lo aggiunge anche alla lista dei preferiti.
      * 
      * @param c Contatto da aggiungere.
-     * @return true se il contatto è stato aggiunto con successo, false se non valido.
      */
-    public boolean aggiungiContatto(Contatto c) {
-        // Verifica la validità del contatto.
-        if (!c.contattoValido()) {
-            return false;
-        }
-
+    public void aggiungiContatto(Contatto c) {
         // Aggiunge il contatto alla rubrica.
         elenco.add(c);
 
@@ -109,8 +104,6 @@ public class Rubrica {
         if (c.isPreferito()) {
             elencoPreferiti.addContattoPreferito(c);
         }
-
-        return true;
     }
     
     /**
@@ -118,12 +111,11 @@ public class Rubrica {
      * Se il contatto è preferito, viene rimosso anche dalla lista dei preferiti.
      * 
      * @param c Contatto da rimuovere.
-     * @return true se il contatto è stato rimosso con successo, false se la rubrica è vuota.
      */
-    public boolean rimuoviContatto(Contatto c) {
+    public void rimuoviContatto(Contatto c) {
         // Verifica se la rubrica è vuota.
         if (isRubricaVuota()) {
-            return false;
+            return;
         }
 
         // Rimuove il contatto dall'elenco principale.
@@ -134,7 +126,6 @@ public class Rubrica {
             elencoPreferiti.removeContattoPreferito(c);
         }
 
-        return true;
     }
 
     /**
@@ -229,11 +220,12 @@ public class Rubrica {
     }
     
     /**
+     * @throws it.unisa.diem.mycontacts.exceptions.InvalidContactException
      * @brief Importa una rubrica da un file specificato.
      * 
      * @throws IOException se si verifica un errore durante l'importazione.
      */
-    public void importaRubrica() throws IOException {
+    public void importaRubrica() throws IOException, InvalidContactException {
         // Crea un FileChooser per selezionare il file da importare.
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text File", "*.txt"));
