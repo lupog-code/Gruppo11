@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="0" name="it.unisa.diem.mycontacts.data.ContattoTest" time="0.022" errors="0" skipped="0">
+<testsuite tests="11" failures="11" name="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0.314" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_201\jre\bin"/>
@@ -15,7 +15,7 @@
     <property name="user.country" value="IT"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value=""/>
-    <property name="test" value="it.unisa.diem.mycontacts.data.ContattoTest"/>
+    <property name="test" value="it.unisa.diem.mycontacts.datastructure.RubricaTest"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.dir" value="C:\Users\gianm\Documents\GitHub\Gruppo11\MyContactsProject"/>
     <property name="java.runtime.version" value="1.8.0_201-b09"/>
@@ -48,7 +48,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_201\jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=it.unisa.diem.mycontacts.data.ContattoTest -Dmaven.ext.class.path=C:\Program Files\NetBeans-15\netbeans\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 surefire:test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=it.unisa.diem.mycontacts.datastructure.RubricaTest -Dmaven.ext.class.path=C:\Program Files\NetBeans-15\netbeans\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 surefire:test"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="it"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -65,12 +65,62 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testGetCognome" time="0.021"/>
-  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testIsPreferito" time="0"/>
-  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testGetEmail" time="0"/>
-  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testEquals" time="0"/>
-  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testGetNumeri" time="0"/>
-  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testCompareTo" time="0"/>
-  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testGetNome" time="0"/>
-  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testContattoValido" time="0.001"/>
+  <testcase classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" name="it.unisa.diem.mycontacts.datastructure.RubricaTest.testGetElenco" time="0">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testGetElenco(RubricaTest.java:77)
+</failure>
+  </testcase>
+  <testcase classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" name="it.unisa.diem.mycontacts.datastructure.RubricaTest.testResetRubrica" time="0">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testResetRubrica(RubricaTest.java:150)
+</failure>
+  </testcase>
+  <testcase classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" name="it.unisa.diem.mycontacts.datastructure.RubricaTest.testGetElencoPreferiti" time="0">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testGetElencoPreferiti(RubricaTest.java:91)
+</failure>
+  </testcase>
+  <testcase classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" name="it.unisa.diem.mycontacts.datastructure.RubricaTest.testRicercaContatti" time="0">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testRicercaContatti(RubricaTest.java:105)
+</failure>
+  </testcase>
+  <testcase classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" name="it.unisa.diem.mycontacts.datastructure.RubricaTest.testAggiungiContatto" time="0">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testAggiungiContatto(RubricaTest.java:125)
+</failure>
+  </testcase>
+  <testcase classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" name="it.unisa.diem.mycontacts.datastructure.RubricaTest.testRimuoviContatto" time="0">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testRimuoviContatto(RubricaTest.java:137)
+</failure>
+  </testcase>
+  <testcase classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" name="it.unisa.diem.mycontacts.datastructure.RubricaTest.testEsportaRubrica" time="0">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testEsportaRubrica(RubricaTest.java:203)
+</failure>
+  </testcase>
+  <testcase classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" name="it.unisa.diem.mycontacts.datastructure.RubricaTest.testAggiungiAPreferiti" time="0">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testAggiungiAPreferiti(RubricaTest.java:179)
+</failure>
+  </testcase>
+  <testcase classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" name="it.unisa.diem.mycontacts.datastructure.RubricaTest.testRimuoviDaPreferiti" time="0.016">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at it.unisa.diem.mycontacts.datastructure.Rubrica.rimuoviDaPreferiti(Rubrica.java:162)
+	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testRimuoviDaPreferiti(RubricaTest.java:193)
+</failure>
+    <system-out>rimuoviDaPreferiti
+</system-out>
+  </testcase>
+  <testcase classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" name="it.unisa.diem.mycontacts.datastructure.RubricaTest.testIsRubricaVuota" time="0">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testIsRubricaVuota(RubricaTest.java:164)
+</failure>
+  </testcase>
+  <testcase classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" name="it.unisa.diem.mycontacts.datastructure.RubricaTest.testImportaRubrica" time="0.298">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testImportaRubrica(RubricaTest.java:226)
+</failure>
+  </testcase>
 </testsuite>
