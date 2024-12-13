@@ -77,6 +77,17 @@ public class Rubrica {
 
         return risultati;
     }
+    
+    /**
+     * @brief Esegue una ricerca dei preferiti in base al testo inserito.
+     * La ricerca avviene per cognome o nome.
+     * 
+     * @param text Testo da ricercare.
+     * @return un Set contenente i contatti che corrispondono alla ricerca.
+     */
+    public ObservableSet<Contatto> ricercaPreferiti(String text) {
+        return elencoPreferiti.ricercaContattiPreferiti(text);
+    }
 
     /**
      * @brief Aggiunge un contatto alla rubrica.
@@ -278,11 +289,5 @@ public class Rubrica {
             
         }
     }
-    public String toString(){
-        StringBuffer sb = new StringBuffer();
-        for(Contatto c : elenco){
-            sb.append(c + "\n");
-        }
-        return sb.toString();
-    }
+
 }

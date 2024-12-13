@@ -66,4 +66,28 @@ public class RubricaPreferiti {
     public ObservableSet<Contatto> getElencoPreferiti() {
         return elencoPreferiti; // Restituisce l'elenco dei contatti preferiti.
     }
+    
+    /**
+     * @brief Esegue una ricerca dei contatti preferiti in base al testo inserito.
+     * La ricerca avviene per cognome o nome.
+     * 
+     * @param text Testo da ricercare.
+     * @return un Set contenente i contatti preferiti che corrispondono alla ricerca.
+     */
+    public ObservableSet<Contatto> ricercaContattiPreferiti(String text) {
+        ObservableSet<Contatto> risultati = FXCollections.observableSet(new TreeSet<>());
+
+        // Restituisce l'intera rubrica se il testo di ricerca è nullo o vuoto.
+        if (text == null || text.isEmpty()) return elencoPreferiti;
+
+        // Aggiunge i contatti che corrispondono alla ricerca.
+        for (Contatto c : elencoPreferiti) {
+            if (c.getCognome().toLowerCase().startsWith(text.toLowerCase()) || 
+                c.getNome().toLowerCase().startsWith(text.toLowerCase())) {
+                risultati.add(c);
+            }
+        }
+
+        return risultati;
+    }
 }

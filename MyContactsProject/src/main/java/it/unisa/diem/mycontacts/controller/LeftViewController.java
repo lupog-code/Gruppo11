@@ -168,18 +168,21 @@ public class LeftViewController implements Initializable {
      * @brief Gestisce la ricerca di contatti nella rubrica.
      *        Filtra i contatti in base al testo inserito nel campo di ricerca.
      * 
-     * @param event L'evento scatenato dalla pressione di un tasto nel campo di ricerca.
      */
     @FXML
-    private void ricercaContatto(KeyEvent event) {
+    private void ricercaContatto() {
         // Ottieni il testo dalla searchField
         String searchText = searchField.getText();
+        ObservableList<Contatto> risultatiList;
 
         // Esegui la ricerca nella rubrica
-        ObservableSet<Contatto> risultati = rubrica.ricercaContatti(searchText);
-
-        // Aggiorna la TableView con i risultati della ricerca
-        ObservableList<Contatto> risultatiList = FXCollections.observableArrayList(risultati);
+        if(!prefToggle.isSelected()) {
+            // Aggiorna la TableView con i risultati della ricerca
+            risultatiList = FXCollections.observableArrayList(rubrica.ricercaContatti(searchText));
+        } else {
+            risultatiList = FXCollections.observableArrayList(rubrica.ricercaPreferiti(searchText));
+        }
+            
         contattiTable.setItems(risultatiList); // Imposta i risultati filtrati nella TableView
     }
 
