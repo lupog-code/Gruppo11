@@ -1,23 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: it.unisa.diem.mycontacts.datastructure.RubricaTest
 -------------------------------------------------------------------------------
-Tests run: 11, Failures: 11, Errors: 0, Skipped: 0, Time elapsed: 0.314 sec <<< FAILURE!
-it.unisa.diem.mycontacts.datastructure.RubricaTest.testGetElenco()  Time elapsed: 0 sec  <<< FAILURE!
-java.lang.NullPointerException
-	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testGetElenco(RubricaTest.java:77)
-
-it.unisa.diem.mycontacts.datastructure.RubricaTest.testResetRubrica()  Time elapsed: 0 sec  <<< FAILURE!
-java.lang.NullPointerException
-	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testResetRubrica(RubricaTest.java:150)
-
-it.unisa.diem.mycontacts.datastructure.RubricaTest.testGetElencoPreferiti()  Time elapsed: 0 sec  <<< FAILURE!
-java.lang.NullPointerException
-	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testGetElencoPreferiti(RubricaTest.java:91)
-
-it.unisa.diem.mycontacts.datastructure.RubricaTest.testRicercaContatti()  Time elapsed: 0 sec  <<< FAILURE!
-java.lang.NullPointerException
-	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testRicercaContatti(RubricaTest.java:105)
-
+Tests run: 11, Failures: 11, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec <<< FAILURE!
 it.unisa.diem.mycontacts.datastructure.RubricaTest.testAggiungiContatto()  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.NullPointerException
 	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testAggiungiContatto(RubricaTest.java:125)
@@ -26,15 +10,15 @@ it.unisa.diem.mycontacts.datastructure.RubricaTest.testRimuoviContatto()  Time e
 java.lang.NullPointerException
 	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testRimuoviContatto(RubricaTest.java:137)
 
-it.unisa.diem.mycontacts.datastructure.RubricaTest.testEsportaRubrica()  Time elapsed: 0 sec  <<< FAILURE!
-java.lang.NullPointerException
-	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testEsportaRubrica(RubricaTest.java:203)
-
 it.unisa.diem.mycontacts.datastructure.RubricaTest.testAggiungiAPreferiti()  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.NullPointerException
 	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testAggiungiAPreferiti(RubricaTest.java:179)
 
-it.unisa.diem.mycontacts.datastructure.RubricaTest.testRimuoviDaPreferiti()  Time elapsed: 0.016 sec  <<< FAILURE!
+it.unisa.diem.mycontacts.datastructure.RubricaTest.testResetRubrica()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testResetRubrica(RubricaTest.java:150)
+
+it.unisa.diem.mycontacts.datastructure.RubricaTest.testRimuoviDaPreferiti()  Time elapsed: 0.006 sec  <<< FAILURE!
 java.lang.NullPointerException
 	at it.unisa.diem.mycontacts.datastructure.Rubrica.rimuoviDaPreferiti(Rubrica.java:162)
 	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testRimuoviDaPreferiti(RubricaTest.java:193)
@@ -43,7 +27,23 @@ it.unisa.diem.mycontacts.datastructure.RubricaTest.testIsRubricaVuota()  Time el
 java.lang.NullPointerException
 	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testIsRubricaVuota(RubricaTest.java:164)
 
-it.unisa.diem.mycontacts.datastructure.RubricaTest.testImportaRubrica()  Time elapsed: 0.298 sec  <<< FAILURE!
+it.unisa.diem.mycontacts.datastructure.RubricaTest.testEsportaRubrica()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testEsportaRubrica(RubricaTest.java:203)
+
+it.unisa.diem.mycontacts.datastructure.RubricaTest.testRicercaContatti()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testRicercaContatti(RubricaTest.java:105)
+
+it.unisa.diem.mycontacts.datastructure.RubricaTest.testGetElencoPreferiti()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testGetElencoPreferiti(RubricaTest.java:91)
+
+it.unisa.diem.mycontacts.datastructure.RubricaTest.testGetElenco()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testGetElenco(RubricaTest.java:77)
+
+it.unisa.diem.mycontacts.datastructure.RubricaTest.testImportaRubrica()  Time elapsed: 0.014 sec  <<< FAILURE!
 java.lang.NullPointerException
 	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testImportaRubrica(RubricaTest.java:226)
 
