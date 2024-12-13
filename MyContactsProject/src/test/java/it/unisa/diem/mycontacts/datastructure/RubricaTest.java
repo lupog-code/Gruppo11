@@ -5,6 +5,7 @@
 package it.unisa.diem.mycontacts.datastructure;
 
 import it.unisa.diem.mycontacts.data.Contatto;
+import it.unisa.diem.mycontacts.exceptions.InvalidContactException;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.HashSet;
@@ -28,7 +29,7 @@ public class RubricaTest {
     private Rubrica rubrica;
     
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws InvalidContactException {
         rubrica = new Rubrica();
         
         Set<String> numeri = new HashSet<>();
@@ -114,10 +115,10 @@ public class RubricaTest {
     @Test
     public void testAggiungiContatto() {
          
-        assertTrue(rubrica.aggiungiContatto(c1));
+        rubrica.aggiungiContatto(c1);
         assertTrue(rubrica.getElenco().contains(c1));
 
-        assertTrue(rubrica.aggiungiContatto(c2));
+        rubrica.aggiungiContatto(c2);
         assertTrue(rubrica.getElenco().contains(c2));
     }
 
@@ -128,11 +129,11 @@ public class RubricaTest {
     public void testRimuoviContatto() {
 
         rubrica.aggiungiContatto(c1);
-        assertTrue(rubrica.rimuoviContatto(c1));
+        assertTrue(rubrica.getElenco().contains(c1));
+        rubrica.rimuoviContatto(c1);
         assertFalse(rubrica.getElenco().contains(c1));
 
-        // Test su rubrica vuota
-        assertFalse(rubrica.rimuoviContatto(c2));
+        
     }
 
     /**

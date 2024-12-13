@@ -102,9 +102,9 @@ public class Rubrica {
         elenco.add(c);
 
         // Aggiunge il contatto ai preferiti se è contrassegnato come preferito.
-        if (c.isPreferito()) {
-            elencoPreferiti.addContattoPreferito(c);
-        }
+        
+         elencoPreferiti.addContattoPreferito(c);
+        
     }
     
     /**
@@ -123,9 +123,9 @@ public class Rubrica {
         elenco.remove(c);
 
         // Rimuove il contatto dalla lista dei preferiti se esiste.
-        if (c.isPreferito()) {
-            elencoPreferiti.removeContattoPreferito(c);
-        }
+        
+         elencoPreferiti.removeContattoPreferito(c);
+        
 
     }
 

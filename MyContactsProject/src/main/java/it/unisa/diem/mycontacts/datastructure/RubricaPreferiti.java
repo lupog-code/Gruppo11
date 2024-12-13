@@ -34,7 +34,9 @@ public class RubricaPreferiti {
         if (c == null) {
             throw new IllegalArgumentException("Il contatto non può essere null.");
         }
+        if(c.isPreferito()){
         elencoPreferiti.add(c); // Aggiunge il contatto ai preferiti.
+        }
     }
 
     /**
@@ -48,7 +50,9 @@ public class RubricaPreferiti {
         if (c == null) {
             throw new IllegalArgumentException("Il contatto non può essere null.");
         }
-        elencoPreferiti.remove(c); // Rimuove il contatto dai preferiti.
+        if(c.isPreferito()){
+            elencoPreferiti.remove(c); // Rimuove il contatto dai preferiti.
+        }
     }
 
     /**

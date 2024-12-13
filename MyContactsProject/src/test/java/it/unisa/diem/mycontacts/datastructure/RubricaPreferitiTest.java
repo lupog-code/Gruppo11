@@ -6,6 +6,7 @@
 package it.unisa.diem.mycontacts.datastructure;
 
 import it.unisa.diem.mycontacts.data.Contatto;
+import it.unisa.diem.mycontacts.exceptions.InvalidContactException;
 import java.util.HashSet;
 import java.util.Set;
 import javafx.collections.ObservableSet;
@@ -27,7 +28,7 @@ public class RubricaPreferitiTest {
     private Contatto c2;
     
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws InvalidContactException {
         rubrica = new RubricaPreferiti();
         
         Set<String> numeri = new HashSet<>();
@@ -63,8 +64,10 @@ public class RubricaPreferitiTest {
         System.out.println("addContattoPreferito");
         
         rubrica.addContattoPreferito(c1);
+        rubrica.addContattoPreferito(c2);
 
-        assertTrue(rubrica.getElencoPreferiti().contains(c1));
+        assertFalse(rubrica.getElencoPreferiti().contains(c1));
+        assertTrue(rubrica.getElencoPreferiti().contains(c2));
     }
 
     /**
@@ -74,10 +77,12 @@ public class RubricaPreferitiTest {
     public void testRemoveContattoPreferito() {
         System.out.println("removeContattoPreferito");
         
-        rubrica.addContattoPreferito(c1);
-        rubrica.removeContattoPreferito(c1);
-        
-        assertFalse(rubrica.getElencoPreferiti().contains(c1));
+        rubrica.addContattoPreferito(c2);
+        assertTrue(rubrica.getElencoPreferiti().contains(c2));
+
+        rubrica.removeContattoPreferito(c2);
+       
+        assertFalse(rubrica.getElencoPreferiti().contains(c2));
     }
 
     /**
@@ -100,12 +105,13 @@ public class RubricaPreferitiTest {
     public void testGetElencoPreferiti() {
         System.out.println("getElencoPreferiti");
        
-        rubrica.addContattoPreferito(c1); 
+        rubrica.addContattoPreferito(c1);
+        rubrica.addContattoPreferito(c2);
         ObservableSet<Contatto> result = rubrica.getElencoPreferiti();
         
         assertEquals(result.size(), 1);
-        assertTrue(rubrica.getElencoPreferiti().contains(c1));
-        assertFalse(rubrica.getElencoPreferiti().contains(c2));
+        assertTrue(rubrica.getElencoPreferiti().contains(c2));
+        assertFalse(rubrica.getElencoPreferiti().contains(c1));
     }
 
     /**
@@ -121,6 +127,7 @@ public class RubricaPreferitiTest {
         ObservableSet<Contatto> risultati; 
         
         risultati = rubrica.ricercaContattiPreferiti("Rossi");
+        //in questo caso addContattoPreferiti è assoluto, cioè aggiunge il contatto alla lista preferiti a prescindere dal flag preferito. Il controllo del flag è effetuato dal metodo aggiungiContatto
         assertEquals(0, risultati.size());
         assertFalse(risultati.contains(c1));
         assertFalse(risultati.contains(c2));

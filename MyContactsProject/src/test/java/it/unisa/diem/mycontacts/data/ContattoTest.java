@@ -5,6 +5,7 @@
  */
 package it.unisa.diem.mycontacts.data;
 
+import it.unisa.diem.mycontacts.exceptions.InvalidContactException;
 import java.util.HashSet;
 import java.util.Set;
 import org.junit.jupiter.api.AfterEach;
@@ -23,7 +24,7 @@ public class ContattoTest {
     private Contatto c;
 
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws InvalidContactException {
         Set<String> numeri = new HashSet<>();
         numeri.add("3331234567");
         numeri.add("0817654321");
@@ -128,7 +129,7 @@ public class ContattoTest {
      * Test of compareTo method, of class Contatto.
      */
     @Test
-    public void testCompareTo() {
+    public void testCompareTo() throws InvalidContactException {
         System.out.println("compareTo");
         Contatto o = new Contatto("Luigi", "Verdi", null, null, false);
 
@@ -139,13 +140,6 @@ public class ContattoTest {
     /**
      * Test of contattoValido method, of class Contatto.
      */
-    @Test
-    public void testContattoValido() {
-        System.out.println("contattoValido");
-        
-        boolean expResult = true;
-        boolean result = c.contattoValido();
-        assertEquals(expResult, result);
-    }
+   
     
 }
