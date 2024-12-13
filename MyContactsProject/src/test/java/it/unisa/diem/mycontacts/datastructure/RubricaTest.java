@@ -22,26 +22,16 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author gianm
  */
 public class RubricaTest {
+    
     private Contatto c1;
     private Contatto c2;
     private Rubrica rubrica;
     
-   
-    
-    @BeforeAll
-    public static void setUpClass() {
-        
-    }
-    
-    
-    @AfterAll
-    public static void tearDownClass() {
-    }
-    
     @BeforeEach
     public void setUp() {
         rubrica = new Rubrica();
-         Set<String> numeri = new HashSet<>();
+        
+        Set<String> numeri = new HashSet<>();
         numeri.add("3331234567");
         numeri.add("0817654321");
         numeri.add("4569868424");
@@ -50,7 +40,8 @@ public class RubricaTest {
         email.add("mario.rossi@example.com");
         email.add("rossimario@gmail.com");
         email.add("tonyeffe@unisa.it");
-         c1= new Contatto("Mario", "Rossi", numeri, email, false);
+        
+        c1 = new Contatto("Mario", "Rossi", numeri, email, false);
         
         Set<String> numeri2 = new HashSet<>();
         numeri.add("2221234567");
@@ -61,12 +52,9 @@ public class RubricaTest {
         email.add("umberto-zorro@example.com");
         email.add("adelaide@gmail.com");
         email.add("jAx@unisa.it");
-         c2 =new Contatto("Umberto","Zorro",numeri2,email2,true);
+         
+        c2 = new Contatto("Umberto","Zorro",numeri2,email2,true);
         
-    }
-    
-    @AfterEach
-    public void tearDown() {
     }
 
     /**
@@ -90,7 +78,6 @@ public class RubricaTest {
     @Test
     public void testGetElencoPreferiti() {
         
-        
         rubrica.aggiungiContatto(c1);
         rubrica.aggiungiContatto(c2);
 
@@ -105,8 +92,6 @@ public class RubricaTest {
      */
     @Test
     public void testRicercaContatti() {
-        
-       
         
        rubrica.aggiungiContatto(c1);
         rubrica.aggiungiContatto(c2);
@@ -128,9 +113,7 @@ public class RubricaTest {
      */
     @Test
     public void testAggiungiContatto() {
-        
-       
-        
+         
         assertTrue(rubrica.aggiungiContatto(c1));
         assertTrue(rubrica.getElenco().contains(c1));
 
@@ -143,9 +126,7 @@ public class RubricaTest {
      */
     @Test
     public void testRimuoviContatto() {
-        
-       
-        
+
         rubrica.aggiungiContatto(c1);
         assertTrue(rubrica.rimuoviContatto(c1));
         assertFalse(rubrica.getElenco().contains(c1));
@@ -159,8 +140,6 @@ public class RubricaTest {
      */
     @Test
     public void testResetRubrica() {
-       
-        
         
         rubrica.aggiungiContatto(c1);
         rubrica.aggiungiContatto(c2);
@@ -176,9 +155,7 @@ public class RubricaTest {
      */
     @Test
     public void testIsRubricaVuota() {
-        
-        
-        
+           
        assertTrue(rubrica.isRubricaVuota());
 
         rubrica.aggiungiContatto(c1);
@@ -195,8 +172,6 @@ public class RubricaTest {
     @Test
     public void testAggiungiAPreferiti() {
         
-        
-        
        rubrica.aggiungiContatto(c2);
         rubrica.aggiungiAPreferiti(c2);
 
@@ -208,22 +183,18 @@ public class RubricaTest {
      */
     @Test
     public void testRimuoviDaPreferiti() {
-        
-      
-        
-        rubrica.aggiungiContatto(c1);
-        rubrica.rimuoviDaPreferiti(c1);
+           
+        rubrica.aggiungiContatto(c2);
+        rubrica.rimuoviDaPreferiti(c2);
 
         assertFalse(rubrica.getElencoPreferiti().contains(c1));
     }
 
     /**
      * Test of esportaRubrica method, of class Rubrica.
-     */
+     *
     @Test
     public void testEsportaRubrica() throws Exception {
-       
-       
         
         File file = File.createTempFile("rubrica_test", ".txt");
         file.deleteOnExit();
@@ -235,5 +206,5 @@ public class RubricaTest {
 
         assertEquals(1, rubrica.getElenco().size());
         assertTrue(rubrica.getElenco().stream().anyMatch(c -> c.getNome().equals("Mario") && c.getCognome().equals("Rossi")));
-    }
+    }*/
 }

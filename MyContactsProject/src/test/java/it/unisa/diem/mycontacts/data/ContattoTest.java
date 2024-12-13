@@ -21,15 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ContattoTest {
     
     private Contatto c;
-    
-    @BeforeAll
-    public static void setUpClass() {
-    }
-    
-    @AfterAll
-    public static void tearDownClass() {
-    }
-    
+
     @BeforeEach
     public void setUp() {
         Set<String> numeri = new HashSet<>();
@@ -44,28 +36,12 @@ public class ContattoTest {
 
         c = new Contatto("Mario", "Rossi", numeri, email, false);
     }
-    
-    @AfterEach
-    public void tearDown() {
-    }
    
     /**
      * Test of getNome method, of class Contatto.
      */
     @Test
     public void testGetNome() {
-        Set<String> numeri = new HashSet<>();
-        numeri.add("3331234567");
-        numeri.add("0817654321");
-        numeri.add("4569868424");
-
-        Set<String> email = new HashSet<>();
-        email.add("mario.rossi@example.com");
-        email.add("rossimario@gmail.com");
-        email.add("tonyeffe@unisa.it");
-
-        c = new Contatto("Mario", "Rossi", numeri, email, false);
-        
         System.out.println("getNome");
         
         String expResult = "Mario";
@@ -79,18 +55,6 @@ public class ContattoTest {
      */
     @Test
     public void testGetCognome() {
-        Set<String> numeri = new HashSet<>();
-        numeri.add("3331234567");
-        numeri.add("0817654321");
-        numeri.add("4569868424");
-
-        Set<String> email = new HashSet<>();
-        email.add("mario.rossi@example.com");
-        email.add("rossimario@gmail.com");
-        email.add("tonyeffe@unisa.it");
-
-        c = new Contatto("Mario", "Rossi", numeri, email, false);
-        
         System.out.println("getCognome");
         
         String expResult = "Rossi";
@@ -104,18 +68,6 @@ public class ContattoTest {
      */
     @Test
     public void testGetNumeri() {
-        Set<String> numeri = new HashSet<>();
-        numeri.add("3331234567");
-        numeri.add("0817654321");
-        numeri.add("4569868424");
-
-        Set<String> email = new HashSet<>();
-        email.add("mario.rossi@example.com");
-        email.add("rossimario@gmail.com");
-        email.add("tonyeffe@unisa.it");
-
-        c = new Contatto("Mario", "Rossi", numeri, email, false);
-        
         System.out.println("getNumeri");
         
         Set<String> expResult = new HashSet<>();
@@ -133,18 +85,6 @@ public class ContattoTest {
      */
     @Test
     public void testGetEmail() {
-        Set<String> numeri = new HashSet<>();
-        numeri.add("3331234567");
-        numeri.add("0817654321");
-        numeri.add("4569868424");
-
-        Set<String> email = new HashSet<>();
-        email.add("mario.rossi@example.com");
-        email.add("rossimario@gmail.com");
-        email.add("tonyeffe@unisa.it");
-
-        c = new Contatto("Mario", "Rossi", numeri, email, false);
-        
         System.out.println("getEmail");
         
         Set<String> expResult = new HashSet<>();
@@ -162,18 +102,6 @@ public class ContattoTest {
      */
     @Test
     public void testIsPreferito() {
-        Set<String> numeri = new HashSet<>();
-        numeri.add("3331234567");
-        numeri.add("0817654321");
-        numeri.add("4569868424");
-
-        Set<String> email = new HashSet<>();
-        email.add("mario.rossi@example.com");
-        email.add("rossimario@gmail.com");
-        email.add("tonyeffe@unisa.it");
-
-        c = new Contatto("Mario", "Rossi", numeri, email, false);
-        
         System.out.println("isPreferito");
 
         boolean expResult = false;
@@ -187,18 +115,6 @@ public class ContattoTest {
      */
     @Test
     public void testEquals() {
-        Set<String> numeri = new HashSet<>();
-        numeri.add("3331234567");
-        numeri.add("0817654321");
-        numeri.add("4569868424");
-
-        Set<String> email = new HashSet<>();
-        email.add("mario.rossi@example.com");
-        email.add("rossimario@gmail.com");
-        email.add("tonyeffe@unisa.it");
-
-        c = new Contatto("Mario", "Rossi", numeri, email, false);
-        
         System.out.println("equals");
         
         Object obj = null;
@@ -213,18 +129,6 @@ public class ContattoTest {
      */
     @Test
     public void testCompareTo() {
-        Set<String> numeri = new HashSet<>();
-        numeri.add("3331234567");
-        numeri.add("0817654321");
-        numeri.add("4569868424");
-
-        Set<String> email = new HashSet<>();
-        email.add("mario.rossi@example.com");
-        email.add("rossimario@gmail.com");
-        email.add("tonyeffe@unisa.it");
-
-        c = new Contatto("Mario", "Rossi", numeri, email, false);
-        
         System.out.println("compareTo");
         Contatto o = new Contatto("Luigi", "Verdi", null, null, false);
 
@@ -237,18 +141,6 @@ public class ContattoTest {
      */
     @Test
     public void testContattoValido() {
-        Set<String> numeri = new HashSet<>();
-        numeri.add("3331234567");
-        numeri.add("0817654321");
-        numeri.add("4569868424");
-
-        Set<String> email = new HashSet<>();
-        email.add("mario.rossi@example.com");
-        email.add("rossimario@gmail.com");
-        email.add("tonyeffe@unisa.it");
-
-        c = new Contatto("Mario", "Rossi", numeri, email, false);
-        
         System.out.println("contattoValido");
         
         boolean expResult = true;
