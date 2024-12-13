@@ -225,24 +225,23 @@ public class Rubrica {
      * 
      * @throws IOException se si verifica un errore durante l'importazione.
      */
-    public void importaRubrica() throws IOException, InvalidContactException {
-        // Crea un FileChooser per selezionare il file da importare.
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text File", "*.txt"));
-        fileChooser.setTitle("Seleziona un file da importare");
+    public void importaRubrica() throws IOException {
+    // Crea un FileChooser per selezionare il file da importare.
+    FileChooser fileChooser = new FileChooser();
+    fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text File", "*.txt"));
+    fileChooser.setTitle("Seleziona un file da importare");
 
-        // Mostra la finestra di dialogo per scegliere il file.
-        File file = fileChooser.showOpenDialog(null);
+    // Mostra la finestra di dialogo per scegliere il file.
+    File file = fileChooser.showOpenDialog(null);
 
-        if (file != null) {
-            try {
-                // Crea uno scanner per leggere il file.
-                Scanner scanner = new Scanner(file);
+    if (file != null) {
+        boolean errorOccurred=false;
+        try (Scanner scanner = new Scanner(file)) { // Uso try-with-resources per gestire lo scanner.
+            // Legge il file riga per riga.
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
 
-                // Legge il file riga per riga.
-                while (scanner.hasNextLine()) {
-                    String line = scanner.nextLine();
-
+                try {
                     // Dividi la riga in base alla virgola.
                     String[] contattoData = line.split(",");
 
@@ -270,19 +269,26 @@ public class Rubrica {
 
                     // Crea il nuovo contatto.
                     Contatto nuovoContatto = new Contatto(nome, cognome, numeri, email, preferito);
-                    
-                    aggiungiContatto(nuovoContatto);
-                }
 
-                scanner.close();
-            } catch (IOException e1) {
-                System.out.println("Errore nell'importazione del file.");
-            } catch (InvalidContactException e2) {
-                showAlert("Errore di importazione", "Verifica che i dati di tutti i contatti siano conformi");
+                    aggiungiContatto(nuovoContatto);
+                } catch (InvalidContactException e) {
+                    // Gestisce eventuali errori relativi a un singolo record.
+                    errorOccurred=true;
+                    System.out.println("Errore durante la lettura del contatto: " + line);
+                }
             }
-            
+        } catch (IOException e1) {
+            System.out.println("Errore nell'importazione del file.");
+        }
+        
+        if (errorOccurred) {
+            showAlert("Importazione completata con errori", 
+                      "Non tutti i contatti sono stati importati correttamente. Controlla il file e riprova.");
+        } else {
+            showAlert("Importazione completata", "Tutti i contatti sono stati importati con successo.");
         }
     }
+}
     
     /**
      * @brief Mostra un messaggio di errore in un'alert box.
