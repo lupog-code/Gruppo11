@@ -127,10 +127,9 @@ public class RubricaPreferitiTest {
         ObservableSet<Contatto> risultati; 
         
         risultati = rubrica.ricercaContattiPreferiti("Rossi");
-        //in questo caso addContattoPreferiti è assoluto, cioè aggiunge il contatto alla lista preferiti a prescindere dal flag preferito. Il controllo del flag è effetuato dal metodo aggiungiContatto
         assertEquals(0, risultati.size());
         assertFalse(risultati.contains(c1));
-        assertFalse(risultati.contains(c2));
+        assertTrue(risultati.contains(c2));
         
         risultati = rubrica.ricercaContattiPreferiti("Umberto");
         assertEquals(1, risultati.size());
