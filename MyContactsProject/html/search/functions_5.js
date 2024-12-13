@@ -1,0 +1,8 @@
+var searchData=
+[
+  ['importarubrica_0',['importaRubrica',['../classit_1_1unisa_1_1diem_1_1mycontacts_1_1datastructure_1_1_rubrica.html#a7ed93f68bf59eea309d379abb1ca17f7',1,'it::unisa::diem::mycontacts::datastructure::Rubrica']]],
+  ['initialize_1',['initialize',['../classit_1_1unisa_1_1diem_1_1mycontacts_1_1controller_1_1_left_view_controller.html#a5620e5fcd1218088bfccbf36f47c1b64',1,'it.unisa.diem.mycontacts.controller.LeftViewController.initialize()'],['../classit_1_1unisa_1_1diem_1_1mycontacts_1_1controller_1_1_main_view_controller.html#ab65ad58afde08c1cf7fb5b43ec5c186a',1,'it.unisa.diem.mycontacts.controller.MainViewController.initialize()'],['../classit_1_1unisa_1_1diem_1_1mycontacts_1_1controller_1_1_right_view1_controller.html#aa0c4da1664950a0d28ddbb93db8c7bc2',1,'it.unisa.diem.mycontacts.controller.RightView1Controller.initialize()'],['../classit_1_1unisa_1_1diem_1_1mycontacts_1_1controller_1_1_right_view2_controller.html#aa90a1b501d49826bd0d15c9c5cfa9d92',1,'it.unisa.diem.mycontacts.controller.RightView2Controller.initialize()']]],
+  ['invalidcontactexception_2',['InvalidContactException',['../classit_1_1unisa_1_1diem_1_1mycontacts_1_1exceptions_1_1_invalid_contact_exception.html#a4d17e92aa3a45bfba96795dc2ff139ef',1,'it::unisa::diem::mycontacts::exceptions::InvalidContactException']]],
+  ['ispreferito_3',['isPreferito',['../classit_1_1unisa_1_1diem_1_1mycontacts_1_1data_1_1_contatto.html#a32755c250c5c6d3f4de570cedb842ec7',1,'it::unisa::diem::mycontacts::data::Contatto']]],
+  ['isrubricavuota_4',['isRubricaVuota',['../classit_1_1unisa_1_1diem_1_1mycontacts_1_1datastructure_1_1_rubrica.html#a7fee91be22685d2654ec39be8b600205',1,'it::unisa::diem::mycontacts::datastructure::Rubrica']]]
+];
