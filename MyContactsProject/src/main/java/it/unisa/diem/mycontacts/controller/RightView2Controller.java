@@ -151,32 +151,6 @@ public class RightView2Controller implements Initializable {
         // Ritorna alla vista precedente con il contatto aggiornato
         mainViewController.loadView1(c);
     }
-
-    /**
-     * @brief Cambia lo stato "preferito" di un contatto e aggiorna la rubrica di conseguenza.
-     * 
-     * @param event L'evento scatenato dal clic sul checkbox "Preferito".
-     */
-    @FXML
-    private void switchPreferito(ActionEvent event) {
-        // Verifica se un contatto è stato selezionato
-        if (contatto != null) {
-            // Inverte lo stato del contatto (da preferito a non preferito e viceversa)
-            contatto.switchPreferiti();
-
-            // Aggiorna l'interfaccia utente per riflettere il nuovo stato di preferito
-            preferitoCheck.setSelected(contatto.isPreferito());
-
-            // Aggiorna la rubrica (aggiungi o rimuovi il contatto dai preferiti)
-            if (rubrica != null) {
-                if (contatto.isPreferito()) {
-                    rubrica.aggiungiAPreferiti(contatto);
-                } else {
-                    rubrica.rimuoviDaPreferiti(contatto);
-                }
-            }
-        }
-    }
     
     /**
      * @brief Mostra un messaggio di errore in un'alert box.
