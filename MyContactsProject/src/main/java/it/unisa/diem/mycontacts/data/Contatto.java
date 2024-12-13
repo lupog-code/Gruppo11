@@ -118,33 +118,6 @@ public class Contatto implements Comparable<Contatto> {
     }
 
     /**
-     * @brief Modifica i dettagli di un contatto esistente con i dati di un altro contatto.
-     * 
-     * @param c Contatto da cui copiare i dettagli.
-     */
-    public void modificaContatto(Contatto c) {
-        if (c == null) {
-            throw new IllegalArgumentException("Il contatto passato è null");
-        }
-        this.numeri.clear();
-        if (c.numeri != null) {
-            this.numeri.addAll(c.numeri);
-        }
-        this.email.clear();
-        if (c.email != null) {
-            this.email.addAll(c.email);
-        }
-        this.preferito = c.preferito;
-    }
-
-    /**
-     * @brief Inverte lo stato di preferito di un contatto.
-     */
-    public void switchPreferiti() {
-        this.preferito = !this.preferito; 
-    }
-
-    /**
      * @brief Verifica se un contatto è valido.
      * Un contatto è considerato valido se ha un nome o un cognome non vuoti.
      * 
