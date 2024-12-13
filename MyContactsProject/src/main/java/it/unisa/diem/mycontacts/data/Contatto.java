@@ -29,7 +29,7 @@ public class Contatto implements Comparable<Contatto> {
      */
     public Contatto(String nome, String cognome, Set<String> numeri, Set<String> email, boolean preferito) throws InvalidContactException {
         if(nome.isEmpty() && cognome.isEmpty())
-            throw new InvalidContactException("Dati contatto non validi");
+            throw new InvalidContactException();
         this.nome = nome;
         this.cognome = cognome;
         this.numeri = numeri != null ? numeri : new HashSet<>(); // Può essere vuota

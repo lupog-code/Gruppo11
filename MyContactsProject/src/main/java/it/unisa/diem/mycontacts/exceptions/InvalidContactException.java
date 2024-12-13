@@ -18,13 +18,4 @@ public class InvalidContactException extends Exception {
     public InvalidContactException() {
     }
 
-    /**
-     * Constructs an instance of <code>InvalidContactException</code> with the
-     * specified detail message.
-     *
-     * @param msg the detail message.
-     */
-    public InvalidContactException(String msg) {
-        super(msg);
-    }
 }
