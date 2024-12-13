@@ -147,6 +147,8 @@ public class RightView2Controller implements Initializable {
                 showAlert("Errore nel caricamento", "Controlla che i campi nome o cognome siano presenti");
             }
         }
+        LeftViewController.getListaContatti().setAll(rubrica.getElenco());
+    
         
         // Ritorna alla vista precedente con il contatto aggiornato
         mainViewController.loadView1(c);

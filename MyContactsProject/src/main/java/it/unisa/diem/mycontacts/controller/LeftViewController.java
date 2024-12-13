@@ -51,7 +51,7 @@ public class LeftViewController implements Initializable {
     
     // Oggetti per gestire la rubrica e le liste di contatti
     private Rubrica rubrica;
-    private ObservableList<Contatto> listaContatti;  
+    private static ObservableList<Contatto> listaContatti;  
     private ObservableList<Contatto> listaContattiPreferiti;  
     
     // Riferimento al controller della vista principale
@@ -136,6 +136,8 @@ public class LeftViewController implements Initializable {
     @FXML
     private void aggiungiContatto(ActionEvent event) {
         mainViewController.loadView2(null); // Carica la vista per aggiungere un contatto
+       
+        
     }
 
     /**
@@ -192,7 +194,7 @@ public class LeftViewController implements Initializable {
         if (prefToggle.isSelected()) {
             // Se il toggle è selezionato, mostra solo i contatti preferiti
             contattiTable.setItems(listaContattiPreferiti); // Imposta la lista di contatti preferiti
-            labelRubrica.setText("Rubrica preferiti:");
+            labelRubrica.setText("Rubrica preferiti:"); 
         } else {
             // Se il toggle non è selezionato, mostra tutti i contatti
             contattiTable.setItems(listaContatti); // Imposta la lista di tutti i contatti
@@ -210,4 +212,10 @@ public class LeftViewController implements Initializable {
         rubrica.resetRubrica(); // Resetta la rubrica
         mainViewController.loadView2(null); // Carica la vista per aggiungere un contatto
     }
+
+    public static ObservableList<Contatto> getListaContatti() {
+        return listaContatti;
+    }
+    
+    
 }

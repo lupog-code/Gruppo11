@@ -32,7 +32,7 @@ public class Rubrica {
      * @brief Costruttore della classe Rubrica. Inizializza l'elenco dei contatti e l'elenco dei preferiti.
      */
     public Rubrica() {
-        this.elenco = FXCollections.observableSet(new TreeSet<>()); // TreeSet garantisce l'ordinamento naturale dei contatti.
+        this.elenco = FXCollections.observableSet(new TreeSet<Contatto>()); // TreeSet garantisce l'ordinamento naturale dei contatti.
         this.elencoPreferiti = new RubricaPreferiti(); // Crea una nuova istanza di RubricaPreferiti.
     }
 
@@ -275,6 +275,14 @@ public class Rubrica {
             } catch (IOException e) {
                 System.out.println("Errore nell'importazione del file.");
             }
+            
         }
+    }
+    public String toString(){
+        StringBuffer sb = new StringBuffer();
+        for(Contatto c : elenco){
+            sb.append(c + "\n");
+        }
+        return sb.toString();
     }
 }
