@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="0" name="it.unisa.diem.mycontacts.data.ContattoTest" time="0.022" errors="0" skipped="0">
+<testsuite tests="8" failures="0" name="it.unisa.diem.mycontacts.data.ContattoTest" time="0.02" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_201\jre\bin"/>
@@ -65,12 +65,12 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testGetCognome" time="0.021"/>
-  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testIsPreferito" time="0"/>
-  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testGetEmail" time="0"/>
-  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testEquals" time="0"/>
+  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testGetNome" time="0.016"/>
+  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testGetCognome" time="0"/>
   <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testGetNumeri" time="0"/>
+  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testGetEmail" time="0"/>
+  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testIsPreferito" time="0"/>
+  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testEquals" time="0"/>
   <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testCompareTo" time="0"/>
-  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testGetNome" time="0"/>
-  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testContattoValido" time="0.001"/>
+  <testcase classname="it.unisa.diem.mycontacts.data.ContattoTest" name="it.unisa.diem.mycontacts.data.ContattoTest.testContattoValido" time="0.004"/>
 </testsuite>
