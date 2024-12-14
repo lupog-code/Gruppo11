@@ -189,28 +189,8 @@ public class Rubrica {
             try (PrintWriter writer = new PrintWriter(new FileWriter(file))) {
                 // Itera attraverso i contatti della rubrica e li scrive nel file.
                 for (Contatto contatto : elenco) {
-                    // Costruisce una stringa per ogni contatto.
-                    StringBuilder contattoLine = new StringBuilder();
-                    contattoLine.append(contatto.getNome()).append(",");
-                    contattoLine.append(contatto.getCognome()).append(",");
-
-                    // Aggiunge numeri (se presenti).
-                    List<String> numeri = new ArrayList<>(contatto.getNumeri());
-                    for (int i = 0; i < 3; i++) {
-                        contattoLine.append(i < numeri.size() ? numeri.get(i) : "").append(",");
-                    }
-
-                    // Aggiunge email (se presenti).
-                    List<String> email = new ArrayList<>(contatto.getEmail());
-                    for (int i = 0; i < 3; i++) {
-                        contattoLine.append(i < email.size() ? email.get(i) : "").append(",");
-                    }
-
-                    // Aggiunge il flag preferito.
-                    contattoLine.append(contatto.isPreferito());
-
                     // Scrive nel file.
-                    writer.println(contattoLine.toString());
+                    writer.println(contatto.toString());
                 }
 
             } catch (IOException e) {

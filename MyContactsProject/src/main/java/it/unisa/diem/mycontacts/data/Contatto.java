@@ -1,7 +1,9 @@
 package it.unisa.diem.mycontacts.data;
 
 import it.unisa.diem.mycontacts.exceptions.InvalidContactException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -121,4 +123,28 @@ public class Contatto implements Comparable<Contatto> {
         return this.nome.compareTo(o.nome);
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(nome).append(",");
+        sb.append(cognome).append(",");
+
+        // Aggiunge numeri (se presenti).
+        List<String> numeriList = new ArrayList<>(numeri);
+        for (int i = 0; i < 3; i++) {
+            sb.append(i < numeriList.size() ? numeriList.get(i) : "").append(",");
+        }
+
+        // Aggiunge email (se presenti).
+        List<String> emailList = new ArrayList<>(email);
+        for (int i = 0; i < 3; i++) {
+            sb.append(i < emailList.size() ? emailList.get(i) : "").append(",");
+        }
+
+        // Aggiunge il flag preferito.
+        sb.append(preferito);
+        
+        return sb.toString();
+    }
+    
 }
