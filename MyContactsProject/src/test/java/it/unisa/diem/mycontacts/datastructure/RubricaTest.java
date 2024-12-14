@@ -57,7 +57,19 @@ public class RubricaTest {
         c2 = new Contatto("Umberto","Zorro",numeri2,email2,true);
         
     }
+    
+    
+    @Test
+    public void testRubrica(){
+        
+    // Verifica che l'elenco sia inizializzato e vuoto    
+    assertNotNull(rubrica.getElenco());
+    assertTrue(rubrica.getElenco().isEmpty());
 
+    // Verifica che l'elenco dei preferiti sia inizializzato e vuoto
+    assertNotNull(rubrica.getElencoPreferiti());
+    assertTrue(rubrica.getElencoPreferiti().isEmpty());
+    }
     
     @Test
     public void testGetElenco() {

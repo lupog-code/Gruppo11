@@ -58,6 +58,16 @@ public class RubricaPreferitiTest {
     
    
     @Test
+    public void testRubricaPreferiti(){
+        
+        //controllo che l'elenco dei preferiti sia inizializzato e vuoto
+        assertNotNull(rubrica.getElencoPreferiti());
+        assertTrue(rubrica.getElencoPreferiti().isEmpty());
+    }
+    
+    
+    
+    @Test
     public void testAddContattoPreferito() {
         
         assertEquals(0,rubrica.getElencoPreferiti().size()); //controllo che l'elenco sia inzialmente vuoto

@@ -46,43 +46,33 @@ public class ContattoTest {
    
     @Test
     public void testContatto1() throws InvalidContactException {
-        Set<String> numeri = new HashSet<>();
-        numeri.add("3331234567");
-        numeri.add("0817654321");
-        numeri.add("4569868424");
-
-        Set<String> email = new HashSet<>();
-        email.add("mario.rossi@example.com");
-        email.add("rossimario@gmail.com");
-        email.add("tonyeffe@unisa.it");
-        
-        c1 = new Contatto("Mario", "Rossi", numeri, email, false);
+        // controllo che c1 sia stato creato correttamente
         assertNotNull(c1);
     }
     
     @Test
     public void testContatto2() throws InvalidContactException {
-        c2 = new Contatto("Mario", "Rossi", null, null, true);
+        //
         assertNotNull(c2);
     }
     
     @Test
     public void testContatto3() throws InvalidContactException {
-        c3 = new Contatto("Mario", "", null, null, true);
+
         assertNotNull(c3);
     }
     
     @Test
     public void testContatto4() throws InvalidContactException {
-        c4 = new Contatto("", "Rossi", null, null, true);
+
         assertNotNull(c4);
     }
     
     @Test
     public void testContatto5() throws InvalidContactException {
+        
         assertThrows(InvalidContactException.class, () -> {
-            new Contatto("", "", null, null, true);
-        });
+            new Contatto("", "", null, null, true);});
     }
     
     /**
