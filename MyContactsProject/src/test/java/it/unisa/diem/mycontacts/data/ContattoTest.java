@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class ContattoTest {
     
-    private Contatto c;
+    private Contatto c1, c2, c3, c4, c5;
 
     @BeforeEach
     public void setUp() throws InvalidContactException {
@@ -35,9 +35,56 @@ public class ContattoTest {
         email.add("rossimario@gmail.com");
         email.add("tonyeffe@unisa.it");
 
-        c = new Contatto("Mario", "Rossi", numeri, email, false);
+        c1 = new Contatto("Mario", "Rossi", numeri, email, false);
+        
+        c2 = new Contatto("Mario", "Rossi", null, null, true);
+        
+        c3 = new Contatto("Mario", "", null, email, true);
+        
+        c4 = new Contatto("", "Rossi", null, null, true);
     }
    
+    @Test
+    public void testContatto1() throws InvalidContactException {
+        Set<String> numeri = new HashSet<>();
+        numeri.add("3331234567");
+        numeri.add("0817654321");
+        numeri.add("4569868424");
+
+        Set<String> email = new HashSet<>();
+        email.add("mario.rossi@example.com");
+        email.add("rossimario@gmail.com");
+        email.add("tonyeffe@unisa.it");
+        
+        c1 = new Contatto("Mario", "Rossi", numeri, email, false);
+        assertNotNull(c1);
+    }
+    
+    @Test
+    public void testContatto2() throws InvalidContactException {
+        c2 = new Contatto("Mario", "Rossi", null, null, true);
+        assertNotNull(c2);
+    }
+    
+    @Test
+    public void testContatto3() throws InvalidContactException {
+        c3 = new Contatto("Mario", "", null, null, true);
+        assertNotNull(c3);
+    }
+    
+    @Test
+    public void testContatto4() throws InvalidContactException {
+        c4 = new Contatto("", "Rossi", null, null, true);
+        assertNotNull(c4);
+    }
+    
+    @Test
+    public void testContatto5() throws InvalidContactException {
+        assertThrows(InvalidContactException.class, () -> {
+            new Contatto("", "", null, null, true);
+        });
+    }
+    
     /**
      * Test of getNome method, of class Contatto.
      */
@@ -46,7 +93,7 @@ public class ContattoTest {
         System.out.println("getNome");
         
         String expResult = "Mario";
-        String result = c.getNome();
+        String result = c1.getNome();
         
         assertEquals(expResult, result);
     }
@@ -59,7 +106,7 @@ public class ContattoTest {
         System.out.println("getCognome");
         
         String expResult = "Rossi";
-        String result = c.getCognome();
+        String result = c1.getCognome();
         
         assertEquals(expResult, result);
     }
@@ -76,7 +123,7 @@ public class ContattoTest {
         expResult.add("0817654321");
         expResult.add("4569868424");
         
-        Set<String> result = c.getNumeri();
+        Set<String> result = c1.getNumeri();
         
         assertEquals(expResult, result);
     }
@@ -93,7 +140,7 @@ public class ContattoTest {
         expResult.add("rossimario@gmail.com");
         expResult.add("tonyeffe@unisa.it");
         
-        Set<String> result = c.getEmail();
+        Set<String> result = c1.getEmail();
         
         assertEquals(expResult, result);
     }
@@ -106,7 +153,7 @@ public class ContattoTest {
         System.out.println("isPreferito");
 
         boolean expResult = false;
-        boolean result = c.isPreferito();
+        boolean result = c1.isPreferito();
         
         assertEquals(expResult, result);
     }
@@ -120,7 +167,7 @@ public class ContattoTest {
         
         Object obj = null;
         boolean expResult = false;
-        boolean result = c.equals(obj);
+        boolean result = c1.equals(obj);
         
         assertEquals(expResult, result);
     }
@@ -133,13 +180,8 @@ public class ContattoTest {
         System.out.println("compareTo");
         Contatto o = new Contatto("Luigi", "Verdi", null, null, false);
 
-        assertTrue(c.compareTo(o) < 0);
-        assertTrue(o.compareTo(c) > 0);
+        assertTrue(c1.compareTo(o) < 0);
+        assertTrue(o.compareTo(c1) > 0);
     }
-
-    /**
-     * Test of contattoValido method, of class Contatto.
-     */
-   
     
 }

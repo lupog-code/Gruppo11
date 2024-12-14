@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: it.unisa.diem.mycontacts.datastructure.RubricaTest
 -------------------------------------------------------------------------------
-Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in it.unisa.diem.mycontacts.datastructure.RubricaTest
+Tests run: 9, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.021 s <<< FAILURE! - in it.unisa.diem.mycontacts.datastructure.RubricaTest
+testRimuoviDaPreferiti  Time elapsed: 0.003 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <1>
+	at it.unisa.diem.mycontacts.datastructure.RubricaTest.testRimuoviDaPreferiti(RubricaTest.java:193)
+

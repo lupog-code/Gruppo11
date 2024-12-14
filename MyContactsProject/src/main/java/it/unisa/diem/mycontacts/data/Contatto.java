@@ -123,6 +123,11 @@ public class Contatto implements Comparable<Contatto> {
         return this.nome.compareTo(o.nome);
     }
 
+    /**
+     * @brief Crea una stringa a partire dai dati del contatto
+     * 
+     * @return Una stringa con i valori del contatto
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
