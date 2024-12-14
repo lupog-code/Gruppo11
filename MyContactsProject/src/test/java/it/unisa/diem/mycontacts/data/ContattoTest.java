@@ -281,5 +281,6 @@ public class ContattoTest {
         Contatto c = new Contatto("Mario", "Rossi", null, null, false);
         assertTrue(c3.compareTo(c) == 0);
     }
+    
 }
 
