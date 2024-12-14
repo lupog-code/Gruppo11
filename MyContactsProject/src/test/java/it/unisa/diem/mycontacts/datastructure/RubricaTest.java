@@ -164,7 +164,7 @@ public class RubricaTest {
      * Testa la ricerca di contatti per l'iniziale del nome.
      */
     @Test
-    public void testRicercaContattiPreferiti5() {
+    public void testRicercaContatti5() {
         rubrica.aggiungiContatto(c1);
         rubrica.aggiungiContatto(c2);
         ObservableSet<Contatto> risultati = rubrica.ricercaContatti("M");
@@ -176,7 +176,7 @@ public class RubricaTest {
      * Testa la ricerca di contatti per un nome che non esiste.
      */
     @Test
-    public void testRicercaContattiPreferiti6() {
+    public void testRicercaContatti6() {
         rubrica.aggiungiContatto(c1);
         rubrica.aggiungiContatto(c2);
         ObservableSet<Contatto> risultati = rubrica.ricercaContatti("aaa");
