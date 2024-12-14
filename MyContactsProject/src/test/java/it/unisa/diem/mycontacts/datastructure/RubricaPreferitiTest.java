@@ -195,7 +195,7 @@ public class RubricaPreferitiTest {
     public void testRicercaContattiPreferiti5() {
         rubrica.addContattoPreferito(c1);
         rubrica.addContattoPreferito(c3);
-        ObservableSet<Contatto> risultati = rubrica.ricercaContattiPreferiti("R");
+        ObservableSet<Contatto> risultati = rubrica.ricercaContattiPreferiti("M");
         assertEquals(1, risultati.size()); // Dovrebbe essere trovato 1 contatto
         assertTrue(risultati.contains(c1)); // c1 è presente
     }

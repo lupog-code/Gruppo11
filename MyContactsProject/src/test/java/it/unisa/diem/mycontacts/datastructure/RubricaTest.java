@@ -125,7 +125,7 @@ public class RubricaTest {
     }
     
     /**
-     * Testa la ricerca di un contatto per nome.
+     * Testa la ricerca dei contatti per nome.
      */
     @Test
     public void testRicercaContatti2() {
@@ -137,7 +137,7 @@ public class RubricaTest {
     }
     
     /**
-     * Testa la ricerca di un contatto per cognome.
+     * Testa la ricerca dei contatt per cognome.
      */
     @Test
     public void testRicercaContatti3() {
@@ -146,6 +146,41 @@ public class RubricaTest {
         ObservableSet<Contatto> risultati = rubrica.ricercaContatti("Rossi");
         assertEquals(1, risultati.size());
         assertTrue(risultati.contains(c1));
+    }
+    
+    /**
+     * Testa la ricerca di contatti per l'iniziale del cognome.
+     */
+    @Test
+    public void testRicercaContatti4() {
+        rubrica.aggiungiContatto(c1);
+        rubrica.aggiungiContatto(c2);
+        ObservableSet<Contatto> risultati = rubrica.ricercaContatti("R");
+        assertEquals(1, risultati.size());
+        assertTrue(risultati.contains(c1));
+    }
+    
+    /**
+     * Testa la ricerca di contatti per l'iniziale del nome.
+     */
+    @Test
+    public void testRicercaContattiPreferiti5() {
+        rubrica.aggiungiContatto(c1);
+        rubrica.aggiungiContatto(c2);
+        ObservableSet<Contatto> risultati = rubrica.ricercaContatti("M");
+        assertEquals(1, risultati.size());
+        assertTrue(risultati.contains(c1));
+    }
+
+    /**
+     * Testa la ricerca di contatti per un nome che non esiste.
+     */
+    @Test
+    public void testRicercaContattiPreferiti6() {
+        rubrica.aggiungiContatto(c1);
+        rubrica.aggiungiContatto(c2);
+        ObservableSet<Contatto> risultati = rubrica.ricercaContatti("aaa");
+        assertEquals(0, risultati.size());
     }
 
     /**
