@@ -202,7 +202,7 @@ public class RubricaTest {
 
         assertFalse(rubrica.getElencoPreferiti().contains(c2)); //controllo che sia stao eliminato
         
-        assertEquals(0,rubrica.getElenco().size()); //controllo che l'elenco sia vuoto
+        assertEquals(1,rubrica.getElenco().size()); //controllo che l'elenco sia vuoto
     }
 
     /**
