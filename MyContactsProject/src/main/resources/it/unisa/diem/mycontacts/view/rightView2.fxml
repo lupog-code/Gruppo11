@@ -30,7 +30,7 @@
                   <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="300.0" spacing="20.0">
                      <children>
                         <Label text="Nome:" textFill="#fcf9f9" />
-                        <TextField fx:id="nomeField" prefHeight="30.0" style="-fx-background-color: #555555;">
+                        <TextField fx:id="nomeField" onKeyTyped="#controlloNome" prefHeight="30.0" style="-fx-background-color: #555555;">
                            <HBox.margin>
                               <Insets left="20.0" right="20.0" />
                            </HBox.margin></TextField>
@@ -84,7 +84,7 @@
                   <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="300.0" spacing="20.0">
                      <children>
                         <Label style="-fx-text-fill: white;" text="Cognome:" />
-                        <TextField fx:id="cognomeField" prefHeight="30.0" style="-fx-background-color: #555555;">
+                        <TextField fx:id="cognomeField" onKeyTyped="#controlloCognome" prefHeight="30.0" style="-fx-background-color: #555555;">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin></TextField>
@@ -93,7 +93,7 @@
                   <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="300.0" spacing="20.0">
                      <children>
                         <Label style="-fx-text-fill: white;" text="1. E-Mail:" />
-                        <TextField fx:id="email1Field" prefHeight="30.0" style="-fx-background-color: #555555;">
+                        <TextField fx:id="email1Field" onKeyTyped="#controlloEmail" prefHeight="30.0" style="-fx-background-color: #555555;">
                            <HBox.margin>
                               <Insets left="7.0" />
                            </HBox.margin>
@@ -103,7 +103,7 @@
                   <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="300.0" spacing="20.0">
                      <children>
                         <Label style="-fx-text-fill: white;" text="2. E-Mail:" />
-                        <TextField fx:id="email2Field" prefHeight="30.0" style="-fx-background-color: #555555;">
+                        <TextField fx:id="email2Field" onKeyTyped="#controlloEmail" prefHeight="30.0" style="-fx-background-color: #555555;">
                            <HBox.margin>
                               <Insets left="7.0" />
                            </HBox.margin></TextField>
@@ -112,7 +112,7 @@
                   <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="285.0" spacing="20.0">
                      <children>
                         <Label style="-fx-text-fill: white;" text="3. E-Mail:" />
-                        <TextField fx:id="email3Field" prefHeight="30.0" style="-fx-background-color: #555555;">
+                        <TextField fx:id="email3Field" onKeyTyped="#controlloEmail" prefHeight="30.0" style="-fx-background-color: #555555;">
                            <HBox.margin>
                               <Insets left="7.0" />
                            </HBox.margin></TextField>

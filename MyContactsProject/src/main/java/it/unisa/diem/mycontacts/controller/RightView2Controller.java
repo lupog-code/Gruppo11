@@ -220,4 +220,29 @@ public class RightView2Controller implements Initializable {
             event.consume(); // Annulla l'evento se uno dei campi ha raggiunto la lunghezza massima
         }
     }
+
+    /**
+     * @brief Controlla l'input nel campo nome, permettendo caratteri senza spazi.
+     * 
+     * @param event L'evento scatenato dalla pressione di un tasto.
+     */
+    @FXML
+    private void controlloEmail(KeyEvent event) {
+        if(event.getCharacter().matches(" "))
+            event.consume(); // Annulla l'evento se il carattere non è un numero
+    }
+    
+    @FXML
+    private void controlloNome(KeyEvent event) {
+        if (nomeField.getCharacters().length() > 20) {
+            event.consume(); 
+        }
+    }
+    
+    @FXML
+    private void controlloCognome(KeyEvent event) {
+        if (cognomeField.getCharacters().length() > 20) {
+            event.consume(); 
+        }
+    }
 }
