@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0.032" tests="19" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0.02" tests="10" errors="0" skipped="0" failures="0">
   <properties>
     <property name="gopherProxySet" value="false"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="IT"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/jre/lib"/>
-    <property name="sun.java.command" value="/Users/lupo/Desktop/Gruppo11/MyContactsProject/target/surefire/surefirebooter5821553604834543092.jar /Users/lupo/Desktop/Gruppo11/MyContactsProject/target/surefire 2024-12-14T18-25-29_500-jvmRun1 surefire3334675247675272556tmp surefire_03508064057863009104tmp"/>
+    <property name="sun.java.command" value="/Users/lupo/Desktop/Gruppo11/MyContactsProject/target/surefire/surefirebooter1432978462093759303.jar /Users/lupo/Desktop/Gruppo11/MyContactsProject/target/surefire 2024-12-14T13-08-47_793-jvmRun1 surefire2210782279580938061tmp surefire_03395533382758415388tmp"/>
     <property name="surefire.test.class.path" value="/Users/lupo/Desktop/Gruppo11/MyContactsProject/target/test-classes:/Users/lupo/Desktop/Gruppo11/MyContactsProject/target/classes:/Users/lupo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.6.0/junit-jupiter-api-5.6.0.jar:/Users/lupo/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/Users/lupo/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/lupo/.m2/repository/org/junit/platform/junit-platform-commons/1.6.0/junit-platform-commons-1.6.0.jar:/Users/lupo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.6.0/junit-jupiter-params-5.6.0.jar:/Users/lupo/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.6.0/junit-jupiter-engine-5.6.0.jar:/Users/lupo/.m2/repository/org/junit/platform/junit-platform-engine/1.6.0/junit-platform-engine-1.6.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/Users/lupo"/>
@@ -30,7 +30,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/Users/lupo/Desktop/Gruppo11/MyContactsProject/target/surefire/surefirebooter5821553604834543092.jar"/>
+    <property name="surefire.real.class.path" value="/Users/lupo/Desktop/Gruppo11/MyContactsProject/target/surefire/surefirebooter1432978462093759303.jar"/>
     <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/jre/classes"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="1.8.0_411-b09"/>
@@ -60,23 +60,14 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="testRimuoviContatto" classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0.02"/>
+  <testcase name="testRimuoviContatto" classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0.014"/>
   <testcase name="testAggiungiContatto" classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0"/>
-  <testcase name="testIsRubricaVuota1" classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0"/>
-  <testcase name="testIsRubricaVuota2" classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0"/>
-  <testcase name="testRimuoviDaPreferiti" classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0.001"/>
-  <testcase name="testGetElenco1" classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0"/>
-  <testcase name="testGetElenco2" classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0.001"/>
-  <testcase name="testAggiungiAPreferiti1" classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0"/>
-  <testcase name="testAggiungiAPreferiti2" classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0"/>
+  <testcase name="testRimuoviDaPreferiti" classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0"/>
+  <testcase name="testRicercaContatti" classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0.001"/>
+  <testcase name="testAggiungiAPreferiti" classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0"/>
+  <testcase name="testGetElenco" classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0.001"/>
   <testcase name="testRubrica" classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0"/>
-  <testcase name="testGetElencoPreferiti1" classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0"/>
-  <testcase name="testGetElencoPreferiti2" classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0.001"/>
-  <testcase name="testRicercaContatti1" classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0"/>
-  <testcase name="testRicercaContatti2" classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0"/>
-  <testcase name="testRicercaContatti3" classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0"/>
-  <testcase name="testRicercaContatti4" classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0.001"/>
-  <testcase name="testRicercaContatti5" classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0"/>
-  <testcase name="testRicercaContatti6" classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0"/>
+  <testcase name="testIsRubricaVuota" classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0"/>
+  <testcase name="testGetElencoPreferiti" classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0"/>
   <testcase name="testResetRubrica" classname="it.unisa.diem.mycontacts.datastructure.RubricaTest" time="0"/>
 </testsuite>
