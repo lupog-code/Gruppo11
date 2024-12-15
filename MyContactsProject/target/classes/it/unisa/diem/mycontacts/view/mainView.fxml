@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -15,7 +16,10 @@
       </StackPane>
       <StackPane fx:id="rightPane" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: grey;">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-text-fill: white; -fx-alignment: centre;" text="SELEZIONA UN CONTATTO" textFill="#eeeeee" />
+            <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-text-fill: white; -fx-alignment: centre;" text="SELEZIONA UN CONTATTO" textFill="#eeeeee">
+               <font>
+                  <Font name="Verdana Bold" size="16.0" />
+               </font></Label>
          </children>
       </StackPane>
   </items>

@@ -10,7 +10,7 @@
 
 <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unisa.diem.mycontacts.controller.RightView1Controller">
    <children>
-      <MenuBar blendMode="SOFT_LIGHT">
+      <MenuBar blendMode="HARD_LIGHT">
         <menus>
           <Menu mnemonicParsing="false" onAction="#modificaContatto" text="Modifica">
             <items>
@@ -30,8 +30,14 @@
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                      <children>
-                        <Label style="-fx-text-fill: white;" text="Nome:" />
-                        <Label fx:id="nomeLabel" style="-fx-text-fill: white;" text="*****" />
+                        <Label style="-fx-text-fill: white;" text="Nome:">
+                           <font>
+                              <Font name="Verdana Bold" size="16.0" />
+                           </font></Label>
+                        <Label fx:id="nomeLabel" style="-fx-text-fill: white;" text="*****">
+                           <font>
+                              <Font name="Verdana" size="15.0" />
+                           </font></Label>
                      </children>
                      <padding>
                         <Insets left="30.0" />
@@ -42,8 +48,14 @@
                         <Insets left="30.0" />
                      </padding>
                      <children>
-                        <Label style="-fx-text-fill: white;" text="1. Numero:" />
-                        <Label fx:id="numero1Label" style="-fx-text-fill: white;" text="*****" />
+                        <Label style="-fx-text-fill: white;" text="1. Numero:">
+                           <font>
+                              <Font name="Verdana Bold" size="14.0" />
+                           </font></Label>
+                        <Label fx:id="numero1Label" style="-fx-text-fill: white;" text="*****">
+                           <font>
+                              <Font name="Verdana" size="14.0" />
+                           </font></Label>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
@@ -51,8 +63,14 @@
                         <Insets left="30.0" />
                      </padding>
                      <children>
-                        <Label style="-fx-text-fill: white;" text="2. Numero:" />
-                        <Label fx:id="numero2Label" style="-fx-text-fill: white;" text="*****" />
+                        <Label style="-fx-text-fill: white;" text="2. Numero:">
+                           <font>
+                              <Font name="Verdana Bold" size="14.0" />
+                           </font></Label>
+                        <Label fx:id="numero2Label" style="-fx-text-fill: white;" text="*****">
+                           <font>
+                              <Font name="Verdana" size="14.0" />
+                           </font></Label>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
@@ -60,8 +78,14 @@
                         <Insets left="30.0" />
                      </padding>
                      <children>
-                        <Label style="-fx-text-fill: white;" text="3. Numero:" />
-                        <Label fx:id="numero3Label" style="-fx-text-fill: white;" text="*****" />
+                        <Label style="-fx-text-fill: white;" text="3. Numero:">
+                           <font>
+                              <Font name="Verdana Bold" size="14.0" />
+                           </font></Label>
+                        <Label fx:id="numero3Label" style="-fx-text-fill: white;" text="*****">
+                           <font>
+                              <Font name="Verdana" size="14.0" />
+                           </font></Label>
                      </children>
                   </HBox>
                </children>
@@ -70,26 +94,50 @@
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                      <children>
-                        <Label style="-fx-text-fill: white;" text="Cognome:" />
-                        <Label fx:id="cognomeLabel" style="-fx-text-fill: white;" text="*****" />
+                        <Label style="-fx-text-fill: white;" text="Cognome:">
+                           <font>
+                              <Font name="Verdana Bold" size="16.0" />
+                           </font></Label>
+                        <Label fx:id="cognomeLabel" style="-fx-text-fill: white;" text="*****">
+                           <font>
+                              <Font name="Verdana" size="15.0" />
+                           </font></Label>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                      <children>
-                        <Label style="-fx-text-fill: white;" text="1. E-Mail:" />
-                        <Label fx:id="email1Label" style="-fx-text-fill: white;" text="*****" />
+                        <Label style="-fx-text-fill: white;" text="1. E-Mail:">
+                           <font>
+                              <Font name="Verdana Bold" size="14.0" />
+                           </font></Label>
+                        <Label fx:id="email1Label" style="-fx-text-fill: white;" text="*****">
+                           <font>
+                              <Font name="Verdana" size="14.0" />
+                           </font></Label>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                      <children>
-                        <Label style="-fx-text-fill: white;" text="2. E-Mail:" />
-                        <Label fx:id="email2Label" style="-fx-text-fill: white;" text="*****" />
+                        <Label style="-fx-text-fill: white;" text="2. E-Mail:">
+                           <font>
+                              <Font name="Verdana Bold" size="14.0" />
+                           </font></Label>
+                        <Label fx:id="email2Label" style="-fx-text-fill: white;" text="*****">
+                           <font>
+                              <Font name="Verdana" size="14.0" />
+                           </font></Label>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                      <children>
-                        <Label style="-fx-text-fill: white;" text="3. E-Mail:" />
-                        <Label fx:id="email3Label" style="-fx-text-fill: white;" text="*****" />
+                        <Label style="-fx-text-fill: white;" text="3. E-Mail:">
+                           <font>
+                              <Font name="Verdana Bold" size="14.0" />
+                           </font></Label>
+                        <Label fx:id="email3Label" style="-fx-text-fill: white;" text="*****">
+                           <font>
+                              <Font name="Verdana" size="14.0" />
+                           </font></Label>
                      </children>
                   </HBox>
                </children>
@@ -102,10 +150,13 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </HBox>
-      <CheckBox fx:id="preferitoCheck" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="90.0" style="-fx-text-fill: white;" text="Preferito">
+      <CheckBox fx:id="preferitoCheck" blendMode="HARD_LIGHT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="22.0" prefWidth="149.0" style="-fx-text-fill: white;" text="Preferito">
          <VBox.margin>
             <Insets bottom="10.0" left="40.0" right="5.0" top="5.0" />
          </VBox.margin>
+         <font>
+            <Font name="Verdana Bold" size="16.0" />
+         </font>
       </CheckBox>
    </children>
    <padding>
