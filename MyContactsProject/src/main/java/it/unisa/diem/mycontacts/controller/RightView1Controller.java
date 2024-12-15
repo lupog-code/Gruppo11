@@ -126,7 +126,7 @@ public class RightView1Controller implements Initializable {
             } else {
                 // Se ci sono altri contatti, carica il primo contatto della lista
                 List<Contatto> list = new ArrayList<>(rubrica.getElenco());
-                mainViewController.loadView2(list.get(0)); // Carica il primo contatto
+                mainViewController.loadView1(list.get(0)); // Carica il primo contatto
             }
              
         }
