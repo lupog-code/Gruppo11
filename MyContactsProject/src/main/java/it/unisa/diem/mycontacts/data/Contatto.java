@@ -13,11 +13,11 @@ import java.util.Set;
  */
 public class Contatto implements Comparable<Contatto> {
 
-    private final String nome;  /**< Nome del contatto */
-    private final String cognome;  /**< Cognome del contatto */
-    private final Set<String> numeri;  /**< Set di numeri di telefono (può essere null) */
-    private final Set<String> email;  /**< Set di indirizzi email (può essere null) */
-    private boolean preferito;  /**< Stato di preferito del contatto */
+    private final String nome; 
+    private final String cognome; 
+    private final Set<String> numeri; 
+    private final Set<String> email; 
+    private boolean preferito; 
 
     /**
      * @brief Costruttore per creare un contatto con tutti i suoi attributi.

@@ -45,6 +45,7 @@ public class ContattoTest {
    
     /**
      * Testa la creazione di un contatto valido.
+     * @throws it.unisa.diem.mycontacts.exceptions.InvalidContactException
      */
     @Test
     public void testContatto1() throws InvalidContactException {
@@ -64,6 +65,7 @@ public class ContattoTest {
     
     /**
      * Testa la creazione di un contatto con numeri ed email nulli.
+     * @throws it.unisa.diem.mycontacts.exceptions.InvalidContactException
      */
     @Test
     public void testContatto2() throws InvalidContactException {
@@ -73,6 +75,7 @@ public class ContattoTest {
     
     /**
      * Testa la creazione di un contatto con cognome vuoto.
+     * @throws it.unisa.diem.mycontacts.exceptions.InvalidContactException
      */
     @Test
     public void testContatto3() throws InvalidContactException {
@@ -82,6 +85,7 @@ public class ContattoTest {
     
     /**
      * Testa la creazione di un contatto con nome vuoto.
+     * @throws it.unisa.diem.mycontacts.exceptions.InvalidContactException
      */
     @Test
     public void testContatto4() throws InvalidContactException {
@@ -92,6 +96,7 @@ public class ContattoTest {
     /**
      * Testa la creazione di un contatto con nome e cognome vuoti.
      * Si aspetta che venga lanciata un'eccezione {@link InvalidContactException}.
+     * @throws it.unisa.diem.mycontacts.exceptions.InvalidContactException
      */
     @Test
     public void testContatto5() throws InvalidContactException {
@@ -210,6 +215,7 @@ public class ContattoTest {
 
     /**
      * Testa il metodo {@link Contatto#equals(Object)} per il confronto tra due contatti uguali.
+     * @throws it.unisa.diem.mycontacts.exceptions.InvalidContactException
      */
     @Test
     public void testEquals1() throws InvalidContactException {
@@ -221,6 +227,7 @@ public class ContattoTest {
     
     /**
      * Testa il metodo {@link Contatto#equals(Object)} per il confronto tra due contatti con stato diverso.
+     * @throws it.unisa.diem.mycontacts.exceptions.InvalidContactException
      */
     @Test
     public void testEquals2() throws InvalidContactException {
@@ -232,6 +239,7 @@ public class ContattoTest {
     
     /**
      * Testa il metodo {@link Contatto#equals(Object)} per il confronto tra contatti con cognome diverso.
+     * @throws it.unisa.diem.mycontacts.exceptions.InvalidContactException
      */
     @Test
     public void testEquals3() throws InvalidContactException {
@@ -243,6 +251,7 @@ public class ContattoTest {
 
     /**
      * Testa il metodo {@link Contatto#compareTo(Contatto)} per il confronto tra contatti.
+     * @throws it.unisa.diem.mycontacts.exceptions.InvalidContactException
      */
     @Test
     public void testCompareTo1() throws InvalidContactException {
@@ -252,6 +261,7 @@ public class ContattoTest {
     
     /**
      * Testa il metodo {@link Contatto#compareTo(Contatto)} per il confronto tra contatti con cognome uguale.
+     * @throws it.unisa.diem.mycontacts.exceptions.InvalidContactException
      */
     public void testCompareTo2() throws InvalidContactException {
         Contatto c = new Contatto("Luigi", "Rossi", null, null, false);
@@ -260,6 +270,7 @@ public class ContattoTest {
     
     /**
      * Testa il metodo {@link Contatto#compareTo(Contatto)} per il confronto tra contatti con nome diverso.
+     * @throws it.unisa.diem.mycontacts.exceptions.InvalidContactException
      */
     public void testCompareTo3() throws InvalidContactException {
         Contatto c = new Contatto("Luigi", "Ricco", null, null, false);
@@ -268,6 +279,7 @@ public class ContattoTest {
     
     /**
      * Testa il metodo {@link Contatto#compareTo(Contatto)} per il confronto tra contatti con nome vuoto.
+     * @throws it.unisa.diem.mycontacts.exceptions.InvalidContactException
      */
     public void testCompareTo4() throws InvalidContactException {
         Contatto c = new Contatto("Luigi", "", null, null, false);
@@ -276,10 +288,12 @@ public class ContattoTest {
     
     /**
      * Testa il metodo {@link Contatto#compareTo(Contatto)} per il confronto tra contatti uguali.
+     * @throws it.unisa.diem.mycontacts.exceptions.InvalidContactException
      */
     public void testCompareTo5() throws InvalidContactException {
         Contatto c = new Contatto("Mario", "Rossi", null, null, false);
         assertTrue(c3.compareTo(c) == 0);
     }
+    
 }
 

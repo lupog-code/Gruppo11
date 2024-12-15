@@ -30,7 +30,7 @@ public class RubricaPreferiti {
      */
     public void addContattoPreferito(Contatto c) {
         if(c.isPreferito()){
-        elencoPreferiti.add(c); // Aggiunge il contatto ai preferiti.
+            elencoPreferiti.add(c); // Aggiunge il contatto ai preferiti.
         }
     }
 

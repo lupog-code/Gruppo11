@@ -103,7 +103,7 @@ public class Rubrica {
 
         // Aggiunge il contatto ai preferiti se è contrassegnato come preferito.
         
-         elencoPreferiti.addContattoPreferito(c);
+        elencoPreferiti.addContattoPreferito(c);
         
     }
     
