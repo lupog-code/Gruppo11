@@ -4,7 +4,9 @@ import it.unisa.diem.mycontacts.data.Contatto;
 import it.unisa.diem.mycontacts.datastructure.Rubrica;
 import it.unisa.diem.mycontacts.exceptions.InvalidContactException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Set;
 import javafx.event.ActionEvent;
@@ -108,9 +110,18 @@ public class RightView2Controller implements Initializable {
      */
     @FXML
     private void annullaAzione(ActionEvent event) {
-        if(contatto != null) {
-            mainViewController.loadView1(contatto); // Torna alla vista precedente con il contatto selezionato
+        if(contatto == null && rubrica.isRubricaVuota()) {
+            showAlert("Errore","La rubrica è vuota comincia aggiungendo un contatto");
+            return;
         }
+        
+        if(contatto == null) {
+            List<Contatto> list = new ArrayList<>(rubrica.getElenco());
+            mainViewController.loadView1(list.get(0)); // Carica il primo contatto
+            return;
+        }
+        
+        mainViewController.loadView1(contatto); // Torna alla vista precedente con il contatto selezionato
     }
 
     /**
