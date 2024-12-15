@@ -188,6 +188,11 @@ public class Rubrica {
         if (file != null) {
             try (PrintWriter writer = new PrintWriter(new FileWriter(file))) {
                 // Itera attraverso i contatti della rubrica e li scrive nel file.
+                if(elenco.isEmpty()){
+                    writer.println("Non sono presenti elementi in rubrica");
+                    return;
+                }
+                    
                 for (Contatto contatto : elenco) {
                     // Scrive nel file.
                     writer.println(contatto.toString());
@@ -223,7 +228,7 @@ public class Rubrica {
 
                 try {
                     // Dividi la riga in base alla virgola.
-                    String[] contattoData = line.split(",");
+                    String[] contattoData = line.split("[,;\\-]");
 
                     String nome = contattoData[0];
                     String cognome = contattoData[1];
