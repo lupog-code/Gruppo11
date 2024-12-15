@@ -171,14 +171,53 @@ public class RightView2Controller implements Initializable {
     }
 
     /**
-     * @brief Controlla l'input nel campo di testo dei numeri, permettendo solo numeri.
+     * @brief Controlla l'input nel campo 3 di testo dei numeri, permettendo solo numeri.
      * 
      * @param event L'evento scatenato dalla pressione di un tasto.
      */
     @FXML
-    private void controlloNumero(KeyEvent event) {
+    private void controlloNumero1(KeyEvent event) {
         // Permette solo l'inserimento di numeri
         if(!event.getCharacter().matches("\\d"))
             event.consume(); // Annulla l'evento se il carattere non è un numero
+        
+        // Controlla la lunghezza del testo e impedisce l'inserimento oltre i 12 caratteri
+        if (numero1Field.getCharacters().length() > 15) {
+            event.consume(); // Annulla l'evento se uno dei campi ha raggiunto la lunghezza massima
+        }
+    }
+    
+    /**
+     * @brief Controlla l'input nel campo 2 di testo dei numeri, permettendo solo numeri.
+     * 
+     * @param event L'evento scatenato dalla pressione di un tasto.
+     */
+    @FXML
+    private void controlloNumero2(KeyEvent event) {
+        // Permette solo l'inserimento di numeri
+        if(!event.getCharacter().matches("\\d"))
+            event.consume(); // Annulla l'evento se il carattere non è un numero
+        
+        // Controlla la lunghezza del testo e impedisce l'inserimento oltre i 12 caratteri
+        if (numero2Field.getCharacters().length() > 15) {
+            event.consume(); // Annulla l'evento se uno dei campi ha raggiunto la lunghezza massima
+        }
+    }
+    
+    /**
+     * @brief Controlla l'input nel campo 1 di testo dei numeri, permettendo solo numeri.
+     * 
+     * @param event L'evento scatenato dalla pressione di un tasto.
+     */
+    @FXML
+    private void controlloNumero3(KeyEvent event) {
+        // Permette solo l'inserimento di numeri
+        if(!event.getCharacter().matches("\\d"))
+            event.consume(); // Annulla l'evento se il carattere non è un numero
+        
+        // Controlla la lunghezza del testo e impedisce l'inserimento oltre i 12 caratteri
+        if (numero3Field.getCharacters().length() > 15) {
+            event.consume(); // Annulla l'evento se uno dei campi ha raggiunto la lunghezza massima
+        }
     }
 }
