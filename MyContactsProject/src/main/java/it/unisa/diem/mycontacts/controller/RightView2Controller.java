@@ -172,6 +172,7 @@ public class RightView2Controller implements Initializable {
 
     /**
      * @brief Controlla l'input nel campo 3 di testo dei numeri, permettendo solo numeri.
+     * Controlla la lunghezza del testo e impedisce l'inserimento oltre i 12 caratteri
      * 
      * @param event L'evento scatenato dalla pressione di un tasto.
      */
@@ -189,6 +190,7 @@ public class RightView2Controller implements Initializable {
     
     /**
      * @brief Controlla l'input nel campo 2 di testo dei numeri, permettendo solo numeri.
+     * Controlla la lunghezza del testo e impedisce l'inserimento oltre i 12 caratteri
      * 
      * @param event L'evento scatenato dalla pressione di un tasto.
      */
@@ -206,6 +208,7 @@ public class RightView2Controller implements Initializable {
     
     /**
      * @brief Controlla l'input nel campo 1 di testo dei numeri, permettendo solo numeri.
+     * Controlla la lunghezza del testo e impedisce l'inserimento oltre i 12 caratteri
      * 
      * @param event L'evento scatenato dalla pressione di un tasto.
      */
@@ -218,6 +221,41 @@ public class RightView2Controller implements Initializable {
         // Controlla la lunghezza del testo e impedisce l'inserimento oltre i 12 caratteri
         if (numero3Field.getCharacters().length() > 15) {
             event.consume(); // Annulla l'evento se uno dei campi ha raggiunto la lunghezza massima
+        }
+    }
+
+    /**
+     * @brief Controlla l'input nel campo nome, permettendo solo caratteri senza spazi.
+     * 
+     * @param event L'evento scatenato dalla pressione di un tasto.
+     */
+    @FXML
+    private void controlloEmail(KeyEvent event) {
+        if(event.getCharacter().matches(" "))
+            event.consume(); // Annulla l'evento se il carattere non è un numero
+    }
+    
+    /**
+     * @brief @brief Controlla la lunghezza del nome e impedisce l'inserimento oltre i 20 caratteri
+     * 
+     * @param event L'evento scatenato dalla pressione di un tasto.
+     */
+    @FXML
+    private void controlloNome(KeyEvent event) {
+        if (nomeField.getCharacters().length() > 20) {
+            event.consume(); 
+        }
+    }
+    
+    /**
+     * @brief Controlla la lunghezza del cognome e impedisce l'inserimento oltre i 20 caratteri
+     * 
+     * @param event L'evento scatenato dalla pressione di un tasto.
+     */
+    @FXML
+    private void controlloCognome(KeyEvent event) {
+        if (cognomeField.getCharacters().length() > 20) {
+            event.consume(); 
         }
     }
 }
