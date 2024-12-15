@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="IT"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/jre/lib"/>
-    <property name="sun.java.command" value="/Users/lupo/Desktop/Gruppo11/MyContactsProject/target/surefire/surefirebooter8985615134454057626.jar /Users/lupo/Desktop/Gruppo11/MyContactsProject/target/surefire 2024-12-15T20-10-05_112-jvmRun1 surefire6299624337831589318tmp surefire_07550119191680357234tmp"/>
+    <property name="sun.java.command" value="/Users/lupo/Desktop/Gruppo11/MyContactsProject/target/surefire/surefirebooter7314005827454359861.jar /Users/lupo/Desktop/Gruppo11/MyContactsProject/target/surefire 2024-12-15T20-15-11_813-jvmRun1 surefire1965897369664169318tmp surefire_07705769817316798264tmp"/>
     <property name="surefire.test.class.path" value="/Users/lupo/Desktop/Gruppo11/MyContactsProject/target/test-classes:/Users/lupo/Desktop/Gruppo11/MyContactsProject/target/classes:/Users/lupo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.6.0/junit-jupiter-api-5.6.0.jar:/Users/lupo/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/Users/lupo/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/lupo/.m2/repository/org/junit/platform/junit-platform-commons/1.6.0/junit-platform-commons-1.6.0.jar:/Users/lupo/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.6.0/junit-jupiter-params-5.6.0.jar:/Users/lupo/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.6.0/junit-jupiter-engine-5.6.0.jar:/Users/lupo/.m2/repository/org/junit/platform/junit-platform-engine/1.6.0/junit-platform-engine-1.6.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/Users/lupo"/>
@@ -30,7 +30,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/Users/lupo/Desktop/Gruppo11/MyContactsProject/target/surefire/surefirebooter8985615134454057626.jar"/>
+    <property name="surefire.real.class.path" value="/Users/lupo/Desktop/Gruppo11/MyContactsProject/target/surefire/surefirebooter7314005827454359861.jar"/>
     <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/jre/classes"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="1.8.0_411-b09"/>
