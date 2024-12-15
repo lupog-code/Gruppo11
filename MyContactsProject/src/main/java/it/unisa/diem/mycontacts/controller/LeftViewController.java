@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -59,6 +60,8 @@ public class LeftViewController implements Initializable {
     
     // Riferimento al controller della vista principale
     private MainViewController mainViewController;
+    @FXML
+    private Menu cambiaSfondo;
     
     /**
      * @brief Metodo di inizializzazione del controller. Configura le colonne della TableView

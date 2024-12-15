@@ -30,6 +30,11 @@
               <MenuItem fx:id="exportButton" mnemonicParsing="false" onAction="#esportaRubrica" style="fx-text-fill: black;" text="Export" />
             </items>
           </Menu>
+            <Menu fx:id="cambiaSfondo" mnemonicParsing="false" text="Sfondo">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Sfondo" />
+              </items>
+            </Menu>
             <Menu mnemonicParsing="false" text="Reset">
                <items>
                   <MenuItem fx:id="resetButton" mnemonicParsing="false" onAction="#resetRubrica" style="fx-text-fill: black;" text="Reset" />
