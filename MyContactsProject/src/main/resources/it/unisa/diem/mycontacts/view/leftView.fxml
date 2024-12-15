@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" spacing="5.0" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unisa.diem.mycontacts.controller.LeftViewController">
+   <children>
+      <MenuBar blendMode="HARD_LIGHT" depthTest="DISABLE" maxHeight="1.7976931348623157E308" style="-fx-background-color: white;">
+        <menus>
+          <Menu mnemonicParsing="false" style="-fx-text-fill: black;" text="Aggiungi ">
+            <items>
+              <MenuItem fx:id="addButton" mnemonicParsing="false" onAction="#aggiungiContatto" style="-fx-text-fill: black;" text="Aggiungi" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" style="-fx-text-fill: black;" text="Importa">
+            <items>
+              <MenuItem fx:id="importButton" mnemonicParsing="false" onAction="#importaRubrica" style="-fx-text-fill: black;" text="Import" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Esporta">
+            <items>
+              <MenuItem fx:id="exportButton" mnemonicParsing="false" onAction="#esportaRubrica" style="fx-text-fill: black;" text="Export" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Reset">
+               <items>
+                  <MenuItem fx:id="resetButton" mnemonicParsing="false" onAction="#resetRubrica" style="fx-text-fill: black;" text="Reset" />
+               </items>
+            </Menu>
+        </menus>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <ColorAdjust brightness="-0.62" contrast="1.0">
+               <input>
+                  <Blend />
+               </input>
+            </ColorAdjust>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </MenuBar>
+      <Label lineSpacing="4.0" style="-fx-text-fill: white;" text="Ricerca contatti:">
+         <font>
+            <Font name="Verdana Bold" size="16.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+      </Label>
+      <TextField fx:id="searchField" maxWidth="1.7976931348623157E308" onKeyReleased="#ricercaContatto" prefHeight="33.0" prefWidth="202.0" style="-fx-border-color: white; -fx-background-color: lightgrey;">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <ToggleButton fx:id="prefToggle" blendMode="HARD_LIGHT" mnemonicParsing="false" onAction="#mostraPreferiti" text="Preferiti">
+         <font>
+            <Font name="Trebuchet MS" size="15.0" />
+         </font></ToggleButton>
+      <Label fx:id="labelRubrica" style="-fx-text-fill: white;" text="Rubrica:">
+         <font>
+            <Font name="Verdana Bold" size="16.0" />
+         </font>
+      </Label>
+      <TableView fx:id="contattiTable" blendMode="HARD_LIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: grey; -fx-border-style: solid; -fx-border-color: grey;">
+        <columns>
+          <TableColumn fx:id="nomeColumn" prefWidth="75.0" text="Nome" />
+          <TableColumn fx:id="cognomeColumn" prefWidth="75.0" text="Cognome" />
+        </columns>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</VBox>

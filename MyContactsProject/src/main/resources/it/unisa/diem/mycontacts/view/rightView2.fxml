@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unisa.diem.mycontacts.controller.RightView2Controller">
+   <children>
+      <MenuBar blendMode="HARD_LIGHT">
+         <menus>
+            <Menu mnemonicParsing="false" text="Annulla">
+               <items>
+                  <MenuItem fx:id="stopButton" mnemonicParsing="false" onAction="#annullaAzione" style="fx-text-fill: black;" text="Annulla" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Conferma">
+               <items>
+                  <MenuItem fx:id="confirmButton" mnemonicParsing="false" onAction="#confermaAzione" style="-fx-text-fill: black;" text="Conferma" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <HBox prefHeight="327.0" prefWidth="590.0" style="-fx-background-color: grey;">
+         <children>
+            <VBox alignment="CENTER_LEFT" prefHeight="314.0" prefWidth="311.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="300.0" spacing="20.0">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="123.0" text="Nome:" textFill="#fcf9f9">
+                           <font>
+                              <Font name="Verdana Bold" size="16.0" />
+                           </font></Label>
+                        <TextField fx:id="nomeField" onKeyTyped="#controlloNome" prefHeight="30.0" style="-fx-background-color: lightgrey;">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextField>
+                     </children>
+                     <padding>
+                        <Insets left="30.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="300.0" spacing="20.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="123.0" style="-fx-text-fill: white;" text="1. Numero:">
+                           <font>
+                              <Font name="Verdana Bold" size="14.0" />
+                           </font></Label>
+                        <TextField fx:id="numero1Field" onKeyTyped="#controlloNumero1" prefHeight="30.0" style="-fx-background-color: lightgrey;">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                     <padding>
+                        <Insets left="30.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="300.0" spacing="20.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="123.0" style="-fx-text-fill: white;" text="2. Numero:">
+                           <font>
+                              <Font name="Verdana Bold" size="14.0" />
+                           </font></Label>
+                        <TextField fx:id="numero2Field" onKeyTyped="#controlloNumero2" prefHeight="30.0" style="-fx-background-color: lightgrey;">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextField>
+                     </children>
+                     <padding>
+                        <Insets left="30.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="300.0" spacing="20.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="123.0" style="-fx-text-fill: white;" text="3. Numero:">
+                           <font>
+                              <Font name="Verdana Bold" size="14.0" />
+                           </font></Label>
+                        <TextField fx:id="numero3Field" onKeyTyped="#controlloNumero3" prefHeight="30.0" style="-fx-background-color: lightgrey;">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                     <padding>
+                        <Insets left="30.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="300.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="300.0" spacing="20.0">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="93.0" style="-fx-text-fill: white;" text="Cognome:">
+                           <font>
+                              <Font name="Verdana Bold" size="16.0" />
+                           </font></Label>
+                        <TextField fx:id="cognomeField" onKeyTyped="#controlloCognome" prefHeight="30.0" style="-fx-background-color: lightgrey;">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="300.0" spacing="20.0">
+                     <children>
+                        <Label prefWidth="93.0" style="-fx-text-fill: white;" text="1. E-Mail:">
+                           <font>
+                              <Font name="Verdana Bold" size="14.0" />
+                           </font></Label>
+                        <TextField fx:id="email1Field" onKeyTyped="#controlloEmail" prefHeight="30.0" style="-fx-background-color: lightgrey;">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="300.0" spacing="20.0">
+                     <children>
+                        <Label prefWidth="93.0" style="-fx-text-fill: white;" text="2. E-Mail:">
+                           <font>
+                              <Font name="Verdana Bold" size="14.0" />
+                           </font></Label>
+                        <TextField fx:id="email2Field" onKeyTyped="#controlloEmail" prefHeight="30.0" style="-fx-background-color: lightgrey;">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="285.0" spacing="20.0">
+                     <children>
+                        <Label prefWidth="93.0" style="-fx-text-fill: white;" text="3. E-Mail:">
+                           <font>
+                              <Font name="Verdana Bold" size="14.0" />
+                           </font></Label>
+                        <TextField fx:id="email3Field" onKeyTyped="#controlloEmail" prefHeight="30.0" style="-fx-background-color: lightgrey;">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextField>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </HBox>
+      <CheckBox fx:id="preferitoCheck" alignment="CENTER" blendMode="HARD_LIGHT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="22.0" prefWidth="125.0" style="-fx-text-fill: white;" text="Preferito">
+         <VBox.margin>
+            <Insets bottom="10.0" left="40.0" right="5.0" top="5.0" />
+         </VBox.margin>
+         <font>
+            <Font name="Verdana Bold" size="16.0" />
+         </font>
+      </CheckBox>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</VBox>
