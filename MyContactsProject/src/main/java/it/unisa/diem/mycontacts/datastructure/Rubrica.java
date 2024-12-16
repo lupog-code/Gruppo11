@@ -220,56 +220,69 @@ public class Rubrica {
     File file = fileChooser.showOpenDialog(null);
 
     if (file != null) {
-        boolean errorOccurred=false;
+        boolean errorOccurred = false;
         try (Scanner scanner = new Scanner(file)) { // Uso try-with-resources per gestire lo scanner.
             // Legge il file riga per riga.
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-
+                
                 try {
-                    // Dividi la riga in base alla virgola.
+                    // Dividi la riga in base a virgole, punti e virgola o trattini.
                     String[] contattoData = line.split("[,;\\-]");
 
-                    String nome = contattoData[0];
-                    String cognome = contattoData[1];
+                    // Controlla se ci sono esattamente 9 campi.
+                    if (contattoData.length != 9) {
+                        throw new InvalidContactException("Formato contatto non valido: campi insufficienti o eccessivi.");
+                    }
 
-                    // Gestisce i numeri (fino a 3 numeri).
+                    String nome = contattoData[0].trim();
+                    String cognome = contattoData[1].trim();
+
+                    // Controllo lunghezza massima per nome e cognome.
+                    if (nome.length() > 20 || cognome.length() > 20) {
+                        throw new InvalidContactException("Nome o cognome troppo lunghi: massimo 20 caratteri.");
+                    }
+                    
+                    // Verifica che i campi 3-4 siano numerici e abbiano lunghezza massima 15.
                     Set<String> numeri = new HashSet<>();
-                    for (int i = 2; i < 5; i++) {  // Fino a 3 numeri
-                        if (i < contattoData.length && !contattoData[i].trim().isEmpty()) {
-                            numeri.add(contattoData[i].trim());  // Aggiunge solo se non vuoto
+                    for (int i = 2; i < 5; i++) {
+                        if (!contattoData[i].trim().isEmpty()) {
+                            if (!contattoData[i].trim().matches("\\d+") || contattoData[i].trim().length() > 15) {
+                                throw new InvalidContactException("Formato numero non valido: devono essere solo cifre e massimo 15 caratteri.");
+                            }
+                            numeri.add(contattoData[i].trim());
                         }
                     }
 
                     // Gestisce le email (fino a 3 email).
                     Set<String> email = new HashSet<>();
-                    for (int i = 5; i < 8; i++) {  // Fino a 3 email
-                        if (i < contattoData.length && !contattoData[i].trim().isEmpty()) {
-                            email.add(contattoData[i].trim());  // Aggiunge solo se non vuoto
+                    for (int i = 5; i < 8; i++) {
+                        if (!contattoData[i].trim().isEmpty()) {
+                            email.add(contattoData[i].trim());
                         }
                     }
 
-                    // Gestisce il campo preferito (vero o falso).
-                    boolean preferito = Boolean.parseBoolean(contattoData[8]);
+                    // Verifica che l'ultimo campo sia true o false.
+                    String preferitoField = contattoData[8].trim();
+                    if (!preferitoField.equalsIgnoreCase("true") && !preferitoField.equalsIgnoreCase("false")) {
+                        throw new InvalidContactException("Il campo 'preferito' deve essere 'true' o 'false'.");
+                    }
+                    boolean preferito = Boolean.parseBoolean(preferitoField);
 
                     // Crea il nuovo contatto.
                     Contatto nuovoContatto = new Contatto(nome, cognome, numeri, email, preferito);
-
                     aggiungiContatto(nuovoContatto);
                 } catch (InvalidContactException e) {
                     // Gestisce eventuali errori relativi a un singolo record.
-                    errorOccurred=true;
-                    System.out.println("Errore durante la lettura del contatto: " + line);
+                    errorOccurred = true;
+                    showAlert("Errore Importazione Contatto", "Alcuni contatti non sono stati importati correttamente.\n" + e.getMessage());
                 }
             }
         } catch (IOException e1) {
-            System.out.println("Errore nell'importazione del file.");
+            errorOccurred = true;
         }
-        
-        if (errorOccurred) {
-            showAlert("Importazione completata con errori", 
-                      "Non tutti i contatti sono stati importati correttamente. Controlla il file e riprova.");
-        } else {
+
+        if (!errorOccurred) {
             showAlert("Importazione completata", "Tutti i contatti sono stati importati con successo.");
         }
     }
